@@ -12,7 +12,6 @@
     "@sanity/default-layout",
     "@sanity/default-login",
     "@sanity/desk-tool",
-    "dark-mode",
     "@sanity/code-input"
   ],
   "env": {

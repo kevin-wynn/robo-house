@@ -1,5 +1,5 @@
-import SyntaxHighlighter from "react-syntax-highlighter";
-import { darcula } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { vscDarkPlus as highlightStyles } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { PortableText } from "@portabletext/react";
 import client from "../../client";
 import { Wrapper } from "../../components/Wrapper";
@@ -21,7 +21,6 @@ const ptComponents = {
   },
   types: {
     image: ({ value }: { value: any }) => {
-      // TODO: typing
       if (!value?.asset?._ref) {
         return null;
       }
@@ -36,13 +35,12 @@ const ptComponents = {
               .fit("max")
               .auto("format") as any
           }
-          // TODO: typgin
         />
       );
     },
     code: ({ value }: { value: any }) => {
       return (
-        <SyntaxHighlighter language={value.language} style={darcula}>
+        <SyntaxHighlighter language={value.language} style={highlightStyles}>
           {value.code}
         </SyntaxHighlighter>
       );
