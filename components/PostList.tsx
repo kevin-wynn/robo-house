@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "../helpers/PostHelper";
 
@@ -50,7 +49,7 @@ export const PostList = ({
                 >
                   <div className="mb-2">
                     {mainImage && (
-                      <Image
+                      <img
                         width={300}
                         height={300}
                         alt="main blog image"

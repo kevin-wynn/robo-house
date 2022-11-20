@@ -1,4 +1,3 @@
-import Image from "next/image";
 import SyntaxHighlighter from "react-syntax-highlighter";
 import { darcula } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { PortableText } from "@portabletext/react";
@@ -58,7 +57,7 @@ const Post = ({ post }: { post: any }) => {
       <Wrapper image={false}>
         <div className="flex flex-col justify-center items-center w-full h-full min-h-screen mt-8">
           <div className="mb-8">
-            <Image
+            <img
               width={400}
               height={400}
               alt="main blog image"
