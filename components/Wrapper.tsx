@@ -9,7 +9,7 @@ export const Wrapper = ({
   children: any;
 }) => {
   return (
-    <div className="w-screen h-full min-h-screen text-cultured bg-black">
+    <div className="flex flex-col w-screen md:h-full md:min-h-screen text-cultured bg-black">
       <Header />
       {children}
       <Footer />

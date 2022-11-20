@@ -7,7 +7,7 @@ export default function Posts({ posts }: { posts: any }) {
   // TODO: typing
   return (
     <Wrapper image>
-      <div className="flex flex-col justify-center items-center w-full h-full min-h-screen">
+      <div className="flex flex-col justify-center items-center w-full h-96 md:min-h-screen p-6 md:p-0">
         <PostList posts={posts} />
       </div>
     </Wrapper>

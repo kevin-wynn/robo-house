@@ -53,7 +53,7 @@ const Post = ({ post }: { post: any }) => {
   if (post) {
     return (
       <Wrapper image={false}>
-        <div className="flex flex-col justify-center items-center w-full h-full min-h-screen mt-8 p-6 md:p-0">
+        <div className="flex flex-col justify-center items-center w-full md:h-full md:min-h-screen mt-8 p-6 md:p-0">
           <div className="mb-8">
             <img
               width={400}
@@ -65,7 +65,7 @@ const Post = ({ post }: { post: any }) => {
           <h2 className="text-4xl mb-4 border-b-blood border-b-2 text-quicksilver">
             {post?.title}
           </h2>
-          <div className="max-w-4xl text-quicksilver">
+          <div className="max-w-full md:max-w-4xl text-quicksilver">
             <PortableText value={post?.body} components={ptComponents} />
           </div>
         </div>
