@@ -55,7 +55,7 @@ const Post = ({ post }: { post: any }) => {
   if (post) {
     return (
       <Wrapper image={false}>
-        <div className="flex flex-col justify-center items-center w-full h-full min-h-screen mt-8">
+        <div className="flex flex-col justify-center items-center w-full h-full min-h-screen mt-8 p-6 md:p-0">
           <div className="mb-8">
             <img
               width={400}

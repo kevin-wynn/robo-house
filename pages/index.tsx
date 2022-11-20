@@ -12,7 +12,7 @@ export default function Home({ posts }: { posts: any }) {
         <div className="w-1/2">
           <HeroContent />
         </div>
-        <div className="w-1/2">
+        <div className="w-1/2 mt-8 md:mt-0">
           <PostList posts={posts} styles="w-full mx-10 md:mx-0 h-32 md:h-96" />
         </div>
       </div>
