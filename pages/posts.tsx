@@ -2,19 +2,13 @@ import groq from "groq";
 import client from "../client";
 import { Wrapper } from "../components/Wrapper";
 import { PostList } from "../components/PostList";
-import { HeroContent } from "../components/HeroContent";
 
-export default function Home({ posts }: { posts: any }) {
+export default function Posts({ posts }: { posts: any }) {
   // TODO: typing
   return (
     <Wrapper image>
-      <div className="flex flex-col md:flex-row w-full mt-8 p-6">
-        <div className="w-1/2">
-          <HeroContent />
-        </div>
-        <div className="w-1/2">
-          <PostList posts={posts} styles="w-full mx-10 md:mx-0 h-32 md:h-96" />
-        </div>
+      <div className="flex flex-col justify-center items-center w-full h-full min-h-screen">
+        <PostList posts={posts} />
       </div>
     </Wrapper>
   );
