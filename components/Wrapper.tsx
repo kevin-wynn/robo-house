@@ -1,3 +1,4 @@
+import { Footer } from "./Footer";
 import { Header } from "./Header";
 
 export const Wrapper = ({
@@ -7,15 +8,11 @@ export const Wrapper = ({
   image: boolean;
   children: any;
 }) => {
-  // TODO: typing
   return (
-    <div
-      className={`w-screen h-full min-h-screen bg-cover text-cultured ${
-        image ? "bg-leaves" : "bg-black"
-      }`}
-    >
+    <div className="w-screen h-full min-h-screen text-cultured bg-black">
       <Header />
       {children}
+      <Footer />
     </div>
   );
 };
