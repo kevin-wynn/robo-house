@@ -12,8 +12,6 @@ export const PostList = ({
   styles?: string;
 }) => {
   // TODO: typing
-  console.log("posts:", posts);
-
   return (
     <div
       className={`pa-4 py-8 flex justify-center items-center ${
@@ -51,12 +49,14 @@ export const PostList = ({
                   as={`/post/${slug.current}`}
                 >
                   <div className="mb-2">
-                    <Image
-                      width={300}
-                      height={300}
-                      alt="main blog image"
-                      src={urlFor(mainImage).width(POST_IMAGE_WIDTH).url()}
-                    />
+                    {mainImage && (
+                      <Image
+                        width={300}
+                        height={300}
+                        alt="main blog image"
+                        src={urlFor(mainImage).width(POST_IMAGE_WIDTH).url()}
+                      />
+                    )}
                   </div>
                   <p className="border-b-blood border-b-2">
                     {title}

@@ -61,7 +61,7 @@ const Post = ({ post }: { post: any }) => {
             width={400}
             height={400}
             alt="main blog image"
-            src={urlFor(post.mainImage).width(POST_IMAGE_WIDTH).url()}
+            src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
           />
         </div>
         <h2 className="text-4xl mb-4 border-b-blood border-b-2 text-quicksilver">
