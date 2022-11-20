@@ -53,26 +53,30 @@ const ptComponents = {
 
 const Post = ({ post }: { post: any }) => {
   // TODO: typing
-  return (
-    <Wrapper image={false}>
-      <div className="flex flex-col justify-center items-center w-full h-full min-h-screen mt-8">
-        <div className="mb-8">
-          <Image
-            width={400}
-            height={400}
-            alt="main blog image"
-            src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
-          />
+  if (post) {
+    return (
+      <Wrapper image={false}>
+        <div className="flex flex-col justify-center items-center w-full h-full min-h-screen mt-8">
+          <div className="mb-8">
+            <Image
+              width={400}
+              height={400}
+              alt="main blog image"
+              src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
+            />
+          </div>
+          <h2 className="text-4xl mb-4 border-b-blood border-b-2 text-quicksilver">
+            {post?.title}
+          </h2>
+          <div className="max-w-4xl text-quicksilver">
+            <PortableText value={post?.body} components={ptComponents} />
+          </div>
         </div>
-        <h2 className="text-4xl mb-4 border-b-blood border-b-2 text-quicksilver">
-          {post?.title}
-        </h2>
-        <div className="max-w-4xl text-quicksilver">
-          <PortableText value={post?.body} components={ptComponents} />
-        </div>
-      </div>
-    </Wrapper>
-  );
+      </Wrapper>
+    );
+  } else {
+    return null;
+  }
 };
 
 export async function getStaticPaths() {

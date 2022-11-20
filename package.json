@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "engines": {
-    "node": "14.13.1"
+    "node": "16.18.0"
   },
   "dependencies": {
     "@portabletext/react": "^2.0.0",
