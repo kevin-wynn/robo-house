@@ -8,6 +8,9 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "engines": {
+    "node": "14.13.1"
+  },
   "dependencies": {
     "@portabletext/react": "^2.0.0",
     "@sanity/client": "^3.4.1",
