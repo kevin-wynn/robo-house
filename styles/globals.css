@@ -2,27 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  ul, ol {
+    list-style: revert;
+    margin-bottom: revert;
+  }
+}
+
 body {
   background-color: #11151c;
-}
-
-body {
-  color: #ccc;
-  background: #111;
-  font-family: sans-serif;
-}
-
-h1,
-h2 {
-  margin: 0;
-}
-
-a {
-  color: #ccc;
-}
-
-section {
-  padding: 20px;
 }
 
 .hero {
@@ -30,7 +18,6 @@ section {
   display: inline-block;
   color: #fff;
   z-index: 2;
-  letter-spacing: 10px;
 }
 
 .layers {
@@ -367,7 +354,6 @@ section {
 }
 
 .movement {
-  /* Normally this position would be absolute & on the layers, set to relative here so we can see it on the div */
   position: relative;
   animation: movement 8s step-end infinite;
 }

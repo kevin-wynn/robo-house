@@ -6,7 +6,7 @@ import { PostList } from "../components/PostList";
 export default function Posts({ posts }: { posts: any }) {
   // TODO: typing
   return (
-    <Wrapper image>
+    <Wrapper>
       <div className="flex flex-row justify-center items-center w-full p-6 md:p-0 h-full">
         <PostList posts={posts} />
       </div>

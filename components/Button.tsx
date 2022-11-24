@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // TODO: set up stuff for onclicks if type is button
 export const Button = ({
   type,
@@ -10,11 +12,17 @@ export const Button = ({
   children: any;
   loading?: boolean;
 }) => {
+  const [hoverEffect, setHoverEffect] = useState(false);
   return (
     <button
       disabled={disabled}
       type={type}
-      className="bg-blue-500 px-4 py-2 text-white rounded-sm hover:bg-blue-600 duration-200"
+      className={`px-4 py-4 button hero rounded-sm tracking-wider font-normal border-blood hover:border-red-900 border-2 ${
+        hoverEffect ? "layers glitch" : ""
+      }`}
+      onMouseEnter={() => setHoverEffect(true)}
+      onMouseLeave={() => setHoverEffect(false)}
+      data-text={children}
     >
       {loading ? (
         <div className="flex flex-row">

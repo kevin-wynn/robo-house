@@ -1,58 +1,15 @@
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus as highlightStyles } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import { PortableText } from "@portabletext/react";
 import client from "../../client";
 import { Wrapper } from "../../components/Wrapper";
-import { urlFor } from "../../helpers/PostHelper";
+import { ptComponents, urlFor } from "../../helpers/PostHelper";
 
 const POST_IMAGE_WIDTH = 400;
-
-const ptComponents = {
-  block: {
-    normal: ({ value }: { value: any }) => {
-      return (
-        <p className="mb-4">
-          {value.children.map((item: any) => (
-            <span key={item._key}>{item.text}</span>
-          ))}
-        </p>
-      );
-    },
-  },
-  types: {
-    image: ({ value }: { value: any }) => {
-      if (!value?.asset?._ref) {
-        return null;
-      }
-      return (
-        <img
-          alt={value.alt || " "}
-          loading="lazy"
-          src={
-            urlFor(value)
-              .width(320)
-              .height(240)
-              .fit("max")
-              .auto("format") as any
-          }
-        />
-      );
-    },
-    code: ({ value }: { value: any }) => {
-      return (
-        <SyntaxHighlighter language={value.language} style={highlightStyles}>
-          {value.code}
-        </SyntaxHighlighter>
-      );
-    },
-  },
-};
 
 const Post = ({ post }: { post: any }) => {
   // TODO: typing
   if (post) {
     return (
-      <Wrapper image={false}>
+      <Wrapper>
         <div className="flex flex-col justify-center items-center w-full md:h-full md:min-h-screen mt-8 p-6 md:p-0">
           <div className="mb-8">
             <img

@@ -17,7 +17,7 @@ export default function Contact() {
   const [successMessage, setSuccessMessage] = useState("");
   const [showServerError, setShowServerError] = useState(false);
   return (
-    <Wrapper image>
+    <Wrapper>
       <div className="flex flex-col mt-12 justify-center items-center w-full p-4 md:p-0 h-full font-thin">
         {showSuccess ? (
           <div>

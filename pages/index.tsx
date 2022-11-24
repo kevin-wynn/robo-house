@@ -7,7 +7,7 @@ import { HeroContent } from "../components/HeroContent";
 export default function Home({ posts }: { posts: any }) {
   // TODO: typing
   return (
-    <Wrapper image>
+    <Wrapper>
       <div className="flex flex-col h-full lg:flex-row justify-center items-center w-full p-2 md:p-0">
         <div className="w-3/4 md:w-1/2">
           <HeroContent />
