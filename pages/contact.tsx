@@ -18,7 +18,7 @@ export default function Contact() {
   const [showServerError, setShowServerError] = useState(false);
   return (
     <Wrapper image>
-      <div className="flex flex-col mt-12 items-center w-full p-6 md:p-0 h-full font-thin">
+      <div className="flex flex-col mt-12 justify-center items-center w-full p-4 md:p-0 h-full font-thin">
         {showSuccess ? (
           <div>
             <p>{successMessage}</p>
@@ -84,7 +84,10 @@ export default function Contact() {
               handleSubmit,
               isSubmitting,
             }) => (
-              <form onSubmit={handleSubmit} className="w-2/3 md:w-1/3">
+              <form
+                onSubmit={handleSubmit}
+                className="p-6 md:p-0 w-full md:w-1/2"
+              >
                 {showServerError && (
                   <p className="text-sm text-red-400 ml-2">
                     There was an error from the server. Try again!
