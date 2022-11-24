@@ -30,7 +30,7 @@ export const ptComponents: PortableTextComponents = {
       return (
         <p className="mb-4">
           {value.children.map((item: any) => {
-            const markStyles = item.marks.map((mark) => {
+            const markStyles = item.marks.map((mark: any) => {
               switch (mark) {
                 case "strong":
                 default:
