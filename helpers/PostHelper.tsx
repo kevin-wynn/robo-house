@@ -1,8 +1,21 @@
 import { PortableTextComponents } from "@portabletext/react";
 import imageUrlBuilder from "@sanity/image-url";
+import groq from "groq";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus as highlightStyles } from "react-syntax-highlighter/dist/cjs/styles/prism";
 import client from "../client";
+
+export const getAllPosts = async () => {
+  if (process.env.NODE_ENV === "development") {
+    return await client.fetch(
+      groq`*[_type == "post" || (_id in path("drafts.**"))]`
+    );
+  } else {
+    return await client.fetch(
+      groq`*[_type == "post" && publishedAt < now()] | order(publishedAt desc)`
+    );
+  }
+};
 
 export const urlFor = (source: any) => {
   return imageUrlBuilder(client).image(source);

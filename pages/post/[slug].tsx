@@ -3,20 +3,19 @@ import client from "../../client";
 import { Wrapper } from "../../components/Wrapper";
 import { ptComponents, urlFor } from "../../helpers/PostHelper";
 
-const POST_IMAGE_WIDTH = 400;
+const POST_IMAGE_WIDTH = 2400;
 
 const Post = ({ post }: { post: any }) => {
   // TODO: typing
   if (post) {
     return (
       <Wrapper>
-        <div className="flex flex-col justify-center items-center w-full md:h-full md:min-h-screen mt-8 p-6 md:p-0">
-          <div className="mb-8">
+        <div className="flex flex-col items-center w-full md:h-full md:min-h-screen mt-8 p-6 md:p-0">
+          <div className="mb-8 relative w-full">
             <img
-              width={400}
-              height={400}
               alt="main blog image"
               src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
+              className="absolte object-cover object-center h-40 md:h-96 w-full"
             />
           </div>
           <h2 className="text-4xl mb-4 border-b-blood border-b-2 text-quicksilver">

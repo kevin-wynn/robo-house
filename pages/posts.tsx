@@ -1,7 +1,6 @@
-import groq from "groq";
-import client from "../client";
 import { Wrapper } from "../components/Wrapper";
 import { PostList } from "../components/PostList";
+import { getAllPosts } from "../helpers/PostHelper";
 
 export default function Posts({ posts }: { posts: any }) {
   // TODO: typing
@@ -15,9 +14,7 @@ export default function Posts({ posts }: { posts: any }) {
 }
 
 export async function getStaticProps() {
-  const posts = await client.fetch(groq`
-    *[_type == "post" && publishedAt < now()] | order(publishedAt desc)
-  `);
+  const posts = await getAllPosts();
   return {
     props: {
       posts,

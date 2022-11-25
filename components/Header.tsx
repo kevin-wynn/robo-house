@@ -3,7 +3,7 @@ import { Logo } from "./Logo";
 
 export const Header = () => {
   return (
-    <div className="w-full flex justify-center p-2 pt-4 antialiased font-light">
+    <div className="w-full flex justify-center p-2 pt-4 antialiased font-light mb-8">
       <Logo />
       <div>
         <ul className="flex flex-row list-none font-light text-quicksilver subpixel-antialiased text-md mt-4 tracking-wider uppercase ml-4">
