@@ -43,6 +43,7 @@ export const ptComponents: PortableTextComponents = {
       return (
         <p className="mb-4">
           {value.children.map((item: any) => {
+            // TODO: typing
             const markStyles = item.marks.map((mark: any) => {
               switch (mark) {
                 case "strong":
