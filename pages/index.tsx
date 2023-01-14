@@ -11,8 +11,8 @@ export default function Home({ posts }: { posts: any }) {
         <div className="w-3/4 md:w-1/2 flex">
           <HeroContent />
         </div>
-        <div className="w-3/4 md:w-1/2  mt-8 md:mt-0 flex">
-          <PostList posts={posts} styles="w-full md:mx-10 h-32 md:h-96" />
+        <div className="w-3/4 md:w-1/2 mt-8 md:mt-0 flex">
+          <PostList posts={posts} styles="w-full" />
         </div>
       </div>
     </Wrapper>
