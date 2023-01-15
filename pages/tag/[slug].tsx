@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
-    fallback: process.env.NODE_ENV === "development" ? true : false,
+    fallback: process.env.NODE_ENV === "development" ? true : "blocking",
   };
 }
 
