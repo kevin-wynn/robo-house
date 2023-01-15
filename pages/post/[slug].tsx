@@ -1,7 +1,7 @@
 import { PortableText } from "@portabletext/react";
 import client from "../../client";
 import { Wrapper } from "../../components/Wrapper";
-import { ptComponents, urlFor } from "../../helpers/PostHelper";
+import { getPostBySlug, ptComponents, urlFor } from "../../helpers/PostHelper";
 
 const POST_IMAGE_WIDTH = 2400;
 
@@ -21,6 +21,19 @@ const Post = ({ post }: { post: any }) => {
           <h2 className="text-4xl mb-4 border-b-blood border-b-2 text-quicksilver">
             {post?.title}
           </h2>
+          <div className="mb-4">
+            {/* TODO: Typing */}
+            {post?.tags?.map((tag: any) => (
+              <a
+                className="inline-block my-2 px-2 py-2 rounded-lg mr-4 font-medium text-xs text-white hover:opacity-70 duration-200"
+                key={tag._id}
+                style={{ backgroundColor: tag.tagColor.hex }}
+                href={`/tag/${tag.slug.current}`}
+              >
+                {tag.tag}
+              </a>
+            ))}
+          </div>
           <div className="max-w-full md:max-w-4xl text-quicksilver">
             <PortableText value={post?.body} components={ptComponents} />
           </div>
@@ -48,12 +61,7 @@ export async function getStaticProps(context: {
 }) {
   // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.params;
-  const post = await client.fetch(
-    `
-    *[_type == "post" && slug.current == $slug][0]
-  `,
-    { slug }
-  );
+  const post = await getPostBySlug(slug);
   return {
     props: {
       post,

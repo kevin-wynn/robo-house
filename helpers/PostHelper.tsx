@@ -8,13 +8,26 @@ import client from "../client";
 export const getAllPosts = async () => {
   if (process.env.NODE_ENV === "development") {
     return await client.fetch(
-      groq`*[_type == "post" || (_id in path("drafts.**"))]`
+      groq`*[_type == "post" || (type == "post" && _id in path("drafts.**"))]{...,tags[]->}`
     );
   } else {
     return await client.fetch(
-      groq`*[_type == "post" && publishedAt < now()] | order(publishedAt desc)`
+      groq`*[_type == "post" && publishedAt < now()]{...,tags[]->} | order(publishedAt desc)`
     );
   }
+};
+
+export const getPostBySlug = async (slug: string) => {
+  const query = groq`*[_type == "post" && slug.current == $slug]{..., tags[]->}[0]`;
+  return await client.fetch(query, { slug });
+};
+
+export const getAllPostsForTag = async (tag: string) => {
+  const query =
+    process.env.NODE_ENV === "development"
+      ? groq`*[_type == "post" && $tag in tags[]->slug.current || (type == "post" && _id in path("drafts.**") && $tag in tags[]->slug.current)]{...,tags[]->}`
+      : groq`*[_type == "post" && publishedAt < now() && tag in tags[]->slug.current]{...,tags[]->} | order(publishedAt desc)`;
+  return await client.fetch(query, { tag });
 };
 
 export const urlFor = (source: any) => {
