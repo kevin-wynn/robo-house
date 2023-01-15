@@ -52,7 +52,7 @@ export async function getStaticPaths() {
 
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
-    fallback: true,
+    fallback: process.env.NODE_ENV === "development" ? true : false,
   };
 }
 
