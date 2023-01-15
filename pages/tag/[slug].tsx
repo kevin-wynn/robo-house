@@ -16,12 +16,12 @@ export default function Posts({ posts }: { posts: any }) {
 
 export async function getStaticPaths() {
   const paths = await client.fetch(
-    `*[_type == "post" && defined(slug.current)][].slug.current`
+    `*[_type == "tag" && defined(slug.current)][].slug.current`
   );
 
   return {
     paths: paths.map((slug: string) => ({ params: { slug } })),
-    fallback: process.env.NODE_ENV === "development" ? true : "blocking",
+    fallback: true,
   };
 }
 
