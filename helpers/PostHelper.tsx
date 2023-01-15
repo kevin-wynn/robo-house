@@ -23,7 +23,7 @@ export const getPostBySlug = async (slug: string) => {
 };
 
 export const getAllPostsForTag = async (tag: string) => {
-  const query = groq`*[_type == "post" && publishedAt < now() && tag in tags[]->slug.current]{...,tags[]->} | order(publishedAt desc)`;
+  const query = groq`*[_type == "post" && publishedAt < now() && $tag in tags[]->slug.current]{...,tags[]->} | order(publishedAt desc)`;
   return await client.fetch(query, { tag });
 };
 
