@@ -6,15 +6,9 @@ import { vscDarkPlus as highlightStyles } from "react-syntax-highlighter/dist/cj
 import client from "../client";
 
 export const getAllPosts = async () => {
-  if (process.env.NODE_ENV === "development") {
-    return await client.fetch(
-      groq`*[_type == "post" || (type == "post" && _id in path("drafts.**"))]{...,tags[]->}`
-    );
-  } else {
-    return await client.fetch(
-      groq`*[_type == "post" && publishedAt < now()]{...,tags[]->} | order(publishedAt desc)`
-    );
-  }
+  return await client.fetch(
+    groq`*[_type == "post" && publishedAt < now()]{...,tags[]->} | order(publishedAt desc)`
+  );
 };
 
 export const getPostBySlug = async (slug: string) => {
