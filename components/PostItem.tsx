@@ -1,13 +1,25 @@
 import Link from "next/link";
 import { urlFor } from "../helpers/PostHelper";
+import { Tag } from "./Tag";
 
 const POST_IMAGE_WIDTH = 600;
 
-export const PostItem = ({ post }: { post: any }) => {
-  // TODO: typing
+export const PostItem = ({
+  post,
+  horizontal,
+  animate,
+}: {
+  post: any;
+  horizontal: boolean;
+  animate: boolean;
+}) => {
   const { slug, mainImage, title, publishedAt, tagline, tags } = post;
   return (
-    <li className="list-none flex flex-col font-light mb-12">
+    <li
+      className={`list-none flex flex-col font-light mb-12 p-2 rounded-md ${
+        animate ? "hover:-translate-y-6 duration-300" : ""
+      }`}
+    >
       <div className="mb-2 h-32 relative">
         <Link
           className="text-2xl"
@@ -28,25 +40,18 @@ export const PostItem = ({ post }: { post: any }) => {
         href="/post/[slug]"
         as={`/post/${slug.current}`}
       >
-        <p className="border-b-blood border-b-2">
+        <p className="text-sm mb-4">
           {title}
-          <span className="text-quicksilver text-sm ml-2">
+          <span className="text-sm ml-2">
             {new Date(publishedAt).toLocaleDateString()}
           </span>
         </p>
-        <p className="text-quicksilver text-sm">{tagline}</p>
+        <p className="text-sm">{tagline}</p>
       </Link>
       <div>
         {/* TODO: Typing */}
         {tags?.map((tag: any) => (
-          <a
-            className="inline-block my-2 px-2 py-2 rounded-lg mr-4 font-medium text-xs text-white hover:opacity-70 duration-200"
-            key={tag._id}
-            style={{ backgroundColor: tag.tagColor.hex }}
-            href={`/tag/${tag.slug.current}`}
-          >
-            {tag.tag}
-          </a>
+          <Tag tag={tag} />
         ))}
       </div>
     </li>

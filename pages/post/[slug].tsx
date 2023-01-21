@@ -18,14 +18,14 @@ const Post = ({ post }: { post: any }) => {
               className="absolte object-cover object-center h-40 md:h-96 w-full"
             />
           </div>
-          <h2 className="text-4xl mb-4 border-b-blood border-b-2 text-quicksilver">
+          <h2 className="text-4xl mb-4 border-b-blood border-b-2">
             {post?.title}
           </h2>
           <div className="mb-4">
             {/* TODO: Typing */}
             {post?.tags?.map((tag: any) => (
               <a
-                className="inline-block my-2 px-2 py-2 rounded-lg mr-4 font-medium text-xs text-white hover:opacity-70 duration-200"
+                className="inline-block my-2 px-2 py-2 rounded-lg mr-4 font-medium text-xs hover:opacity-70 duration-200"
                 key={tag._id}
                 style={{ backgroundColor: tag.tagColor.hex }}
                 href={`/tag/${tag.slug.current}`}
@@ -34,7 +34,7 @@ const Post = ({ post }: { post: any }) => {
               </a>
             ))}
           </div>
-          <div className="max-w-full md:max-w-4xl text-quicksilver">
+          <div className="max-w-full md:max-w-4xl">
             <PortableText value={post?.body} components={ptComponents} />
           </div>
         </div>

@@ -2,17 +2,10 @@ import Link from "next/link";
 
 export const Logo = () => {
   return (
-    <div className="text-3xl tracking-wider uppercase">
-      <Link
-        href="/"
-        className="paths hero glitch layers"
-        data-text="ROBO HOUSE"
-      >
-        <span className="">Robo h</span>
-        <span className="text-blood">o</span>
-        <span className="">use</span>
+    <div className="text-3xl tracking-widest text-white">
+      <Link href="/" className="hover:text-spice duration-300">
+        <span className="font-serif italic font-bold">robo house</span>
       </Link>
-      <div className="border-blood md:w-56 border-b-2 ml-32"></div>
     </div>
   );
 };

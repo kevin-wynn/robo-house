@@ -17,13 +17,13 @@ export default function Contact() {
   const [successMessage, setSuccessMessage] = useState("");
   const [showServerError, setShowServerError] = useState(false);
   return (
-    <Wrapper>
-      <div className="flex flex-col mt-12 justify-center items-center w-full p-4 md:p-0 h-full font-thin">
-        <div className="max-w-sm md:max-w-xl lg:max-w-2xl mb-6">
-          <h1 className="text-6xl sm:text-7xl md:text-8xl uppercase font-extrabold text-cultured">
-            Get in touch.
+    <Wrapper header footer>
+      <div className="flex flex-col mt-12 justify-center items-center w-full h-full font-thin">
+        <div className="w-full md:w-1/2 mb-6">
+          <h1 className="text-6xl sm:text-7xl md:text-8xl font-serif text-spice mb-8">
+            get in touch
           </h1>
-          <p className="text-md sm:text-lg md:text-xl font-thin text-quicksilver">
+          <p className="text-sm leading-8 tracking-widest font-thin">
             Drop a line to get your next project started. Need your
             infrastructure worked on, migrated to Kubernetes? Reinforced in any
             way? Got a marketing site you need set up? Done! Need an application

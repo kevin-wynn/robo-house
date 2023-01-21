@@ -3,11 +3,10 @@ import { PostList } from "../components/PostList";
 import { getAllPosts } from "../helpers/PostHelper";
 
 export default function Posts({ posts }: { posts: any }) {
-  // TODO: typing
   return (
-    <Wrapper>
+    <Wrapper header footer>
       <div className="flex flex-row justify-center items-center w-full p-6 md:p-0 h-full">
-        <PostList posts={posts} />
+        <PostList animate={false} horizontal={false} posts={posts} />
       </div>
     </Wrapper>
   );

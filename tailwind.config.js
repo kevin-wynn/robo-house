@@ -7,17 +7,20 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        leaves: "url('/background.jpg')",
+        dune: "url('/bkg.jpg')",
+      },
+      fontFamily: {
+        sans: ["Helvetica", "Arial", "sans-serif"],
+        serif: ["condor", "Cambria", "Times New Roman", "Times", "serif"],
       },
       colors: {
-        black: "#101010",
-        "davys-grey": "#595959",
-        "grey-web": "#7F7F7F",
-        quicksilver: "#A5A5A5",
-        "light-grey": "#CCCCCC",
-        cultured: "#F2F2F2",
-        blood: "#990100",
-      }
+        sand: "#e2ddd6",
+        spice: "#e7c78d",
+        black: "#0c0a03",
+      },
+      borderWidth: {
+        1: "1px",
+      },
     },
   },
   plugins: [],

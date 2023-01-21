@@ -5,6 +5,7 @@ export default function Document() {
     <Html>
       <Head>
         <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="stylesheet" href="https://use.typekit.net/qic3qrv.css" />
       </Head>
       <body>
         <Main />

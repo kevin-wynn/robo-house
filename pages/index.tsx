@@ -1,21 +1,25 @@
 import { Wrapper } from "../components/Wrapper";
-import { PostList } from "../components/PostList";
 import { HeroContent } from "../components/HeroContent";
 import { getAllPosts } from "../helpers/PostHelper";
+import { MaxWidthContent } from "../components/MaxWidthContent";
+import { DescriptorContent } from "../components/DescriptorContent";
+import { GradientDivider } from "../components/GradientDivider";
+import { PostList } from "../components/PostList";
 
 export default function Home({ posts }: { posts: any }) {
-  // TODO: typing
   return (
-    <Wrapper>
-      <div className="flex flex-col h-full lg:flex-row justify-center items-center w-full p-2 md:p-0">
-        <div className="w-3/4 md:w-1/2 flex">
+    <>
+      <Wrapper header style="bg-dune bg-center bg-cover bg-no-repeat">
+        <MaxWidthContent>
           <HeroContent />
-        </div>
-        <div className="w-3/4 md:w-1/2 mt-8 md:mt-0 flex">
-          <PostList posts={posts} styles="w-full" />
-        </div>
-      </div>
-    </Wrapper>
+        </MaxWidthContent>
+        <GradientDivider />
+      </Wrapper>
+      <Wrapper footer style="-mt-48">
+        <DescriptorContent />
+        <PostList animate posts={posts} horizontal />
+      </Wrapper>
+    </>
   );
 }
 

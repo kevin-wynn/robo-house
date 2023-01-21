@@ -1,14 +1,17 @@
 export const HeroContent = () => {
   return (
-    <div className="flex h-auto mb-12 p-4 md:p-12 flex-col">
-      <h1 className="text-6xl sm:text-7xl md:text-8xl uppercase font-extrabold text-cultured">
-        Building the stack.
-      </h1>
-      <p className="text-md sm:text-lg md:text-xl font-thin text-quicksilver">
-        Building everything from your marketing site all the way to your web
-        application. Infrastrucutre, software development, design, native
-        development. All in one place.
-      </p>
+    <div className="flex justify-center items-center w-full">
+      <div className="flex flex-col w-full justify-center mt-24">
+        <div className="flex flex-col text-center text-5xl font-serif text-spice">
+          <span className="mt-6">sit down</span>
+          <span className="mt-6">look</span>
+          <span className="mt-6">listen</span>
+        </div>
+        <div className="mt-24 border-1 border-spice w-1/2 self-center"></div>
+        <p className="mt-12 text-center text-xl tracking-widest">
+          design • development • infrastructure
+        </p>
+      </div>
     </div>
   );
 };

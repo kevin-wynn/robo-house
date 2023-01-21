@@ -5,10 +5,10 @@ import { ptComponents } from "../helpers/PostHelper";
 
 export default function About({ about }: { about: any }) {
   return (
-    <Wrapper>
+    <Wrapper header footer>
       <div className="flex flex-col justify-center items-center w-full md:h-full md:min-h-screen mt-8 p-6 md:p-0">
         <div className="flex flex-col max-w-4xl text-left">
-          <h2 className="text-4xl mb-4 border-b-blood border-b-2 text-quicksilver">
+          <h2 className="text-4xl mb-4 border-b-blood border-b-2">
             {about?.title}
           </h2>
           <div className="grid md:grid-cols-3 gap-6 font-normal">
