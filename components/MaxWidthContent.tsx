@@ -3,7 +3,11 @@ export const MaxWidthContent = ({
   maxWidth,
 }: {
   children: any;
-  maxWidth?: "max-w-screen-xl" | "max-w-screen-lg" | "max-w-screen-md";
+  maxWidth?:
+    | "max-w-screen-xl"
+    | "max-w-screen-lg"
+    | "max-w-screen-md"
+    | "max-w-screen-sm";
 }) => {
   return (
     <div

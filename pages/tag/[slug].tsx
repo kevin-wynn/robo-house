@@ -8,7 +8,7 @@ export default function Posts({ posts }: { posts: any }) {
   return (
     <Wrapper>
       <div className="flex flex-row justify-center items-center w-full p-6 md:p-0 h-full">
-        <PostList posts={posts} />
+        <PostList horizontal posts={posts} />
       </div>
     </Wrapper>
   );

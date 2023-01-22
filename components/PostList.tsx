@@ -15,7 +15,7 @@ export const PostList = ({
     <div
       className={`h-auto w-full p-6 mt-24 ${
         horizontal
-          ? "grid grid-cols-6 gap-4"
+          ? "grid gap-4 grid-flow-col"
           : "max-w-screen-xl grid grid-cols-2 gap-6"
       } ${styles ? styles : ""}`}
     >

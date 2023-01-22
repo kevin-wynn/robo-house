@@ -1,29 +1,68 @@
 import { ContactFormList } from "../../components/admin/ContactFormList";
+import { ClientList } from "../../components/ClientList";
+import { TimeReports } from "../../components/TimeReports";
 import { Wrapper } from "../../components/Wrapper";
+import { getLoginSession } from "../../helpers/Auth";
 import { getAllContactFormSubmissions } from "../../helpers/ContactFormHelper";
+import {
+  getHarvestClients,
+  getHarvestTimeReports,
+} from "../../helpers/HarvestHelper";
 
-export default function Home({ contactForms }: { contactForms: any }) {
-  //TODO: typing
+export default function AdminDashboard({
+  contactForms,
+  user,
+  clients,
+  timeReports,
+}: {
+  contactForms: any;
+  user: any;
+  clients: any;
+  timeReports: any;
+}) {
   return (
-    <Wrapper>
-      <div className="flex flex-col h-full justify-center items-center w-full p-2 md:p-0">
+    <Wrapper header footer user={user}>
+      <div className="flex flex-col min-h-screen h-full items-center w-full">
         <div className="mb-6">
-          <h1>Admin...</h1>
+          <h1 className="text-spice text-4xl font-serif">Admin Dashboard</h1>
         </div>
-        <div>
-          <ContactFormList forms={contactForms} />
+        <div className="w-full justify-center flex flex-col">
+          <div className="mb-24">
+            <ContactFormList forms={contactForms} />
+          </div>
+          <div className="mb-24">
+            <ClientList clients={clients.clients} />
+          </div>
+          <div className="mb-24">
+            <TimeReports timeReports={timeReports} />
+          </div>
         </div>
       </div>
     </Wrapper>
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps({ req, res }: { req: any; res: any }) {
+  const session = await getLoginSession(
+    req.cookies[process.env.COOKIE_NAME || ""],
+    process.env.TOKEN_SECRET
+  );
+  if (!session.passport.user) {
+    return {
+      redirect: {
+        destination: "/admin/login",
+      },
+    };
+  }
+  const clients = await getHarvestClients();
+  const timeReports = await getHarvestTimeReports();
   const contactForms = await getAllContactFormSubmissions();
   return {
     props: {
+      user: session.passport.user,
       contactForms: JSON.parse(JSON.stringify(contactForms)),
+      clients,
+      timeReports,
     },
   };
-  return { props: {} };
 }

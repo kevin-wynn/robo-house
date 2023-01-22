@@ -9,6 +9,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
+  // todo: move this to next-connect router object
   if (req.method === "POST") {
     const body = JSON.parse(req.body);
     const { email } = body;

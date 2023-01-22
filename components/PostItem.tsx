@@ -51,7 +51,7 @@ export const PostItem = ({
       <div>
         {/* TODO: Typing */}
         {tags?.map((tag: any) => (
-          <Tag tag={tag} />
+          <Tag key={tag._id} tag={tag} />
         ))}
       </div>
     </li>
