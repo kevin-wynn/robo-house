@@ -14,7 +14,7 @@ const Post = ({ post }: { post: any }) => {
     return (
       <Wrapper header footer footerDark>
         <div className="flex flex-col items-center w-full mt-8 p-6 md:p-0">
-          <div className="-z-10 top-0 w-full flex flex-col justify-center items-center h-44 mb-16">
+          <div className="-z-10 top-0 w-full flex flex-col justify-center items-center h-3/4 md:h-44 mb-16">
             <MaxWidthContent>
               <h2 className="text-6xl md:text-8xl font-heavy font-black text-white z-10 tracking-tighter text-center">
                 {post?.title}
