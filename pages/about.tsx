@@ -37,6 +37,7 @@ export default function About({ about, user }: { about: any; user: any }) {
                 alt="The Robo House"
                 width="500"
                 height="500"
+                priority
               />
             }
           />

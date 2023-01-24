@@ -46,6 +46,7 @@ export default function Tags({
                 width="700"
                 height="700"
                 className="mt-16"
+                priority
               />
             }
           />

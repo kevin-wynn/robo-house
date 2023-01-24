@@ -37,6 +37,7 @@ export default function Posts({ posts, user }: { posts: any; user: any }) {
                 width="700"
                 height="700"
                 className="mt-16"
+                priority
               />
             }
           />

@@ -37,6 +37,7 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
                 alt="The Robo House Robot"
                 width="700"
                 height="700"
+                priority
               />
             }
           />

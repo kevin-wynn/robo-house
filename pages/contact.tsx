@@ -51,6 +51,7 @@ export default function Contact({ user }: { user: any }) {
                 alt="Get in touch with us today for your next project"
                 width="500"
                 height="500"
+                priority
               />
             }
           />
