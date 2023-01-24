@@ -29,14 +29,14 @@ const Post = ({ post }: { post: any }) => {
               height="1280"
               priority
             />
-          </div>
-          <MaxWidthContent maxWidth="max-w-screen-lg">
-            <div className="mt-8 z-10 flex items-start justify-start flex-row w-full">
+            <div className="z-10 mt-8 flex items-center justify-center flex-row w-full">
               {post?.tags?.map((tag: TagType) => (
                 <Tag key={tag._id} tag={tag} />
               ))}
             </div>
-            <div className="mt-8 w-full">
+          </div>
+          <MaxWidthContent maxWidth="max-w-screen-lg">
+            <div className="md:mt-24 w-full">
               <PortableText value={post?.body} components={ptComponents} />
             </div>
           </MaxWidthContent>

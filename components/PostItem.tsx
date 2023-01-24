@@ -20,7 +20,7 @@ export const PostItem = ({
         animate ? "hover:-translate-y-6 duration-300" : ""
       }`}
     >
-      <div className="mb-2">
+      <div className="flex flex-col mb-2">
         <Link
           className="text-2xl flex flex-col"
           href="/post/[slug]"
@@ -45,7 +45,7 @@ export const PostItem = ({
           href="/post/[slug]"
           as={`/post/${slug.current}`}
         >
-          <p className="text-sm h-28">{tagline}</p>
+          <p className="text-sm min-h-fit">{tagline}</p>
         </Link>
       </div>
       <div className="mt-4">
