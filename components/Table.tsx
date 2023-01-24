@@ -46,7 +46,7 @@ export const Table = ({ tableInstance }: { tableInstance: any }) => {
               >
                 {
                   // Loop over the rows cells
-                  row.cells.map((cell: any, index) => {
+                  row.cells.map((cell: any, index: number) => {
                     // Apply the cell props
                     return (
                       <td
