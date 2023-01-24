@@ -14,17 +14,17 @@ const Post = ({ post }: { post: any }) => {
     return (
       <Wrapper header footer footerDark>
         <div className="flex flex-col items-center w-full mt-8 p-6 md:p-0">
-          <div className="-z-10 top-0 w-full flex flex-col justify-center items-center h-3/4 md:h-44 mb-16">
+          <div className="-z-10 top-0 w-full flex flex-col justify-center items-center mb-16">
             <MaxWidthContent>
-              <h2 className="text-6xl md:text-8xl font-heavy font-black text-white z-10 tracking-tighter text-center">
+              <h2 className="text-4xl md:text-8xl font-heavy font-black text-white z-10 tracking-tighter text-center">
                 {post?.title}
               </h2>
             </MaxWidthContent>
-            <div className="absolute top-0 bg-black opacity-25 z-0 w-full h-3/4 md:h-96"></div>
+            <div className="absolute top-0 bg-black opacity-25 z-0 w-full h-96 md:h-1/2"></div>
             <Image
               alt="main blog image"
               src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
-              className="absolute top-0 object-cover object-center w-full -z-10 h-3/4 md:h-96"
+              className="absolute top-0 object-cover object-center w-full -z-10 h-96 md:h-1/2"
               width="1920"
               height="1280"
               priority
@@ -36,7 +36,7 @@ const Post = ({ post }: { post: any }) => {
                 <Tag key={tag._id} tag={tag} />
               ))}
             </div>
-            <div className="mt-48 md:mt-8">
+            <div className="mt-8">
               <PortableText value={post?.body} components={ptComponents} />
             </div>
           </MaxWidthContent>
