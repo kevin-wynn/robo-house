@@ -26,7 +26,7 @@ export const PostItem = ({
           href="/post/[slug]"
           as={`/post/${slug.current}`}
         >
-          <p className="text-md">{title}</p>
+          <p className="text-sm md:text-md">{title}</p>
           <span className="text-sm font-thin mb-4">
             {new Date(publishedAt).toLocaleDateString()}
           </span>

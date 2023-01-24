@@ -5,8 +5,8 @@ import { Logo } from "./Logo";
 export const Header = ({ user }: { user: any }) => {
   return (
     <div className="flex p-4 mb-12 text-white flex-col-reverse sm:flex-row w-full items-center justify-center font-light">
-      <div>
-        <ul className="flex flex-row list-none tracking-widest">
+      <div className="w-full flex justify-center items-center">
+        <ul className="flex flex-row flex-wrap list-none tracking-widest">
           <li className="mr-6">
             <Link
               href="/"
@@ -64,8 +64,7 @@ export const Header = ({ user }: { user: any }) => {
           </li>
         </ul>
       </div>
-      <div className="hidden md:block w-full"></div>
-      <div className="flex p-6 md:p-2 md:ml-6 w-96">
+      <div className="flex p-6 md:p-2 md:ml-6">
         <Logo />
       </div>
     </div>

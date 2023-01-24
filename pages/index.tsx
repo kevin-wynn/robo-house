@@ -20,11 +20,11 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
           <HeroContent
             content={
               <>
-                <div className="text-6xl md:text-8xl font-heavy font-black tracking-tighter">
+                <div className="text-4xl md:text-8xl font-heavy font-black tracking-tighter">
                   Create and host projects in one place.
                 </div>
                 <div className="text-white flex flex-col w-full md:w-3/4">
-                  <p className="text-3xl font-sans leading-snug mt-8 tracking-widest font-thin">
+                  <p className="text-2xl md:text-3xl font-sans leading-snug mt-8 tracking-widest font-thin">
                     One dashboard to manage your projects from inception,
                     through creation, and to hosting.
                   </p>
@@ -50,7 +50,7 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
             imageAlt="Robo House is a one stop shop for anything you need online"
             content={
               <>
-                <h2 className="text-4xl text-granite mb-12">
+                <h2 className="text-xl md:text-4xl text-granite mb-12">
                   Design and planning
                 </h2>
                 <p className="text-sm leading-8 tracking-widest font-thin mb-2">
@@ -73,7 +73,7 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
             imageAlt="Robo House is a one stop shop for anything you need online"
             content={
               <>
-                <h2 className="text-4xl text-granite mb-12">
+                <h2 className="text-xl md:text-4xl text-granite mb-12">
                   Manage everything with our dashboard
                 </h2>
                 <p className="text-sm leading-8 tracking-widest font-thin mb-2">
