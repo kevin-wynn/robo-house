@@ -13,22 +13,18 @@ const Post = ({ post }: { post: any }) => {
   if (post) {
     return (
       <Wrapper header footer footerDark>
-        <div className="flex flex-col items-center w-full mt-8 p-6 md:p-0">
-          <div className="-z-10 top-0 w-full flex flex-col justify-center items-center mb-16">
-            <MaxWidthContent>
-              <h2 className="text-4xl md:text-8xl font-heavy font-black text-white z-10 tracking-tighter text-center">
-                {post?.title}
-              </h2>
-            </MaxWidthContent>
-            <div className="absolute top-0 bg-black opacity-25 z-0 w-full h-96 md:h-1/2"></div>
-            <Image
-              alt="main blog image"
-              src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
-              className="absolute top-0 object-cover object-center w-full -z-10 h-96 md:h-1/2"
-              width="1920"
-              height="1280"
-              priority
-            />
+        <div className="flex flex-col items-center w-full">
+          <div
+            style={{
+              backgroundImage: `url('${urlFor(post?.mainImage)
+                .width(POST_IMAGE_WIDTH)
+                .url()}')`,
+            }}
+            className="-z-10 -mt-44 pt-44 pb-44 top-0 w-full flex flex-col justify-center items-center bg-cover bg-no-repeat bg-center"
+          >
+            <h2 className="text-4xl md:text-8xl font-heavy font-black text-white z-10 tracking-tighter text-center">
+              {post?.title}
+            </h2>
             <div className="z-10 mt-8 flex items-center justify-center flex-row w-full">
               {post?.tags?.map((tag: TagType) => (
                 <Tag key={tag._id} tag={tag} />
@@ -36,7 +32,7 @@ const Post = ({ post }: { post: any }) => {
             </div>
           </div>
           <MaxWidthContent maxWidth="max-w-screen-lg">
-            <div className="md:mt-24 w-full">
+            <div className="w-full mt-8">
               <PortableText value={post?.body} components={ptComponents} />
             </div>
           </MaxWidthContent>
