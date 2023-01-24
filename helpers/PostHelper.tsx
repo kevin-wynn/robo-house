@@ -35,10 +35,11 @@ export const ptComponents: PortableTextComponents = {
     bullet: ({ children }: { children: any }) => <li>{children}</li>,
   },
   block: {
+    h2: ({ children }: { children: any }) => {
+      return <h2 className="text-2xl mb-4">{children}</h2>;
+    },
     h3: ({ children }: { children: any }) => {
-      return (
-        <h3 className="text-4xl mb-4 border-b-blood border-b-2">{children}</h3>
-      );
+      return <h3 className="text-4xl mb-4">{children}</h3>;
     },
     h4: ({ children }: { children: any }) => {
       return <h4 className="font-extrabold text-2xl">{children}</h4>;

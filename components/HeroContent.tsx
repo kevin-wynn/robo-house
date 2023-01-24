@@ -1,17 +1,16 @@
-export const HeroContent = () => {
+import { ReactElement } from "react";
+
+export const HeroContent = ({
+  content,
+  image,
+}: {
+  content: ReactElement;
+  image: ReactElement;
+}) => {
   return (
-    <div className="flex justify-center items-center w-full">
-      <div className="flex flex-col w-full justify-center mt-24">
-        <div className="flex flex-col text-center text-5xl font-serif text-spice">
-          <span className="mt-6">sit down</span>
-          <span className="mt-6">look</span>
-          <span className="mt-6">listen</span>
-        </div>
-        <div className="mt-24 border-1 border-spice w-1/2 self-center"></div>
-        <p className="mt-12 text-center text-xl tracking-widest">
-          design • development • infrastructure
-        </p>
-      </div>
+    <div className="justify-center min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
+      <div className="w-full text-white p-8 md:p-2">{content}</div>
+      <div className="w-full">{image}</div>
     </div>
   );
 };

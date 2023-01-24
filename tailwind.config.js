@@ -6,17 +6,17 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        dune: "url('/bkg.jpg')",
-      },
       fontFamily: {
-        sans: ["Helvetica", "Arial", "sans-serif"],
-        serif: ["condor", "Cambria", "Times New Roman", "Times", "serif"],
+        sans: ["articulat-cf", "Helvetica", "Arial", "sans-serif"],
+        heavy: ["articulat-heavy-cf", "Helvetica", "Arial", "sans-serif"],
       },
       colors: {
-        sand: "#e2ddd6",
-        spice: "#e7c78d",
-        black: "#0c0a03",
+        black: "#030209",
+        blue: "#586F8C",
+        bluack: "#10131e",
+        granite: "#495B73",
+        grey: "#A6A6A6",
+        white: "#F2F2F2",
       },
       borderWidth: {
         1: "1px",

@@ -3,7 +3,7 @@ export const Table = ({ tableInstance }: { tableInstance: any }) => {
     tableInstance;
 
   return (
-    <table {...getTableProps()}>
+    <table {...getTableProps()} className="w-full mt-4">
       <thead>
         {
           // Loop over the header rows
@@ -14,7 +14,10 @@ export const Table = ({ tableInstance }: { tableInstance: any }) => {
                 // Loop over the headers in each row
                 headerGroup.headers.map((column: any) => (
                   // Apply the header cell props
-                  <th {...column.getHeaderProps()}>
+                  <th
+                    {...column.getHeaderProps()}
+                    className="text-left p-2 border-sand border-1 bg-zinc-800"
+                  >
                     {
                       // Render the header
                       column.render("Header")
@@ -35,13 +38,16 @@ export const Table = ({ tableInstance }: { tableInstance: any }) => {
             prepareRow(row);
             return (
               // Apply the row props
-              <tr {...row.getRowProps()}>
+              <tr {...row.getRowProps()} className="even:bg-zinc-900">
                 {
                   // Loop over the rows cells
                   row.cells.map((cell: any) => {
                     // Apply the cell props
                     return (
-                      <td {...cell.getCellProps()}>
+                      <td
+                        {...cell.getCellProps()}
+                        className="p-2 border-1 border-sand"
+                      >
                         {
                           // Render the cell contents
                           cell.render("Cell")

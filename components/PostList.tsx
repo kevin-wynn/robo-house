@@ -2,22 +2,18 @@ import { PostItem } from "./PostItem";
 
 export const PostList = ({
   posts,
-  styles,
-  horizontal,
+  style,
   animate,
 }: {
   posts: any;
-  horizontal: boolean;
-  styles?: string;
+  style?: string;
   animate?: boolean;
 }) => {
   return (
     <div
-      className={`h-auto w-full p-6 mt-24 ${
-        horizontal
-          ? "grid gap-4 grid-flow-col"
-          : "max-w-screen-xl grid grid-cols-2 gap-6"
-      } ${styles ? styles : ""}`}
+      className={`h-auto w-full p-6 mt-24 max-w-screen-xl grid grid-cols-1 md:grid-cols-3 gap-8 ${
+        style ? style : ""
+      }`}
     >
       {!posts && <p>No posts found</p>}
       {posts &&
@@ -26,7 +22,6 @@ export const PostList = ({
           <PostItem
             key={post._id}
             post={post}
-            horizontal={horizontal}
             animate={animate ? true : false}
           />
         ))}

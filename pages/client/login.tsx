@@ -8,7 +8,7 @@ export default function Login() {
       footer
       style="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-red-900 via-orange-500 to-indigo-700"
     >
-      <LoginForm redirectURL="/admin" />
+      <LoginForm redirectURL="/client" />
     </Wrapper>
   );
 }

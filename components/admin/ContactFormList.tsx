@@ -3,7 +3,7 @@ import { useTable } from "react-table";
 import { ContactForm } from "../../types/ContactForm";
 import { Table } from "../Table";
 
-export const ContactFormList = ({ forms }: { forms: any }) => {
+export const ContactFormList = ({ forms }: { forms: ContactForm[] }) => {
   const data = useMemo(
     () =>
       forms.map((form: ContactForm) => {
@@ -32,15 +32,13 @@ export const ContactFormList = ({ forms }: { forms: any }) => {
       },
     ],
     []
-  );
+  ) as any;
 
   const tableInstance = useTable({ columns, data });
 
   return (
     <div className="flex flex-col">
-      <h2 className="text-2xl text-spice font-serif">
-        Contact Form Submissions
-      </h2>
+      <h2 className="text-3xl text-spice">Contact Form Submissions</h2>
       <Table tableInstance={tableInstance} />
     </div>
   );

@@ -17,11 +17,7 @@ export const Button = ({
     <button
       disabled={disabled}
       type={type}
-      className={`px-4 py-4 button hero rounded-sm tracking-wider font-normal border-blood hover:border-red-900 border-2 ${
-        hoverEffect ? "layers glitch" : ""
-      }`}
-      onMouseEnter={() => setHoverEffect(true)}
-      onMouseLeave={() => setHoverEffect(false)}
+      className="px-6 py-3 text-white button hero rounded-lg tracking-wider font-normal duration-150 bg-indigo-500 hover:bg-indigo-800"
       data-text={children}
     >
       {loading ? (

@@ -2,41 +2,40 @@ import { PortableText } from "@portabletext/react";
 import client from "../../client";
 import { Wrapper } from "../../components/Wrapper";
 import { getPostBySlug, ptComponents, urlFor } from "../../helpers/PostHelper";
+import { Tag as TagType } from "../../types/Tag";
+import { Tag } from "../../components/Tag";
+import { MaxWidthContent } from "../../components/MaxWidthContent";
 
 const POST_IMAGE_WIDTH = 2400;
 
 const Post = ({ post }: { post: any }) => {
-  // TODO: typing
   if (post) {
     return (
-      <Wrapper>
-        <div className="flex flex-col items-center w-full md:h-full md:min-h-screen mt-8 p-6 md:p-0">
-          <div className="mb-8 relative w-full">
+      <Wrapper header footer footerDark>
+        <div className="flex flex-col items-center w-full mt-8 p-6 md:p-0">
+          <div className="-z-10 top-0 w-full flex flex-col justify-center items-center h-44 mb-16">
+            <MaxWidthContent>
+              <h2 className="text-6xl md:text-8xl font-heavy font-black text-white z-10 tracking-tighter text-center">
+                {post?.title}
+              </h2>
+            </MaxWidthContent>
+            <div className="absolute top-0 bg-black opacity-25 z-0 w-full h-3/4 md:h-96"></div>
             <img
               alt="main blog image"
               src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
-              className="absolte object-cover object-center h-40 md:h-96 w-full"
+              className="absolute top-0 object-cover object-center w-full -z-10 h-3/4 md:h-96"
             />
           </div>
-          <h2 className="text-4xl mb-4 border-b-blood border-b-2">
-            {post?.title}
-          </h2>
-          <div className="mb-4">
-            {/* TODO: Typing */}
-            {post?.tags?.map((tag: any) => (
-              <a
-                className="inline-block my-2 px-2 py-2 rounded-lg mr-4 font-medium text-xs hover:opacity-70 duration-200"
-                key={tag._id}
-                style={{ backgroundColor: tag.tagColor.hex }}
-                href={`/tag/${tag.slug.current}`}
-              >
-                {tag.tag}
-              </a>
-            ))}
-          </div>
-          <div className="max-w-full md:max-w-4xl">
-            <PortableText value={post?.body} components={ptComponents} />
-          </div>
+          <MaxWidthContent maxWidth="max-w-screen-lg">
+            <div className="mt-8 z-10 flex items-start justify-start flex-row w-full">
+              {post?.tags?.map((tag: TagType) => (
+                <Tag tag={tag} />
+              ))}
+            </div>
+            <div className="mt-48 md:mt-8">
+              <PortableText value={post?.body} components={ptComponents} />
+            </div>
+          </MaxWidthContent>
         </div>
       </Wrapper>
     );
@@ -59,7 +58,6 @@ export async function getStaticPaths() {
 export async function getStaticProps(context: {
   params: { slug?: string | undefined };
 }) {
-  // It's important to default the slug so that it doesn't return "undefined"
   const { slug = "" } = context.params;
   const post = await getPostBySlug(slug);
   return {
