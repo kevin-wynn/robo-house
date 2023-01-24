@@ -56,7 +56,7 @@ export default function AdminDashboard({
 export async function getServerSideProps({ req, res }: { req: any; res: any }) {
   const session = await getLoginSession(
     req.cookies[process.env.COOKIE_NAME || ""],
-    process.env.TOKEN_SECRET
+    process.env.TOKEN_SECRET || ""
   );
   if (!session.passport.user) {
     return {
