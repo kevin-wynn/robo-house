@@ -13,7 +13,7 @@ export const ClientList = ({ clients }: { clients: Client[] }) => {
           col3: client.address,
         };
       }),
-    []
+    [clients]
   );
 
   const columns = useMemo(

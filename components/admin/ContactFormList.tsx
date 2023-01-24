@@ -13,7 +13,7 @@ export const ContactFormList = ({ forms }: { forms: ContactForm[] }) => {
           col3: form.message,
         };
       }),
-    []
+    [forms]
   );
 
   const columns = useMemo(

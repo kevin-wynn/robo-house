@@ -2,6 +2,7 @@ import Link from "next/link";
 import { urlFor } from "../helpers/PostHelper";
 import { Tag } from "./Tag";
 import { Tag as TagType } from "../types/Tag";
+import Image from "next/image";
 
 const POST_IMAGE_WIDTH = 600;
 
@@ -30,7 +31,7 @@ export const PostItem = ({
             {new Date(publishedAt).toLocaleDateString()}
           </span>
           {mainImage && (
-            <img
+            <Image
               alt={title}
               src={urlFor(mainImage).width(POST_IMAGE_WIDTH).url()}
               className="w-full object-cover object-center h-44 mb-4"

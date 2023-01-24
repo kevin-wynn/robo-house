@@ -5,6 +5,7 @@ import { getPostBySlug, ptComponents, urlFor } from "../../helpers/PostHelper";
 import { Tag as TagType } from "../../types/Tag";
 import { Tag } from "../../components/Tag";
 import { MaxWidthContent } from "../../components/MaxWidthContent";
+import Image from "next/image";
 
 const POST_IMAGE_WIDTH = 2400;
 
@@ -20,7 +21,7 @@ const Post = ({ post }: { post: any }) => {
               </h2>
             </MaxWidthContent>
             <div className="absolute top-0 bg-black opacity-25 z-0 w-full h-3/4 md:h-96"></div>
-            <img
+            <Image
               alt="main blog image"
               src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
               className="absolute top-0 object-cover object-center w-full -z-10 h-3/4 md:h-96"
@@ -29,7 +30,7 @@ const Post = ({ post }: { post: any }) => {
           <MaxWidthContent maxWidth="max-w-screen-lg">
             <div className="mt-8 z-10 flex items-start justify-start flex-row w-full">
               {post?.tags?.map((tag: TagType) => (
-                <Tag tag={tag} />
+                <Tag key={tag._id} tag={tag} />
               ))}
             </div>
             <div className="mt-48 md:mt-8">

@@ -7,14 +7,15 @@ export const Table = ({ tableInstance }: { tableInstance: any }) => {
       <thead>
         {
           // Loop over the header rows
-          headerGroups.map((headerGroup: any) => (
+          headerGroups.map((headerGroup: any, index: number) => (
             // Apply the header row props
-            <tr {...headerGroup.getHeaderGroupProps()}>
+            <tr key={index} {...headerGroup.getHeaderGroupProps()}>
               {
                 // Loop over the headers in each row
-                headerGroup.headers.map((column: any) => (
+                headerGroup.headers.map((column: any, index: number) => (
                   // Apply the header cell props
                   <th
+                    key={index}
                     {...column.getHeaderProps()}
                     className="text-left p-2 border-sand border-1 bg-zinc-800"
                   >
@@ -33,18 +34,23 @@ export const Table = ({ tableInstance }: { tableInstance: any }) => {
       <tbody {...getTableBodyProps()}>
         {
           // Loop over the table rows
-          rows.map((row: any) => {
+          rows.map((row: any, index: number) => {
             // Prepare the row for display
             prepareRow(row);
             return (
               // Apply the row props
-              <tr {...row.getRowProps()} className="even:bg-zinc-900">
+              <tr
+                key={index}
+                {...row.getRowProps()}
+                className="even:bg-zinc-900"
+              >
                 {
                   // Loop over the rows cells
-                  row.cells.map((cell: any) => {
+                  row.cells.map((cell: any, index) => {
                     // Apply the cell props
                     return (
                       <td
+                        key={index}
                         {...cell.getCellProps()}
                         className="p-2 border-1 border-sand"
                       >

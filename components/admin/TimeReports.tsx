@@ -19,7 +19,7 @@ export const TimeReports = ({ timeReports }: { timeReports: TimeReport[] }) => {
           col5: report.total_hours,
         };
       }),
-    []
+    [timeReports]
   );
 
   const columns = useMemo(

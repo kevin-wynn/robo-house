@@ -24,8 +24,8 @@ export default function Posts({ posts, user }: { posts: any; user: any }) {
                 </div>
                 <div className="text-white flex flex-col w-full md:w-3/4">
                   <p className="text-3xl font-sans leading-snug mt-8 tracking-widest font-thin">
-                    See what we've been up to, read about some of our clients.
-                    Or just poke around to see how busy we are.
+                    See what we&lsquo;ve been up to, read about some of our
+                    clients. Or just poke around to see how busy we are.
                   </p>
                 </div>
               </>
