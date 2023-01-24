@@ -36,7 +36,7 @@ const Post = ({ post }: { post: any }) => {
                 <Tag key={tag._id} tag={tag} />
               ))}
             </div>
-            <div className="mt-8">
+            <div className="mt-8 w-full">
               <PortableText value={post?.body} components={ptComponents} />
             </div>
           </MaxWidthContent>

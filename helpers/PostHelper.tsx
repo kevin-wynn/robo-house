@@ -87,9 +87,11 @@ export const ptComponents: PortableTextComponents = {
     },
     code: ({ value }: { value: any }) => {
       return (
-        <SyntaxHighlighter language={value.language} style={highlightStyles}>
-          {value.code}
-        </SyntaxHighlighter>
+        <div className="overflow-auto">
+          <SyntaxHighlighter language={value.language} style={highlightStyles}>
+            {value.code}
+          </SyntaxHighlighter>
+        </div>
       );
     },
   },
