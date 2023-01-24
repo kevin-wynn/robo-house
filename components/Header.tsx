@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 export const Header = ({ user }: { user: any }) => {
   return (
     <div className="flex p-4 mb-12 text-white flex-col-reverse sm:flex-row w-full items-center justify-center font-light">
-      <div className="w-full flex justify-center items-center">
+      <div className="w-full flex justify-center items-center md:justify-start">
         <ul className="flex flex-row flex-wrap list-none tracking-widest">
           <li className="mr-6">
             <Link
