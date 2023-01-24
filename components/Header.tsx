@@ -6,7 +6,7 @@ export const Header = ({ user }: { user: any }) => {
   return (
     <div className="z-20 flex p-4 mb-12 h-24 text-white flex-col-reverse sm:flex-row w-full items-center justify-center font-light">
       <div className="w-full flex justify-center items-center md:justify-start">
-        <ul className="flex flex-row flex-wrap list-none tracking-widest">
+        <ul className="flex flex-row justify-center flex-wrap list-none tracking-widest">
           <li className="mr-6">
             <Link
               href="/"
