@@ -35,6 +35,8 @@ export const PostItem = ({
               alt={title}
               src={urlFor(mainImage).width(POST_IMAGE_WIDTH).url()}
               className="w-full object-cover object-center h-44 mb-4"
+              width="500"
+              height="500"
             />
           )}
         </Link>

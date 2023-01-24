@@ -25,6 +25,8 @@ const Post = ({ post }: { post: any }) => {
               alt="main blog image"
               src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
               className="absolute top-0 object-cover object-center w-full -z-10 h-3/4 md:h-96"
+              width="1920"
+              height="1280"
             />
           </div>
           <MaxWidthContent maxWidth="max-w-screen-lg">
