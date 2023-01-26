@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-ec2": "^3.257.0",
+    "@aws-sdk/client-ec2-instance-connect": "^3.257.0",
     "@hapi/iron": "^7.0.0",
     "@portabletext/react": "^2.0.0",
     "@sanity/client": "^3.4.1",

@@ -13,7 +13,7 @@ const Post = ({ post }: { post: any }) => {
   if (post) {
     return (
       <Wrapper header footer footerDark>
-        <div className="flex flex-col items-center w-full">
+        <div className="flex flex-col items-center w-full mt-12">
           <div
             style={{
               backgroundImage: `url('${urlFor(post?.mainImage)
@@ -22,7 +22,7 @@ const Post = ({ post }: { post: any }) => {
             }}
             className="-z-10 -mt-44 pt-44 pb-44 top-0 w-full flex flex-col justify-center items-center bg-cover bg-no-repeat bg-center"
           >
-            <h2 className="text-4xl md:text-8xl font-heavy font-black text-white z-10 tracking-tighter text-center">
+            <h2 className="text-4xl md:text-8xl font-heavy font-black text-stone z-10 tracking-tighter text-center">
               {post?.title}
             </h2>
             <div className="z-10 mt-8 flex items-center justify-center flex-row w-full">

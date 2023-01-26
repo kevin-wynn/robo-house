@@ -1,16 +1,22 @@
 import Link from "next/link";
 
-export const Footer = ({ footerDark = false }: { footerDark?: boolean }) => {
+export const Footer = ({
+  dashboard = false,
+  footerDark = false,
+}: {
+  dashboard: boolean;
+  footerDark?: boolean;
+}) => {
   return (
     <div
       className={`w-full max-w-4xl mt-12 p-6 flex justify-center border-t-1 ${
-        footerDark ? "border-grey" : "border-white"
+        footerDark || dashboard ? "border-grey" : "border-white"
       }`}
     >
       <div className="max-w-4xl w-full flex flex-col md:flex-row items-center md:justify-around text-sm">
         <Link
           className={`hover:text-grey duration-300 ${
-            footerDark ? "text-black" : "text-white"
+            footerDark || dashboard ? "text-black" : "text-stone"
           }`}
           href="/"
         >
@@ -18,7 +24,7 @@ export const Footer = ({ footerDark = false }: { footerDark?: boolean }) => {
         </Link>
         <Link
           className={`hover:text-grey duration-300 ${
-            footerDark ? "text-black" : "text-white"
+            footerDark || dashboard ? "text-black" : "text-stone"
           }`}
           href="/posts"
         >
@@ -26,7 +32,7 @@ export const Footer = ({ footerDark = false }: { footerDark?: boolean }) => {
         </Link>
         <Link
           className={`hover:text-grey duration-300 ${
-            footerDark ? "text-black" : "text-white"
+            footerDark || dashboard ? "text-black" : "text-stone"
           }`}
           href="/contact"
         >
@@ -34,13 +40,15 @@ export const Footer = ({ footerDark = false }: { footerDark?: boolean }) => {
         </Link>
         <Link
           className={`hover:text-grey duration-300 ${
-            footerDark ? "text-black" : "text-white"
+            footerDark || dashboard ? "text-black" : "text-stone"
           }`}
           href="/about"
         >
           About
         </Link>
-        <p className={`${footerDark ? "text-black" : "text-white"}`}>
+        <p
+          className={`${footerDark || dashboard ? "text-black" : "text-stone"}`}
+        >
           © 2022 Kevin Wynn, Robo House, LLC
         </p>
       </div>

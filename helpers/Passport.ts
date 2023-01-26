@@ -3,7 +3,9 @@ import { Strategy as LocalStrategy } from "passport-local";
 import { getUserByUsername, validatePassword } from "./UserHelper";
 
 passport.serializeUser((user: any, done) => {
-  done(null, user.username);
+  const cleanUser = user;
+  delete cleanUser.password;
+  done(null, cleanUser);
 });
 
 passport.deserializeUser((req: any, id: any, done: any) => {

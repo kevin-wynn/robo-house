@@ -35,7 +35,7 @@ export default function Contact({ user }: { user: any }) {
                 <div className="text-6xl md:text-8xl font-heavy font-black tracking-tighter">
                   Get In Touch.
                 </div>
-                <div className="text-white flex flex-col w-full md:w-3/4">
+                <div className="text-stone flex flex-col w-full md:w-3/4">
                   <p className="text-3xl font-sans leading-snug mt-8 tracking-widest font-thin">
                     Drop a line to get your next project started. Need your
                     infrastructure worked on, migrated to Kubernetes? Reinforced

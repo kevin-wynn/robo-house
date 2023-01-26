@@ -18,10 +18,11 @@ export const LoginForm = ({
   redirectURL: "/client" | "/admin";
 }) => {
   const [showServerError, setShowServerError] = useState(false);
+  const [showUserPassError, setShowUserPassError] = useState(false);
   return (
     <div className="flex flex-col h-full justify-center items-center w-full">
       <MaxWidthContent maxWidth="max-w-screen-sm">
-        <h1 className="text-4xl text-white mb-8">welcome back</h1>
+        <h1 className="text-4xl text-stone mb-8">Welcome back</h1>
         <div className="w-full">
           <Formik
             initialValues={{ username: "", password: "" }}
@@ -46,6 +47,7 @@ export const LoginForm = ({
             onSubmit={async (values, { setSubmitting }) => {
               setSubmitting(true);
               setShowServerError(false);
+              setShowUserPassError(false);
               const body = JSON.stringify(values, null, 2);
               const res = await fetch("/api/login", {
                 method: "POST",
@@ -54,16 +56,14 @@ export const LoginForm = ({
                 },
                 body,
               });
-              // todo: look into the delay here, why does it take so long to redirect to the dashboard?
-              // this may not be an issue since its coming from the dev server aspect and not happening
-              // on static version
+              // todo: clean this up with signup form logic, can be extracted and re-used a lot cleaner
               switch (res.status) {
                 case 400:
                   setShowServerError(true);
                   setSubmitting(false);
                   break;
                 case 401:
-                  console.log("unauthorized");
+                  setShowUserPassError(true);
                   setSubmitting(false);
                   break;
                 case 200:
@@ -91,8 +91,13 @@ export const LoginForm = ({
                     There was an error from the server. Try again!
                   </p>
                 )}
+                {showUserPassError && (
+                  <p className="text-sm text-red-400 ml-2">
+                    Your Username or Password were incorrect. Try again!
+                  </p>
+                )}
                 <div className="pb-4">
-                  <label className="pb-2 text-white">Username</label>
+                  <label className="pb-2 text-stone">Username</label>
                   <span className="text-sm text-red-400 ml-2">
                     {errors.username && touched.username && errors.username}
                   </span>
@@ -106,7 +111,7 @@ export const LoginForm = ({
                   />
                 </div>
                 <div className="pb-4">
-                  <label className="pb-2 text-white">Password</label>
+                  <label className="pb-2 text-stone">Password</label>
                   <span className="text-sm text-red-400 ml-2">
                     {errors.password && touched.password && errors.password}
                   </span>

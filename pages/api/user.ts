@@ -1,4 +1,5 @@
 import nextConnect from "next-connect";
+import { createHarvestClient } from "../../helpers/HarvestHelper";
 import { createUser } from "../../helpers/UserHelper";
 import auth from "../../middleware/auth";
 
@@ -15,9 +16,14 @@ handler
 
     res.json({ user: cleanUser });
   })
-  .post((req: any, res: any) => {
-    const { username, password } = req.body;
-    createUser({ username, password });
+  .post(async (req: any, res: any) => {
+    const response = await createHarvestClient(
+      req.body.company,
+      req.body.address
+    );
+    const newUser = { ...req.body, harvestID: response.id };
+    console.log("newUser:", newUser);
+    await createUser({ ...req.body, harvestID: response.id });
     res.status(200).json({ success: true, message: "created new user" });
   })
   .use((req: any, res: any, next: any) => {

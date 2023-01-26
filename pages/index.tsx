@@ -23,7 +23,7 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
                 <div className="text-4xl md:text-8xl font-heavy font-black tracking-tighter">
                   Create and host projects in one place.
                 </div>
-                <div className="text-white flex flex-col w-full md:w-3/4">
+                <div className="text-stone flex flex-col w-full md:w-3/4">
                   <p className="text-2xl md:text-3xl font-sans leading-snug mt-8 tracking-widest font-thin">
                     One dashboard to manage your projects from inception,
                     through creation, and to hosting.

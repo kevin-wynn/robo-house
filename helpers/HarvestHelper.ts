@@ -34,3 +34,17 @@ export const getHarvestTimeReports = async (to?: any, from?: any) => {
   );
   return await res.json();
 };
+
+export const createHarvestClient = async (company: string, address: string) => {
+  const res = await fetch(`${HARVEST_BASE_URL}/clients`, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${process.env.HARVEST_TOKEN}`,
+      "Harvest-Account-Id": process.env.HARVEST_ACCOUNT_ID || "",
+      "User-Agent": "Robo House (kevin@robo-house.com)",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name: company, address, currency: "USD" }),
+  });
+  return await res.json();
+};

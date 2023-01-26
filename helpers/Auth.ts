@@ -1,6 +1,12 @@
 import Iron from "@hapi/iron";
+import { User } from "../types/User";
+import { getUserByUsername } from "./UserHelper";
 
 export const createLoginSession = async (session: any, secret: string) => {
+  const username = session.passport.user;
+  const user: User | null = await getUserByUsername(username);
+  delete user?.password;
+  session.passport.user = user;
   const createdAt = Date.now();
   const obj = { ...session, createdAt };
   const token = await Iron.seal(obj, secret, Iron.defaults);

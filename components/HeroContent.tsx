@@ -9,7 +9,7 @@ export const HeroContent = ({
 }) => {
   return (
     <div className="justify-center items-center md:-mt-24 min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
-      <div className="w-full text-white p-8 md:p-2">{content}</div>
+      <div className="w-full text-stone p-8 md:p-2">{content}</div>
       <div className="w-full">{image}</div>
     </div>
   );

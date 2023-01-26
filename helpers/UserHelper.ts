@@ -1,26 +1,38 @@
 import argon2 from "argon2";
 import { User } from "../server/schemas/User";
+import { User as UserType } from "../types/User";
 
 export const getUserById = async (id: string) => {
   return await User.findById(id).lean();
 };
 
-export const getUserByUsername = async (username: string) => {
-  return await User.findOne({ username }).lean();
+export const getUserByUsername = async (user: string | UserType) => {
+  // todo: this is hacky and not idea, but sometimes the session is passport.user = 'username' sometimes its passport.user = UserType
+  if (user) {
+    let usernameLookup = "";
+    if (typeof user === "string") {
+      usernameLookup = user;
+    } else if (typeof user === "object") {
+      usernameLookup = user.username;
+    }
+    return await User.findOne({ username: usernameLookup }).lean();
+  }
 };
 
-export const createUser = async (body: {
-  username: string;
-  password: string;
-}) => {
+export const createUser = async (body: UserType) => {
   const user = await getUserByUsername(body.username);
   if (user) {
     return user;
   } else {
-    const hashedPassword = await hashPassword(body.password);
+    const hashedPassword = await hashPassword(body.password as string);
     const userToSave = {
       username: body.username,
       password: hashedPassword,
+      name: body.name,
+      company: body.company,
+      userType: "client",
+      address: body.address,
+      harvestID: body.harvestID,
     };
     const newUser = new User(userToSave);
     const savedUser = await newUser.save();

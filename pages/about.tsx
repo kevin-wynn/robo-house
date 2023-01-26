@@ -23,7 +23,7 @@ export default function About({ about, user }: { about: any; user: any }) {
                 <div className="text-6xl md:text-8xl font-heavy font-black tracking-tighter">
                   {about?.title}
                 </div>
-                <div className="text-white flex flex-col w-full md:w-3/4">
+                <div className="text-stone flex flex-col w-full md:w-3/4">
                   <p className="text-3xl font-sans leading-snug mt-8 tracking-widest font-thin">
                     Find out more about who Robo House is and what we&lsquo;re
                     doing.

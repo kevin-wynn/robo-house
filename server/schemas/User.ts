@@ -12,7 +12,13 @@ const userSchema = new mongoose.Schema({
     required: true,
   },
   company: String,
-  type: String,
+  address: String,
+  userType: String,
+  harvestID: Number,
+  newClient: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 export const User = db.model("User", userSchema);

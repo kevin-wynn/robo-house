@@ -16,7 +16,7 @@ module.exports = {
         bluack: "#10131e",
         granite: "#495B73",
         grey: "#A6A6A6",
-        white: "#F2F2F2",
+        stone: "#F2F2F2",
       },
       borderWidth: {
         1: "1px",

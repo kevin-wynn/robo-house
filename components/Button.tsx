@@ -17,7 +17,7 @@ export const Button = ({
     <button
       disabled={disabled}
       type={type}
-      className="px-6 py-3 text-white button hero rounded-lg tracking-wider font-normal duration-150 bg-indigo-500 hover:bg-indigo-800"
+      className="px-6 py-3 text-stone button hero rounded-lg tracking-wider font-normal duration-150 bg-indigo-500 hover:bg-indigo-800"
       data-text={children}
     >
       {loading ? (

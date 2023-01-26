@@ -16,7 +16,7 @@ export const PostItem = ({
   const { slug, mainImage, title, publishedAt, tagline, tags } = post;
   return (
     <li
-      className={`list-none flex flex-col items-stretch font-light mb-12 p-8 rounded-md bg-white ${
+      className={`list-none flex flex-col items-stretch font-light mb-12 p-8 rounded-md bg-stone ${
         animate ? "hover:-translate-y-6 duration-300" : ""
       }`}
     >
