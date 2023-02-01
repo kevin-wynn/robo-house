@@ -57,6 +57,9 @@ export default function Signup() {
                 if (!values.password) {
                   errors.password = fieldRequiredMessage;
                 }
+                if (!values.company) {
+                  errors.company = fieldRequiredMessage;
+                }
 
                 return errors;
               }}
@@ -138,7 +141,7 @@ export default function Signup() {
                     </p>
                   )}
                   <div className="pb-4">
-                    <label className="pb-2 text-stone">Email Address</label>
+                    <label className="pb-2 text-stone">Email Address*</label>
                     <span className="text-sm text-red-400 ml-2">
                       {errors.username && touched.username && errors.username}
                     </span>
@@ -152,7 +155,7 @@ export default function Signup() {
                     />
                   </div>
                   <div className="pb-4">
-                    <label className="pb-2 text-stone">Password</label>
+                    <label className="pb-2 text-stone">Password*</label>
                     <span className="text-sm text-red-400 ml-2">
                       {errors.password && touched.password && errors.password}
                     </span>
@@ -180,7 +183,7 @@ export default function Signup() {
                     />
                   </div>
                   <div className="pb-4">
-                    <label className="pb-2 text-stone">Company Name</label>
+                    <label className="pb-2 text-stone">Company Name*</label>
                     <span className="text-sm text-red-400 ml-2">
                       {errors.company && touched.company && errors.company}
                     </span>
@@ -194,7 +197,7 @@ export default function Signup() {
                     />
                   </div>
                   <div className="pb-4">
-                    <label className="pb-2 text-stone">Address</label>
+                    <label className="pb-2 text-stone">Company Address</label>
                     <span className="text-sm text-red-400 ml-2">
                       {errors.address && touched.address && errors.address}
                     </span>

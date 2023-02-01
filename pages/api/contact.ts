@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import dbConnect from "../../server/database";
 import { ContactForm } from "../../server/schemas/ContactForm";
 
 type Data = {
@@ -10,6 +11,7 @@ export default async function handler(
   res: NextApiResponse<Data>
 ) {
   // todo: move this to next-connect router object
+  await dbConnect();
   if (req.method === "POST") {
     const body = JSON.parse(req.body);
     const { email } = body;

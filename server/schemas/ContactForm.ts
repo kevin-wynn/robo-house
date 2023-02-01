@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { db } from "../database";
 
 const contactFormSchema = new mongoose.Schema({
   name: String,
@@ -13,4 +12,6 @@ const contactFormSchema = new mongoose.Schema({
   },
 });
 
-export const ContactForm = db.model("ContactForm", contactFormSchema);
+export const ContactForm =
+  mongoose.models.ContactForm ||
+  mongoose.model("ContactForm", contactFormSchema);

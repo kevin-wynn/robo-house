@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { db } from "../database";
 
 const userSchema = new mongoose.Schema({
   name: String,
@@ -11,7 +10,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  company: String,
+  company: {
+    type: String,
+    required: true,
+  },
   address: String,
   userType: String,
   harvestID: Number,
@@ -19,6 +21,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  wordpress: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Wordpress",
+  },
 });
 
-export const User = db.model("User", userSchema);
+export const User = mongoose.models.User || mongoose.model("User", userSchema);

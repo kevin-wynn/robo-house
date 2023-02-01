@@ -12,7 +12,7 @@ export default function Discord({ user }: { user: any }) {
       <MaxWidthContent>
         <div className="w-full bg-white p-6 -mt-6">
           <span className="text-sm">
-            <Link href="/client" className="text-blue">
+            <Link href="/client" className="text-slate">
               dashboard home
             </Link>{" "}
             // discord

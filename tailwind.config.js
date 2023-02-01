@@ -3,7 +3,10 @@ module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/react-tailwindcss-datepicker/dist/index.esm.js",
   ],
+  darkMode: "class",
+
   theme: {
     extend: {
       fontFamily: {
@@ -12,7 +15,7 @@ module.exports = {
       },
       colors: {
         black: "#030209",
-        blue: "#586F8C",
+        slate: "#586F8C",
         bluack: "#10131e",
         granite: "#495B73",
         grey: "#A6A6A6",
@@ -20,6 +23,9 @@ module.exports = {
       },
       borderWidth: {
         1: "1px",
+      },
+      minHeight: {
+        "1/2": "50%",
       },
     },
   },

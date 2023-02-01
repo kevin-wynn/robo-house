@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "@aws-sdk/client-ec2": "^3.257.0",
-    "@aws-sdk/client-ec2-instance-connect": "^3.257.0",
     "@hapi/iron": "^7.0.0",
     "@portabletext/react": "^2.0.0",
     "@sanity/client": "^3.4.1",
@@ -21,6 +20,7 @@
     "@types/react-syntax-highlighter": "^15.5.5",
     "argon2": "^0.30.3",
     "cookie": "^0.5.0",
+    "dayjs": "^1.11.7",
     "dinero.js": "^1.9.1",
     "formik": "^2.2.9",
     "groq": "^2.33.2",
@@ -35,6 +35,7 @@
     "react-loaders": "^3.0.1",
     "react-syntax-highlighter": "^15.5.0",
     "react-table": "^7.8.0",
+    "react-tailwindcss-datepicker": "^1.4.1",
     "typescript": "4.8.4"
   },
   "devDependencies": {

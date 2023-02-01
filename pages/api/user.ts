@@ -2,11 +2,13 @@ import nextConnect from "next-connect";
 import { createHarvestClient } from "../../helpers/HarvestHelper";
 import { createUser } from "../../helpers/UserHelper";
 import auth from "../../middleware/auth";
+import db from "../../middleware/db";
 
 const handler = nextConnect();
 
 handler
   .use(auth)
+  .use(db)
   .get((req: any, res: any) => {
     let cleanUser = null;
     if (req.user) {

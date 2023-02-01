@@ -6,10 +6,10 @@ services:
       - db_data:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=somewordpress
+      - MYSQL_ROOT_PASSWORD=${DB_ROOT_PASS}
       - MYSQL_DATABASE=wordpress
       - MYSQL_USER=wordpress
-      - MYSQL_PASSWORD=wordpress
+      - MYSQL_PASSWORD=${DB_WORDPRESS_PASS}
     expose:
       - 3306
       - 33060
@@ -21,10 +21,7 @@ services:
     environment:
       - WORDPRESS_DB_HOST=db
       - WORDPRESS_DB_USER=wordpress
-      - WORDPRESS_DB_PASSWORD=wordpress
+      - WORDPRESS_DB_PASSWORD=${DB_WORDPRESS_PASS}
       - WORDPRESS_DB_NAME=wordpress
 volumes:
   db_data:
-
-  
-    

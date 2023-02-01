@@ -1,13 +1,16 @@
 import argon2 from "argon2";
+import dbConnect from "../server/database";
 import { User } from "../server/schemas/User";
 import { User as UserType } from "../types/User";
 
 export const getUserById = async (id: string) => {
+  await dbConnect();
   return await User.findById(id).lean();
 };
 
 export const getUserByUsername = async (user: string | UserType) => {
   // todo: this is hacky and not idea, but sometimes the session is passport.user = 'username' sometimes its passport.user = UserType
+  await dbConnect();
   if (user) {
     let usernameLookup = "";
     if (typeof user === "string") {
@@ -17,6 +20,11 @@ export const getUserByUsername = async (user: string | UserType) => {
     }
     return await User.findOne({ username: usernameLookup }).lean();
   }
+};
+
+export const getUserByCompanyName = async (company: string) => {
+  await dbConnect();
+  return await User.findOne({ company });
 };
 
 export const createUser = async (body: UserType) => {

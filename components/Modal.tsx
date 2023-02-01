@@ -27,7 +27,7 @@ export const Modal = ({
         openModal ? "visible" : "hidden"
       }`}
     >
-      <div className="bg-white z-50 w-1/2 h-1/2 p-6 relative">
+      <div className="bg-white z-50 w-1/2 min-h-1/2 p-6 relative">
         <button
           className="absolute top-4 right-4"
           onClick={() => {

@@ -6,11 +6,13 @@ export const Button = ({
   children,
   disabled,
   loading,
+  onClick,
 }: {
   type: "button" | "submit" | "reset" | undefined;
   disabled: boolean;
   children: any;
   loading?: boolean;
+  onClick?: () => void;
 }) => {
   const [hoverEffect, setHoverEffect] = useState(false);
   return (
@@ -19,6 +21,7 @@ export const Button = ({
       type={type}
       className="px-6 py-3 text-stone button hero rounded-lg tracking-wider font-normal duration-150 bg-indigo-500 hover:bg-indigo-800"
       data-text={children}
+      onClick={onClick}
     >
       {loading ? (
         <div className="flex flex-row">
