@@ -17,6 +17,7 @@ export const DiscordServer = () => {
       </Link>
       <span className="text-sm mt-4">
         Read about how my Discord server works&nbsp;
+        {/* TODO: make this just a modal instead */}
         <Link className="text-slate" href="/client/discord/">
           here
         </Link>

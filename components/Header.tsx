@@ -26,12 +26,12 @@ export const Header = ({
           </li>
           <li className="mr-6">
             <Link
-              href="/posts"
+              href="/blog"
               className={`text-sm ${
                 dashboard ? "text-black" : "text-stone"
               } hover:text-grey duration-300`}
             >
-              posts
+              blog
             </Link>
           </li>
           <li className="mr-6">

@@ -17,7 +17,7 @@ export const Table = ({ tableInstance }: { tableInstance: any }) => {
                   <th
                     key={index}
                     {...column.getHeaderProps()}
-                    className="text-left p-2 border-sand border-1 bg-zinc-800"
+                    className="text-left p-2 border-sand border-1 bg-neutral-300"
                   >
                     {
                       // Render the header
@@ -42,7 +42,7 @@ export const Table = ({ tableInstance }: { tableInstance: any }) => {
               <tr
                 key={index}
                 {...row.getRowProps()}
-                className="even:bg-zinc-900"
+                className="even:bg-neutral-100"
               >
                 {
                   // Loop over the rows cells

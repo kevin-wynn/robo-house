@@ -1,5 +1,8 @@
 import nextConnect from "next-connect";
-import { getHarvestTimeSheetForProject } from "../../../helpers/HarvestHelper";
+import {
+  getHarvestTimeSheetsForClient,
+  getHarvestTimeSheetsForProject,
+} from "../../../helpers/HarvestHelper";
 import auth from "../../../middleware/auth";
 import db from "../../../middleware/db";
 
@@ -9,7 +12,14 @@ handler
   .use(auth)
   .use(db)
   .get(async (req: any, res: any) => {
-    const timesheets = await getHarvestTimeSheetForProject(req.query.projectId);
+    let timesheets = [];
+    if (req.query && req.query.projectId) {
+      timesheets = await getHarvestTimeSheetsForProject(req.query.projectId);
+    } else {
+      timesheets = await getHarvestTimeSheetsForClient(
+        req.session.passport.user.harvestID
+      );
+    }
     res.status(200).send(timesheets);
   });
 

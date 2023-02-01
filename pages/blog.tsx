@@ -7,7 +7,7 @@ import { MaxWidthContent } from "../components/MaxWidthContent";
 import { getLoginSession } from "../helpers/Auth";
 import { HeroContent } from "../components/HeroContent";
 
-export default function Posts({ posts, user }: { posts: any; user: any }) {
+export default function Blog({ posts, user }: { posts: any; user: any }) {
   return (
     <>
       <Wrapper

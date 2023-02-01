@@ -77,9 +77,25 @@ export const getHarvestProjectsForClient = async (cliendId: number) => {
   return projects;
 };
 
-export const getHarvestTimeSheetForProject = async (projectId: number) => {
+export const getHarvestTimeSheetsForProject = async (projectId: number) => {
   const res = await fetch(
     `${HARVEST_BASE_URL}/time_entries?project_id=${projectId}`,
+    {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${process.env.HARVEST_TOKEN}`,
+        "Harvest-Account-Id": process.env.HARVEST_ACCOUNT_ID || "",
+        "User-Agent": "Robo House (kevin@robo-house.com)",
+      },
+    }
+  );
+  const { time_entries } = await res.json();
+  return time_entries;
+};
+
+export const getHarvestTimeSheetsForClient = async (clientId: number) => {
+  const res = await fetch(
+    `${HARVEST_BASE_URL}/time_entries?client_id=${clientId}`,
     {
       method: "GET",
       headers: {

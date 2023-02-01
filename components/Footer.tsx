@@ -26,9 +26,9 @@ export const Footer = ({
           className={`hover:text-grey duration-300 ${
             footerDark || dashboard ? "text-black" : "text-stone"
           }`}
-          href="/posts"
+          href="/blog"
         >
-          Posts
+          Blog
         </Link>
         <Link
           className={`hover:text-grey duration-300 ${
