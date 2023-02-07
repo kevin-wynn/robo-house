@@ -1,45 +1,39 @@
-import Dinero from "dinero.js";
-import { useEffect, useMemo, useState } from "react";
-import { useTable } from "react-table";
-import { DashboardHeader } from "../../components/DashboardHeader";
-import { Loader } from "../../components/Loader";
-import { MaxWidthContent } from "../../components/MaxWidthContent";
-import { Table } from "../../components/Table";
 import { Wrapper } from "../../components/Wrapper";
 import { getLoginSession } from "../../helpers/Auth";
+import { DashboardHeader } from "../../components/DashboardHeader";
+import { User } from "../../types/User";
+import { useEffect, useMemo, useState } from "react";
+import { MaxWidthContent } from "../../components/MaxWidthContent";
+import { Loader } from "../../components/Loader";
+import { Table } from "../../components/Table";
+import { useTable } from "react-table";
 
-export default function ProjectsDashboard({ user }: { user: any }) {
+export default function Contacts({ user }: { user: User }) {
   const [loading, setLoading] = useState(true);
-  const [projects, setProjects] = useState([]);
+  const [contactFormSubmissions, setContactFormSubmissions] = useState([]);
 
-  const getAllProjects = async () => {
-    const res = await fetch(`/api/harvest/projects`);
-    const json = await res.json();
-    // todo pull in all billed hours and budgets so we can do some math
-    // to show remaining budget and hours spent, maybe link to invoices when
-    // thet are available here too
-    setProjects(json);
+  const getContactFormSubmissions = async () => {
+    const res = await fetch("/api/contact");
+    const { forms } = await res.json();
+    console.log("json:", forms);
+    setContactFormSubmissions(forms);
     setLoading(false);
   };
 
   useEffect(() => {
-    getAllProjects();
+    getContactFormSubmissions();
   }, []);
 
   const data = useMemo(
     () =>
-      projects.map((project: any) => {
+      contactFormSubmissions.map((form: any) => {
         return {
-          col1: project.name,
-          col2: project.starts_on,
-          col3: project.ends_on,
-          col4: Dinero({
-            currency: "USD",
-            amount: project.budget * 100,
-          }).toFormat("$0,0.00"),
+          col1: form.name,
+          col2: form.email,
+          col3: form.message,
         };
       }),
-    [projects]
+    [contactFormSubmissions]
   );
 
   const columns = useMemo(
@@ -49,16 +43,12 @@ export default function ProjectsDashboard({ user }: { user: any }) {
         accessor: "col1",
       },
       {
-        Header: "Start On",
+        Header: "Email",
         accessor: "col2",
       },
       {
-        Header: "Ends On",
+        Header: "Message",
         accessor: "col3",
-      },
-      {
-        Header: "Budget",
-        accessor: "col4",
       },
     ],
     []
@@ -67,23 +57,32 @@ export default function ProjectsDashboard({ user }: { user: any }) {
   const tableInstance = useTable({ columns, data });
 
   return (
-    <Wrapper dashboard header footer user={user} style="items-start bg-stone">
-      <DashboardHeader user={user} />
+    <Wrapper
+      dashboard
+      header
+      footer
+      user={user}
+      style="items-start bg-neutral-100"
+    >
+      <DashboardHeader admin user={user} />
       <MaxWidthContent>
         <div className="w-full flex flex-col -mt-6 items-start bg-white p-4">
-          <h2 className="text-xl">Projects</h2>
-          <p>View and manage projects created.</p>
+          <h2 className="text-xl">Contact Form Submission</h2>
+          <p>
+            View and manage all contact forms that have been submitted using the
+            contact form.
+          </p>
           <div className="w-full flex flex-col items-center justify-center">
             {loading ? (
               <div className="h-44 w-full flex flex-col items-center justify-center">
                 <Loader />
               </div>
-            ) : projects.length ? (
+            ) : contactFormSubmissions.length ? (
               <Table tableInstance={tableInstance} />
             ) : (
               <div className="h-44 w-full flex flex-col items-center justify-center">
                 <span className="text-4xl">😥</span>
-                <p>No projects yet.</p>
+                <p>No contact forms submitted yet.</p>
               </div>
             )}
           </div>
@@ -98,10 +97,10 @@ export async function getServerSideProps({ req, res }: { req: any; res: any }) {
     req.cookies[process.env.COOKIE_NAME || ""],
     process.env.TOKEN_SECRET || ""
   );
-  if (!session?.passport?.user) {
+  if (!session.passport.user) {
     return {
       redirect: {
-        destination: "/client/login",
+        destination: "/admin/login",
       },
     };
   }

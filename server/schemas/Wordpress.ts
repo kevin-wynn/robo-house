@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-import { db } from "../database";
 
 const wordpressSchema = new mongoose.Schema({
   dbRootPass: String,
@@ -15,5 +14,4 @@ const wordpressSchema = new mongoose.Schema({
 });
 
 export const Wordpress =
-  mongoose.models.UsWordpresser ||
-  mongoose.model("UsWordpresser", wordpressSchema);
+  mongoose.models.Wordpress || mongoose.model("Wordpress", wordpressSchema);

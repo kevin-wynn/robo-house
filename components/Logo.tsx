@@ -6,7 +6,7 @@ export const Logo = ({ dashboard }: { dashboard: boolean }) => {
       <Link href="/" className="hover:text-grass duration-300">
         <span
           className={`italic font-black ${
-            dashboard ? "text-black" : "text-stone"
+            dashboard ? "text-neutral-800" : "text-stone"
           } font-heavy`}
         >
           robo house

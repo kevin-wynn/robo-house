@@ -14,7 +14,7 @@ type ErrorType = {
   message?: string;
 };
 
-const formClasses = `appearance-none border rounded w-full py-2 px-3 text-black font-thin focus:outline-none focus:shadow-outline`;
+const formClasses = `appearance-none border rounded w-full py-2 px-3 text-neutral-800 font-thin focus:outline-none focus:shadow-outline`;
 const fieldRequiredMessage = "This field is required";
 
 export default function Contact({ user }: { user: any }) {

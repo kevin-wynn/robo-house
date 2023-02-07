@@ -4,7 +4,7 @@ import { Button } from "../../Button";
 import { MaxWidthContent } from "../../MaxWidthContent";
 import Datepicker from "react-tailwindcss-datepicker";
 
-const formClasses = `appearance-none border rounded w-full py-2 px-3 text-black font-thin focus:outline-none focus:shadow-outline`;
+const formClasses = `appearance-none border rounded w-full py-2 px-3 text-neutral-800 font-thin focus:outline-none focus:shadow-outline`;
 const fieldRequiredMessage = "This field is required";
 
 type ErrorType = {

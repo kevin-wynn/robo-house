@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Button } from "./Button";
 import { MaxWidthContent } from "./MaxWidthContent";
 
-const formClasses = `appearance-none border rounded w-full py-2 px-3 text-black font-thin focus:outline-none focus:shadow-outline`;
+const formClasses = `appearance-none border rounded w-full py-2 px-3 text-neutral-800 font-thin focus:outline-none focus:shadow-outline`;
 const fieldRequiredMessage = "This field is required";
 
 type ErrorType = {
@@ -12,11 +12,7 @@ type ErrorType = {
   password?: string;
 };
 
-export const LoginForm = ({
-  redirectURL,
-}: {
-  redirectURL: "/client" | "/admin";
-}) => {
+export const LoginForm = () => {
   const [showServerError, setShowServerError] = useState(false);
   const [showUserPassError, setShowUserPassError] = useState(false);
   return (
@@ -67,7 +63,12 @@ export const LoginForm = ({
                   setSubmitting(false);
                   break;
                 case 200:
-                  Router.push("/client");
+                  const json = await res.json();
+                  if (json.user?.userType === "admin") {
+                    Router.push("/admin");
+                  } else {
+                    Router.push("/client");
+                  }
                   break;
                 default:
                   setShowServerError(true);

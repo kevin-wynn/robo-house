@@ -5,7 +5,6 @@ import { getUserByUsername } from "./UserHelper";
 export const createLoginSession = async (session: any, secret: string) => {
   const username = session.passport.user;
   const user: User | null = await getUserByUsername(username);
-  delete user?.password;
   session.passport.user = user;
   const createdAt = Date.now();
   const obj = { ...session, createdAt };

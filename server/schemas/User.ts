@@ -14,7 +14,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  address: String,
+  street: String,
+  zipcode: String,
+  state: String,
+  code: String,
   userType: String,
   harvestID: Number,
   newClient: {

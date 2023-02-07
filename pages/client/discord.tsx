@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { DashboardHeader } from "../../components/client/DashboardHeader";
+import { DashboardHeader } from "../../components/DashboardHeader";
 import { MaxWidthContent } from "../../components/MaxWidthContent";
 import { Wrapper } from "../../components/Wrapper";
 import { getLoginSession } from "../../helpers/Auth";

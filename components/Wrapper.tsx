@@ -22,7 +22,7 @@ export const Wrapper = ({
 }) => {
   return (
     <div
-      className={`flex justify-start min-h-screen w-full font-normal text-black ${style}`}
+      className={`flex justify-start min-h-screen w-full font-normal text-neutral-800 ${style}`}
     >
       <div className="flex flex-col w-full items-center justify-between">
         {header && <Header dashboard={dashboard} user={user} />}

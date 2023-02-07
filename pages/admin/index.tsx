@@ -9,6 +9,7 @@ import {
   getHarvestTimeReports,
 } from "../../helpers/HarvestHelper";
 import { TabPanel } from "../../components/admin/TabPanel";
+import { DashboardHeader } from "../../components/DashboardHeader";
 
 export default function AdminDashboard({
   contactForms,
@@ -22,12 +23,18 @@ export default function AdminDashboard({
   timeReports: any;
 }) {
   return (
-    <Wrapper header footer user={user}>
+    <Wrapper
+      dashboard
+      header
+      footer
+      user={user}
+      style="items-start bg-neutral-100"
+    >
+      <DashboardHeader admin user={user} />
+      <div className="w-full grid grid-cols-4 gap-4 -mt-6 items-stretch"></div>
       <div className="flex flex-col min-h-screen h-full items-center w-full">
-        <div className="mb-6">
-          <h1 className="text-spice text-4xl">Admin Dashboard</h1>
-        </div>
         <div className="w-full justify-center flex flex-col p-12">
+          {/* move these to just use pages... keep tab panel for later use if i need it though */}
           <TabPanel
             panels={[
               {

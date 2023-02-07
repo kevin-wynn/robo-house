@@ -15,7 +15,10 @@ import { dashClientCompanyName } from "../../../../helpers/client/ClientHelper";
 import { createWordpressEc2Params } from "../../../../helpers/client/AWSHelper";
 import { createNewWordpressSite } from "../../../../helpers/client/WordpressHelper";
 import { User } from "../../../../types/User";
-import { createSubdomainForClient } from "../../../../helpers/client/CloudflareHelper";
+import {
+  createSSLForClient,
+  createSubdomainForClient,
+} from "../../../../helpers/client/CloudflareHelper";
 import db from "../../../../middleware/db";
 
 const handler = nextConnect();
@@ -115,8 +118,13 @@ handler
 
             console.log("Updating CF records to establish a subdomain");
             // update cloudflare dns records
-            const cfResponse = await createSubdomainForClient(dashCompany, ip);
-            console.log("cf response:", cfResponse);
+            const cfDNSResponse = await createSubdomainForClient(
+              dashCompany,
+              ip
+            );
+            console.log("cf response:", cfDNSResponse);
+
+            const cfSSLResponse = await createSSLForClient(dashCompany);
 
             console.log("Creating new Wordpress entry for user");
             // todo this should be an update to the users wordpress entry, and i should create a wordpress

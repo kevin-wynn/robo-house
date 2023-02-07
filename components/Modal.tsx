@@ -23,7 +23,7 @@ export const Modal = ({
   });
   return (
     <div
-      className={`bg-black top-0 left-0 absolute bg-opacity-20 z-40 flex justify-center items-center w-full h-full ${
+      className={`bg-neutral-800 top-0 left-0 absolute bg-opacity-20 z-40 flex justify-center items-center w-full h-full ${
         openModal ? "visible" : "hidden"
       }`}
     >

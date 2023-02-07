@@ -1,7 +1,7 @@
 import Dinero from "dinero.js";
 import { useEffect, useMemo, useState } from "react";
 import { useTable } from "react-table";
-import { DashboardHeader } from "../../components/client/DashboardHeader";
+import { DashboardHeader } from "../../components/DashboardHeader";
 import { Loader } from "../../components/Loader";
 import { MaxWidthContent } from "../../components/MaxWidthContent";
 import { Table } from "../../components/Table";
@@ -37,6 +37,7 @@ export default function InvoicesDashboard({ user }: { user: any }) {
             currency: "USD",
             amount: invoice.due_amount * 100,
           }).toFormat("$0,0.00"),
+          col6: invoice.state,
         };
       }),
     [invoices]
@@ -64,6 +65,10 @@ export default function InvoicesDashboard({ user }: { user: any }) {
         Header: "Amount",
         accessor: "col5",
       },
+      {
+        Header: "Status",
+        accessor: "col6",
+      },
     ],
     []
   ) as any;
@@ -82,8 +87,13 @@ export default function InvoicesDashboard({ user }: { user: any }) {
               <div className="h-44 w-full flex flex-col items-center justify-center">
                 <Loader />
               </div>
-            ) : (
+            ) : invoices.length ? (
               <Table tableInstance={tableInstance} />
+            ) : (
+              <div className="h-44 w-full flex flex-col items-center justify-center">
+                <span className="text-4xl">🎉</span>
+                <p>No invoices yet.</p>
+              </div>
             )}
           </div>
         </div>

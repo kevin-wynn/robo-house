@@ -1,9 +1,12 @@
 export type User = {
+  _id: string;
   username: string;
   password?: string;
-  name?: string | undefined;
+  name: string;
   company: string;
-  address?: string | undefined;
+  street: string;
+  zipcode: string;
+  state: string;
   userType?: string;
   harvestID?: number;
 };

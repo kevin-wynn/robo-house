@@ -89,15 +89,15 @@ cat <<EOF >>/var/www/html/wp-config.php
 
 define('FS_METHOD', 'direct');
 define('WP_MEMORY_LIMIT', '256M');
-define( 'WP_HOME', 'https://${clientName}.robo-house.com' );
-define( 'WP_SITEURL', 'https://${clientName}.robo-house.com' );
+define('WP_HOME', 'https://${clientName}.robo-house.com');
+define('WP_SITEURL', 'https://${clientName}.robo-house.com');
 EOF
 chown -R ec2-user:apache /var/www/html
 chmod -R 774 /var/www/html
-sudo sed -i '/<Directory "\/var\/www\/html">/,/<\/Directory>/ s/AllowOverride None/AllowOverride All/' /etc/httpd/conf/httpd.conf
-systemctl enable httpd.service
+sudo sed -i '/<Directory "\/var\/www\/html">/,/<\/Directory>/ s/AllowOverride None/AllowOverride all/' /etc/httpd/conf/httpd.conf
+sudo systemctl enable httpd.service
 sudo systemctl enable mariadb.service
-systemctl restart httpd.service
+sudo systemctl restart httpd.service
 echo '#############################################################'
 echo FINISHED SETTING UP LAMP SERVER AND WORDPRESS ON EC2 INSTANCE
 echo '#############################################################'

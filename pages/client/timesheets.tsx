@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useTable } from "react-table";
-import { DashboardHeader } from "../../components/client/DashboardHeader";
+import { DashboardHeader } from "../../components/DashboardHeader";
 import { Loader } from "../../components/Loader";
 import { MaxWidthContent } from "../../components/MaxWidthContent";
 import { Table } from "../../components/Table";
@@ -71,8 +71,13 @@ export default function TimesheetsDashboard({ user }: { user: any }) {
               <div className="h-44 w-full flex flex-col items-center justify-center">
                 <Loader />
               </div>
-            ) : (
+            ) : timesheets.length ? (
               <Table tableInstance={tableInstance} />
+            ) : (
+              <div className="h-44 w-full flex flex-col items-center justify-center">
+                <span className="text-4xl">📑</span>
+                <p>No timesheets yet.</p>
+              </div>
             )}
           </div>
         </div>

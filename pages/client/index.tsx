@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DashboardHeader } from "../../components/client/DashboardHeader";
+import { DashboardHeader } from "../../components/DashboardHeader";
 import { DiscordServer } from "../../components/client/DiscordServer";
 import { InvoicesStatus } from "../../components/client/harvest/InvoicesStatus";
 import { ProjectsStatus } from "../../components/client/harvest/ProjectsStatus";
@@ -19,7 +19,13 @@ export default function AdminDashboard({
 }) {
   const [wordpressSite, setWordpressSite] = useState(userWordpressSite);
   return (
-    <Wrapper dashboard header footer user={user} style="items-start bg-stone">
+    <Wrapper
+      dashboard
+      header
+      footer
+      user={user}
+      style="items-start bg-neutral-100"
+    >
       <DashboardHeader user={user} />
       <MaxWidthContent>
         <div className="w-full grid grid-cols-4 gap-4 -mt-6 items-stretch">

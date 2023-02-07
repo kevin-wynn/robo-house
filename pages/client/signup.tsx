@@ -6,7 +6,7 @@ import { Wrapper } from "../../components/Wrapper";
 import { Button } from "../../components/Button";
 import { MaxWidthContent } from "../../components/MaxWidthContent";
 
-const formClasses = `appearance-none border rounded w-full py-2 px-3 text-black font-thin focus:outline-none focus:shadow-outline`;
+const formClasses = `appearance-none border rounded w-full py-2 px-3 text-neutral-800 font-thin focus:outline-none focus:shadow-outline`;
 const fieldRequiredMessage = "This field is required";
 
 type ErrorType = {
@@ -14,7 +14,10 @@ type ErrorType = {
   password?: string;
   name?: string;
   company?: string;
-  address?: string;
+  street?: string;
+  state?: string;
+  zipcode?: string;
+  code?: string;
 };
 
 export default function Signup() {
@@ -29,9 +32,10 @@ export default function Signup() {
         <MaxWidthContent maxWidth="max-w-screen-sm">
           <h1 className="text-4xl text-stone mb-2">Let's get started</h1>
           <p className="text-md text-stone mb-8">
-            Sign up today and get started hosting your site or application
-            immediately. Take it another step to set up projects for design,
-            development, or anything else.
+            By now you've taken the step forward and are ready to get started
+            with Robo House. That's awesome news! You should have received a
+            client sign up code by email already, go ahead and fill out the form
+            and enter the code here to get started.
           </p>
           <div className="w-full">
             <Formik
@@ -40,7 +44,10 @@ export default function Signup() {
                 password: "",
                 name: "",
                 company: "",
-                address: "",
+                street: "",
+                state: "",
+                zipcode: "",
+                code: "",
               }}
               validate={(values) => {
                 const errors: ErrorType = {};
@@ -57,8 +64,23 @@ export default function Signup() {
                 if (!values.password) {
                   errors.password = fieldRequiredMessage;
                 }
+                if (!values.name) {
+                  errors.name = fieldRequiredMessage;
+                }
                 if (!values.company) {
                   errors.company = fieldRequiredMessage;
+                }
+                if (!values.street) {
+                  errors.street = fieldRequiredMessage;
+                }
+                if (!values.state) {
+                  errors.state = fieldRequiredMessage;
+                }
+                if (!values.zipcode) {
+                  errors.zipcode = fieldRequiredMessage;
+                }
+                if (!values.code) {
+                  errors.code = fieldRequiredMessage;
                 }
 
                 return errors;
@@ -68,7 +90,7 @@ export default function Signup() {
                 setShowServerError(false);
                 const body = JSON.stringify(values, null, 2);
                 const res = await fetch("/api/user", {
-                  method: "POST",
+                  method: "PUT",
                   headers: {
                     "Content-Type": "application/json",
                   },
@@ -141,7 +163,7 @@ export default function Signup() {
                     </p>
                   )}
                   <div className="pb-4">
-                    <label className="pb-2 text-stone">Email Address*</label>
+                    <label className="pb-2 text-stone">Email</label>
                     <span className="text-sm text-red-400 ml-2">
                       {errors.username && touched.username && errors.username}
                     </span>
@@ -155,7 +177,7 @@ export default function Signup() {
                     />
                   </div>
                   <div className="pb-4">
-                    <label className="pb-2 text-stone">Password*</label>
+                    <label className="pb-2 text-stone">Password</label>
                     <span className="text-sm text-red-400 ml-2">
                       {errors.password && touched.password && errors.password}
                     </span>
@@ -183,7 +205,7 @@ export default function Signup() {
                     />
                   </div>
                   <div className="pb-4">
-                    <label className="pb-2 text-stone">Company Name*</label>
+                    <label className="pb-2 text-stone">Company Name</label>
                     <span className="text-sm text-red-400 ml-2">
                       {errors.company && touched.company && errors.company}
                     </span>
@@ -196,17 +218,64 @@ export default function Signup() {
                       className={formClasses}
                     />
                   </div>
+                  <div className="pb-4 text-stone">Company Address</div>
                   <div className="pb-4">
-                    <label className="pb-2 text-stone">Company Address</label>
+                    <label className="pb-2 text-stone text-sm">Street</label>
                     <span className="text-sm text-red-400 ml-2">
-                      {errors.address && touched.address && errors.address}
+                      {errors.street && touched.street && errors.street}
                     </span>
                     <input
-                      type="address"
-                      name="address"
+                      type="text"
+                      name="street"
                       onChange={handleChange}
                       onBlur={handleBlur}
-                      value={values.address}
+                      value={values.street}
+                      className={formClasses}
+                    />
+                  </div>
+                  <div className="pb-4 w-full grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="pb-2 text-stone text-sm">State</label>
+                      <span className="text-sm text-red-400 ml-2">
+                        {errors.state && touched.state && errors.state}
+                      </span>
+                      <input
+                        type="text"
+                        name="state"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.state}
+                        className={formClasses}
+                      />
+                    </div>
+                    <div>
+                      <label className="pb-2 text-stone text-sm">Zipcode</label>
+                      <span className="text-sm text-red-400 ml-2">
+                        {errors.zipcode && touched.zipcode && errors.zipcode}
+                      </span>
+                      <input
+                        type="text"
+                        name="zipcode"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.zipcode}
+                        className={formClasses}
+                      />
+                    </div>
+                  </div>
+                  <div className="pb-8">
+                    <label className="pb-2 text-stone text-sm">
+                      Client Code
+                    </label>
+                    <span className="text-sm text-red-400 ml-2">
+                      {errors.code && touched.code && errors.code}
+                    </span>
+                    <input
+                      type="text"
+                      name="code"
+                      onChange={handleChange}
+                      onBlur={handleBlur}
+                      value={values.code}
                       className={formClasses}
                     />
                   </div>
@@ -223,7 +292,7 @@ export default function Signup() {
           </div>
         </MaxWidthContent>
       </div>
-      <div className="text-stone">
+      <div className="text-stone mt-6">
         Already a client?&nbsp;
         <Link className="underline" href="/client/login">
           Log in in today instead

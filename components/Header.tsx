@@ -18,8 +18,8 @@ export const Header = ({
             <Link
               href="/"
               className={`text-sm ${
-                dashboard ? "text-black" : "text-stone"
-              } hover:text-grey duration-300`}
+                dashboard ? "text-neutral-800" : "text-stone"
+              } hover:text-neutral-400 duration-300`}
             >
               home
             </Link>
@@ -28,8 +28,8 @@ export const Header = ({
             <Link
               href="/blog"
               className={`text-sm ${
-                dashboard ? "text-black" : "text-stone"
-              } hover:text-grey duration-300`}
+                dashboard ? "text-neutral-800" : "text-stone"
+              } hover:text-neutral-400 duration-300`}
             >
               blog
             </Link>
@@ -38,8 +38,8 @@ export const Header = ({
             <Link
               href="/contact"
               className={`text-sm ${
-                dashboard ? "text-black" : "text-stone"
-              } hover:text-grey duration-300`}
+                dashboard ? "text-neutral-800" : "text-stone"
+              } hover:text-neutral-400 duration-300`}
             >
               contact
             </Link>
@@ -48,8 +48,8 @@ export const Header = ({
             <Link
               href="/about"
               className={`text-sm ${
-                dashboard ? "text-black" : "text-stone"
-              } hover:text-grey duration-300`}
+                dashboard ? "text-neutral-800" : "text-stone"
+              } hover:text-neutral-400 duration-300`}
             >
               about
             </Link>
@@ -60,8 +60,8 @@ export const Header = ({
                 <Link
                   href="/client"
                   className={`text-sm ${
-                    dashboard ? "text-black" : "text-stone"
-                  } hover:text-grey duration-300`}
+                    dashboard ? "text-neutral-800" : "text-stone"
+                  } hover:text-neutral-400 duration-300`}
                 >
                   dashboard
                 </Link>
@@ -69,8 +69,8 @@ export const Header = ({
               <li className="mr-6">
                 <button
                   className={`text-sm ${
-                    dashboard ? "text-black" : "text-stone"
-                  } hover:text-grey duration-300`}
+                    dashboard ? "text-neutral-800" : "text-stone"
+                  } hover:text-neutral-400 duration-300`}
                   type="button"
                   onClick={async () => {
                     const res = await fetch("/api/logout");
@@ -89,8 +89,8 @@ export const Header = ({
                 <Link
                   href="/client/login"
                   className={`text-sm ${
-                    dashboard ? "text-black" : "text-stone"
-                  } hover:text-grey duration-300`}
+                    dashboard ? "text-neutral-800" : "text-stone"
+                  } hover:text-neutral-400 duration-300`}
                 >
                   login
                 </Link>
@@ -99,10 +99,10 @@ export const Header = ({
                 <Link
                   href="/client/signup"
                   className={`text-sm ${
-                    dashboard ? "text-black" : "text-stone"
-                  } hover:text-grey duration-300`}
+                    dashboard ? "text-neutral-800" : "text-stone"
+                  } hover:text-neutral-400 duration-300`}
                 >
-                  become a client
+                  new clients
                 </Link>
               </li>
             </>
