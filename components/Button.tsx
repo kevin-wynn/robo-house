@@ -14,12 +14,11 @@ export const Button = ({
   loading?: boolean;
   onClick?: () => void;
 }) => {
-  const [hoverEffect, setHoverEffect] = useState(false);
   return (
     <button
       disabled={disabled}
       type={type}
-      className="px-6 py-2 font-bold text-stone bg-neutral-800 hover:bg-neutral-700 rounded-full button hero tracking-wider duration-150"
+      className="px-6 py-2 outline-none font-bold text-stone bg-neutral-800 hover:bg-neutral-700 rounded-full button hero tracking-wider duration-150"
       data-text={children}
       onClick={onClick}
     >

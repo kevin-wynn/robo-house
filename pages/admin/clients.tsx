@@ -7,17 +7,25 @@ import { MaxWidthContent } from "../../components/MaxWidthContent";
 import { Loader } from "../../components/Loader";
 import { Table } from "../../components/Table";
 import { useTable } from "react-table";
+import { Button } from "../../components/Button";
+import { Modal } from "../../components/Modal";
+import { CreateClientForm } from "../../components/admin/CreateClientForm";
 
 export default function Clients({ user }: { user: User }) {
   const [loading, setLoading] = useState(true);
+  const [openModal, setOpenModal] = useState(false);
   const [clients, setClients] = useState([]);
 
   const getContactFormSubmissions = async () => {
     const res = await fetch("/api/user/all");
     const { users } = await res.json();
-    console.log("json:", users);
     setClients(users);
     setLoading(false);
+  };
+
+  const closeAndRefreshModal = () => {
+    getContactFormSubmissions();
+    setOpenModal(false);
   };
 
   useEffect(() => {
@@ -28,9 +36,11 @@ export default function Clients({ user }: { user: User }) {
     () =>
       clients.map((user: User) => {
         return {
-          col1: user.name,
+          col1: user.name || "Not set yet",
           col2: user.username,
-          col3: user.company,
+          col3: user.company || "Not set yet",
+          col4: user.code,
+          col5: user.active ? "Active" : "Inactive",
         };
       }),
     [clients]
@@ -50,6 +60,14 @@ export default function Clients({ user }: { user: User }) {
         Header: "Company",
         accessor: "col3",
       },
+      {
+        Header: "Client Code",
+        accessor: "col4",
+      },
+      {
+        Header: "Active",
+        accessor: "col5",
+      },
     ],
     []
   ) as any;
@@ -64,6 +82,9 @@ export default function Clients({ user }: { user: User }) {
       user={user}
       style="items-start bg-neutral-100"
     >
+      <Modal openModal={openModal} setOpenModal={setOpenModal}>
+        <CreateClientForm closeAndRefreshModal={closeAndRefreshModal} />
+      </Modal>
       <DashboardHeader admin user={user} />
       <MaxWidthContent>
         <div className="w-full flex flex-col -mt-6 items-start bg-white p-4">
@@ -82,6 +103,15 @@ export default function Clients({ user }: { user: User }) {
                 <p>No clients...</p>
               </div>
             )}
+          </div>
+          <div className="my-8 w-full flex flex-col items-center justify-center">
+            <Button
+              type="button"
+              disabled={false}
+              onClick={() => setOpenModal(true)}
+            >
+              Create a new client
+            </Button>
           </div>
         </div>
       </MaxWidthContent>

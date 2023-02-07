@@ -6,21 +6,19 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  password: {
-    type: String,
-    required: true,
-  },
-  company: {
-    type: String,
-    required: true,
-  },
+  password: String,
+  company: String,
   street: String,
   zipcode: String,
   state: String,
-  code: String,
+  code: Number,
   userType: String,
   harvestID: Number,
   newClient: {
+    type: Boolean,
+    default: true,
+  },
+  active: {
     type: Boolean,
     default: true,
   },
