@@ -1,16 +1,11 @@
 import { ReactElement } from "react";
 
 export const HeroContent = ({
-  content,
-  image,
+  children,
 }: {
-  content: ReactElement;
-  image: ReactElement;
+  children: ReactElement | ReactElement[];
 }) => {
   return (
-    <div className="justify-center items-center md:-mt-24 min-h-screen w-full grid grid-cols-1 md:grid-cols-2">
-      <div className="w-full text-stone p-8 md:p-2">{content}</div>
-      <div className="w-full">{image}</div>
-    </div>
+    <div className="justify-center items-start w-full flex">{children}</div>
   );
 };

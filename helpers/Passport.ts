@@ -14,7 +14,7 @@ passport.deserializeUser((req: any, id: any, done: any) => {
 const strategy = new LocalStrategy(
   { passReqToCallback: true },
   async (req: any, username: string, password: string, done: any) => {
-    const user = await getUserByUsername(username);
+    const user = await getUserByUsername(username, true);
     if (user) {
       const validPass = await validatePassword(user.password, password);
       if (!validPass) {

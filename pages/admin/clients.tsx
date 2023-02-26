@@ -36,11 +36,11 @@ export default function Clients({ user }: { user: User }) {
     () =>
       clients.map((user: User) => {
         return {
-          col1: user.name || "Not set yet",
+          col1: user.name || "not set yet",
           col2: user.username,
-          col3: user.company || "Not set yet",
+          col3: user.company || "not set yet",
           col4: user.code,
-          col5: user.active ? "Active" : "Inactive",
+          col5: user.status,
         };
       }),
     [clients]
@@ -65,7 +65,7 @@ export default function Clients({ user }: { user: User }) {
         accessor: "col4",
       },
       {
-        Header: "Active",
+        Header: "Status",
         accessor: "col5",
       },
     ],

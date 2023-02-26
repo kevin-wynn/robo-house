@@ -23,173 +23,157 @@ export default function Contact({ user }: { user: any }) {
   const [showServerError, setShowServerError] = useState(false);
   return (
     <>
-      <Wrapper
-        header
-        user={user}
-        style="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-red-900 via-orange-500 to-indigo-700"
-      >
-        <MaxWidthContent>
-          <HeroContent
-            content={
-              <>
-                <div className="text-6xl md:text-8xl font-heavy font-black tracking-tighter">
-                  Get In Touch.
+      <Wrapper header footer user={user}>
+        <div className="flex flex-col md:flex-row w-full p-8">
+          <div className="w-full md:w-1/2">
+            <HeroContent>
+              <div className="p-6 w-full flex flex-col">
+                <div className="text-5xl md:text-8xl font-serif tracking-tighter">
+                  Get in touch.
                 </div>
-                <div className="text-stone flex flex-col w-full md:w-3/4">
-                  <p className="text-3xl font-sans leading-snug mt-8 tracking-widest font-thin">
+                <MaxWidthContent maxWidth="max-w-screen-md">
+                  <p className="text-xl mt-4 md:mt-6 tracking-wider mb-8">
                     Drop a line to get your next project started. Need your
                     infrastructure worked on, migrated to Kubernetes? Reinforced
                     in any way? Got a marketing site you need set up? Done! Need
                     an application built? Easy!
                   </p>
-                </div>
-              </>
-            }
-            image={
-              <Image
-                src="/images/mech-house.png"
-                alt="Get in touch with us today for your next project"
-                width="500"
-                height="500"
-                priority
-              />
-            }
-          />
-        </MaxWidthContent>
-      </Wrapper>
-      <Wrapper footer footerDark style="mt-12">
-        <MaxWidthContent>
-          {showSuccess ? (
-            <div>
-              <p>{successMessage}</p>
-            </div>
-          ) : (
-            <Formik
-              initialValues={{ name: "", email: "", message: "" }}
-              validate={(values) => {
-                const errors: ErrorType = {};
+                </MaxWidthContent>
+              </div>
+            </HeroContent>
+          </div>
+          <div className="w-full md:w-1/2">
+            {showSuccess ? (
+              <div>
+                <p>{successMessage}</p>
+              </div>
+            ) : (
+              <Formik
+                initialValues={{ name: "", email: "", message: "" }}
+                validate={(values) => {
+                  const errors: ErrorType = {};
 
-                if (!values.message) {
-                  errors.message = fieldRequiredMessage;
-                }
+                  if (!values.message) {
+                    errors.message = fieldRequiredMessage;
+                  }
 
-                if (!values.email) {
-                  errors.email = fieldRequiredMessage;
-                } else if (
-                  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(values.email)
-                ) {
-                  errors.email = "Invalid email address";
-                }
+                  if (!values.email) {
+                    errors.email = fieldRequiredMessage;
+                  } else if (
+                    !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
+                      values.email
+                    )
+                  ) {
+                    errors.email = "Invalid email address";
+                  }
 
-                return errors;
-              }}
-              onSubmit={async (values, { setSubmitting }) => {
-                setSubmitting(true);
-                setShowServerError(false);
-                const body = JSON.stringify(values, null, 2);
-                const res = await fetch("/api/contact", {
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/json",
-                  },
-                  body,
-                });
+                  return errors;
+                }}
+                onSubmit={async (values, { setSubmitting }) => {
+                  setSubmitting(true);
+                  setShowServerError(false);
+                  const body = JSON.stringify(values, null, 2);
+                  const res = await fetch("/api/contact", {
+                    method: "POST",
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body,
+                  });
 
-                switch (res.status) {
-                  case 400:
+                  switch (res.status) {
+                    case 400:
+                      setShowServerError(true);
+                      break;
+                    case 201:
+                      setSuccessMessage("Got it! I'll be in touch soon!");
+                      setShowSuccess(true);
+                      break;
+                    case 202:
+                      setSuccessMessage(
+                        "I already have a submission for this email, I'll be in touch soon!"
+                      );
+                      setShowSuccess(true);
+                    default:
+                      break;
+                  }
+
+                  if (res.status === 400) {
                     setShowServerError(true);
-                    break;
-                  case 201:
-                    setSuccessMessage("Got it! I'll be in touch soon!");
+                  } else {
                     setShowSuccess(true);
-                    break;
-                  case 202:
-                    setSuccessMessage(
-                      "I already have a submission for this email, I'll be in touch soon!"
-                    );
-                    setShowSuccess(true);
-                  default:
-                    break;
-                }
+                  }
 
-                if (res.status === 400) {
-                  setShowServerError(true);
-                } else {
-                  setShowSuccess(true);
-                }
-
-                setSubmitting(false);
-              }}
-            >
-              {({
-                values,
-                errors,
-                touched,
-                handleChange,
-                handleBlur,
-                handleSubmit,
-                isSubmitting,
-              }) => (
-                <form
-                  onSubmit={handleSubmit}
-                  className="p-6 md:p-0 w-full md:w-1/2"
-                >
-                  {showServerError && (
-                    <p className="text-sm text-red-400 ml-2">
-                      There was an error from the server. Try again!
-                    </p>
-                  )}
-                  <div className="pb-4">
-                    <label className="pb-2">Name</label>
-                    {errors.name && touched.name && errors.name}
-                    <input
-                      type="name"
-                      name="name"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.name}
-                      className={formClasses}
-                    />
-                  </div>
-                  <div className="pb-4">
-                    <label className="pb-2">Email</label>
-                    <span className="text-sm text-red-400 ml-2">
-                      {errors.email && touched.email && errors.email}
-                    </span>
-                    <input
-                      type="email"
-                      name="email"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.email}
-                      className={formClasses}
-                    />
-                  </div>
-                  <div className="pb-4">
-                    <label className="pb-2">Message</label>
-                    <span className="text-sm text-red-400 ml-2">
-                      {errors.message && touched.message && errors.message}
-                    </span>
-                    <textarea
-                      name="message"
-                      onChange={handleChange}
-                      onBlur={handleBlur}
-                      value={values.message}
-                      className={`${formClasses} h-56`}
-                    />
-                  </div>
-                  <Button
-                    type="submit"
-                    disabled={isSubmitting}
-                    loading={isSubmitting}
-                  >
-                    Submit
-                  </Button>
-                </form>
-              )}
-            </Formik>
-          )}
-        </MaxWidthContent>
+                  setSubmitting(false);
+                }}
+              >
+                {({
+                  values,
+                  errors,
+                  touched,
+                  handleChange,
+                  handleBlur,
+                  handleSubmit,
+                  isSubmitting,
+                }) => (
+                  <form onSubmit={handleSubmit} className="p-6 md:p-0 w-full">
+                    {showServerError && (
+                      <p className="text-sm text-red-400 ml-2">
+                        There was an error from the server. Try again!
+                      </p>
+                    )}
+                    <div className="pb-4">
+                      <label className="pb-2">Name</label>
+                      {errors.name && touched.name && errors.name}
+                      <input
+                        type="name"
+                        name="name"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.name}
+                        className={formClasses}
+                      />
+                    </div>
+                    <div className="pb-4">
+                      <label className="pb-2">Email</label>
+                      <span className="text-sm text-red-400 ml-2">
+                        {errors.email && touched.email && errors.email}
+                      </span>
+                      <input
+                        type="email"
+                        name="email"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.email}
+                        className={formClasses}
+                      />
+                    </div>
+                    <div className="pb-4">
+                      <label className="pb-2">Message</label>
+                      <span className="text-sm text-red-400 ml-2">
+                        {errors.message && touched.message && errors.message}
+                      </span>
+                      <textarea
+                        name="message"
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={values.message}
+                        className={`${formClasses} h-56`}
+                      />
+                    </div>
+                    <Button
+                      type="submit"
+                      disabled={isSubmitting}
+                      loading={isSubmitting}
+                    >
+                      Submit
+                    </Button>
+                  </form>
+                )}
+              </Formik>
+            )}
+          </div>
+        </div>
       </Wrapper>
     </>
   );

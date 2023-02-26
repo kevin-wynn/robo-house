@@ -17,8 +17,6 @@ handler
     res.json({ user: req.user });
   })
   .post(async (req: any, res: any) => {
-    console.log("here:", req.body);
-
     const user = await createUser(req.body);
     res
       .status(200)
@@ -32,9 +30,15 @@ handler
         .json({ success: false, message: "No client code provided" });
     }
 
-    const foundUser = await getUserByUsername(req.body.email);
+    const foundUser = await getUserByUsername(req.body.username);
     if (!foundUser) {
       res.status(404).json({ success: false, message: "User email not found" });
+    }
+
+    if (foundUser.code !== parseInt(req.body.code)) {
+      res
+        .status(403)
+        .json({ success: false, message: "Client code not correct" });
     }
 
     try {
@@ -44,6 +48,7 @@ handler
       );
       await updateUserById(foundUser._id, {
         ...req.body,
+        status: "active",
         harvestID: response.id,
       });
       res

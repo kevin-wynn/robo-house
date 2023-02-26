@@ -16,7 +16,6 @@ export default function InvoicesDashboard({ user }: { user: any }) {
     const res = await fetch(`/api/harvest/invoices`);
     const json = await res.json();
     const { invoices } = json;
-    console.log("json:", invoices);
     setInvoices(invoices);
     setLoading(false);
   };

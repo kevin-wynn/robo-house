@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { NextApiRequest } from "next";
 import { Wrapper } from "../components/Wrapper";
 import { PostList } from "../components/PostList";
@@ -10,42 +9,9 @@ import { HeroContent } from "../components/HeroContent";
 export default function Blog({ posts, user }: { posts: any; user: any }) {
   return (
     <>
-      <Wrapper
-        header
-        user={user}
-        style="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-red-900 via-orange-500 to-indigo-700"
-      >
+      <Wrapper header footer user={user} style="min-h-screen">
         <MaxWidthContent>
-          <HeroContent
-            content={
-              <>
-                <div className="text-6xl md:text-8xl font-heavy font-black tracking-tighter">
-                  Our Recent Posts.
-                </div>
-                <div className="text-stone flex flex-col w-full md:w-3/4">
-                  <p className="text-3xl font-sans leading-snug mt-8 tracking-widest font-thin">
-                    See what we&lsquo;ve been up to, read about some of our
-                    clients. Or just poke around to see how busy we are.
-                  </p>
-                </div>
-              </>
-            }
-            image={
-              <Image
-                src="/images/robot-house-wave.png"
-                alt="The Robo House Robot"
-                width="700"
-                height="700"
-                className="mt-16"
-                priority
-              />
-            }
-          />
-        </MaxWidthContent>
-      </Wrapper>
-      <Wrapper footer footerDark>
-        <MaxWidthContent>
-          <PostList animate posts={posts} />
+          <PostList posts={posts} />
         </MaxWidthContent>
       </Wrapper>
     </>

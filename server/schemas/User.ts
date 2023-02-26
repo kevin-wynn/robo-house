@@ -11,6 +11,7 @@ const userSchema = new mongoose.Schema({
   street: String,
   zipcode: String,
   state: String,
+  city: String,
   code: Number,
   userType: String,
   harvestID: Number,
@@ -18,9 +19,9 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
-  active: {
-    type: Boolean,
-    default: true,
+  status: {
+    type: String,
+    default: "created",
   },
   wordpress: {
     type: mongoose.Schema.Types.ObjectId,

@@ -1,16 +1,10 @@
 import Link from "next/link";
 
-export const Logo = ({ dashboard }: { dashboard: boolean }) => {
+export const Logo = () => {
   return (
     <div className="text-3xl tracking-widest text-orange w-52">
       <Link href="/" className="hover:text-grass duration-300">
-        <span
-          className={`italic font-black ${
-            dashboard ? "text-neutral-800" : "text-stone"
-          } font-heavy`}
-        >
-          robo house
-        </span>
+        <span className={`italic font-black font-heavy`}>robo house</span>
       </Link>
     </div>
   );

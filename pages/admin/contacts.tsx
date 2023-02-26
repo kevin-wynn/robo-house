@@ -15,7 +15,6 @@ export default function Contacts({ user }: { user: User }) {
   const getContactFormSubmissions = async () => {
     const res = await fetch("/api/contact");
     const { forms } = await res.json();
-    console.log("json:", forms);
     setContactFormSubmissions(forms);
     setLoading(false);
   };

@@ -19,13 +19,7 @@ export default function AdminDashboard({
 }) {
   const [wordpressSite, setWordpressSite] = useState(userWordpressSite);
   return (
-    <Wrapper
-      dashboard
-      header
-      footer
-      user={user}
-      style="items-start bg-neutral-100"
-    >
+    <Wrapper header footer user={user} style="items-start">
       <DashboardHeader user={user} />
       <MaxWidthContent>
         <div className="w-full grid grid-cols-4 gap-4 -mt-6 items-stretch">
@@ -57,6 +51,14 @@ export async function getServerSideProps({ req, res }: { req: any; res: any }) {
     return {
       redirect: {
         destination: "/client/login",
+      },
+    };
+  }
+
+  if (session?.passport?.user.userType === "admin") {
+    return {
+      redirect: {
+        destination: "/admin",
       },
     };
   }

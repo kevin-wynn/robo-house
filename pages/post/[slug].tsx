@@ -7,33 +7,51 @@ import { Tag } from "../../components/Tag";
 import { MaxWidthContent } from "../../components/MaxWidthContent";
 import Image from "next/image";
 
-const POST_IMAGE_WIDTH = 2400;
+const POST_IMAGE_WIDTH = 1200;
+const AUTHOR_IMAGE_WIDTH = 200;
 
 const Post = ({ post }: { post: any }) => {
+  console.log("post:", post);
+
   if (post) {
     return (
-      <Wrapper header footer footerDark>
-        <div className="flex flex-col items-center w-full mt-12">
-          <div
-            style={{
-              backgroundImage: `url('${urlFor(post?.mainImage)
-                .width(POST_IMAGE_WIDTH)
-                .url()}')`,
-            }}
-            className="-z-10 -mt-44 pt-44 pb-44 top-0 w-full flex flex-col justify-center items-center bg-cover bg-no-repeat bg-center"
-          >
-            <h2 className="text-4xl md:text-8xl font-heavy font-black text-stone z-10 tracking-tighter text-center">
-              {post?.title}
-            </h2>
-            <div className="z-10 mt-8 flex items-center justify-center flex-row w-full">
-              {post?.tags?.map((tag: TagType) => (
-                <Tag key={tag._id} tag={tag} />
-              ))}
-            </div>
-          </div>
+      <Wrapper header footer>
+        <div className="flex flex-col items-center w-full mt-12 relative">
           <MaxWidthContent maxWidth="max-w-screen-lg">
-            <div className="w-full mt-8">
+            <div className="w-full bg-white p-8">
+              <h2 className="text-4xl md:text-5xl font-serif tracking-tighter">
+                {post?.title}
+                <span className="text-sm font-sans tracking-wide ml-2 font-thin my-2 ">
+                  {new Date(post?.publishedAt).toLocaleDateString()}
+                </span>
+              </h2>
+              <Image
+                alt="Post Image"
+                width={POST_IMAGE_WIDTH}
+                height={POST_IMAGE_WIDTH}
+                src={urlFor(post?.mainImage).width(POST_IMAGE_WIDTH).url()}
+                className="my-8 h-96 object-cover grayscale"
+              />
               <PortableText value={post?.body} components={ptComponents} />
+              <div className="mt-4 mb-8 flex items-center flex-row w-full">
+                {post?.tags?.map((tag: TagType) => (
+                  <Tag key={tag._id} tag={tag} />
+                ))}
+              </div>
+              {post.author && (
+                <div className="my-8 flex flex-row items-end">
+                  <Image
+                    alt={post.author.name}
+                    src={urlFor(post.author.image)
+                      .width(AUTHOR_IMAGE_WIDTH)
+                      .url()}
+                    className="w-14 h-14 rounded-md grayscale mr-2"
+                    width={AUTHOR_IMAGE_WIDTH}
+                    height={AUTHOR_IMAGE_WIDTH}
+                  />
+                  <span className="text-sm">{post.author.name}</span>
+                </div>
+              )}
             </div>
           </MaxWidthContent>
         </div>

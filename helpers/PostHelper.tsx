@@ -7,12 +7,12 @@ import client from "../client";
 
 export const getAllPosts = async () => {
   return await client.fetch(
-    groq`*[_type == "post" && publishedAt < now()]{...,tags[]->} | order(publishedAt desc)`
+    groq`*[_type == "post" && publishedAt < now()]{...,tags[]->, author->} | order(publishedAt desc)`
   );
 };
 
 export const getPostBySlug = async (slug: string) => {
-  const query = groq`*[_type == "post" && slug.current == $slug]{..., tags[]->}[0]`;
+  const query = groq`*[_type == "post" && slug.current == $slug]{..., tags[]->, author->}[0]`;
   return await client.fetch(query, { slug });
 };
 
@@ -28,7 +28,7 @@ export const urlFor = (source: any) => {
 export const ptComponents: PortableTextComponents = {
   list: {
     bullet: ({ children }: { children: any }) => (
-      <ul className="list-disc list-inside mb-6">{children}</ul>
+      <ul className="list-disc mb-6 text-sm leading-6">{children}</ul>
     ),
   },
   listItem: {
@@ -36,17 +36,17 @@ export const ptComponents: PortableTextComponents = {
   },
   block: {
     h2: ({ children }: { children: any }) => {
-      return <h2 className="text-2xl mb-4">{children}</h2>;
+      return <h2 className="text-3xl font-serif mb-6">{children}</h2>;
     },
     h3: ({ children }: { children: any }) => {
-      return <h3 className="text-4xl mb-4">{children}</h3>;
+      return <h3 className="text-4xl font-serif mb-6">{children}</h3>;
     },
     h4: ({ children }: { children: any }) => {
-      return <h4 className="font-extrabold text-2xl">{children}</h4>;
+      return <h4 className="font-serif text-2xl">{children}</h4>;
     },
     normal: ({ value }: { value: any }) => {
       return (
-        <p className="mb-4">
+        <p className="text-sm leading-6 mb-2">
           {value.children.map((item: any) => {
             // TODO: typing
             const markStyles = item.marks.map((mark: any) => {

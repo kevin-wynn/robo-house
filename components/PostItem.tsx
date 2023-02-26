@@ -5,41 +5,37 @@ import { Tag as TagType } from "../types/Tag";
 import Image from "next/image";
 
 const POST_IMAGE_WIDTH = 600;
+const AUTHOR_IMAGE_WIDTH = 200;
 
-export const PostItem = ({
-  post,
-  animate,
-}: {
-  post: any;
-  animate: boolean;
-}) => {
+export const PostItem = ({ post }: { post: any }) => {
   const { slug, mainImage, title, publishedAt, tagline, tags } = post;
   return (
-    <li
-      className={`list-none flex flex-col items-stretch font-light mb-12 p-8 rounded-md bg-stone ${
-        animate ? "hover:-translate-y-6 duration-300" : ""
-      }`}
-    >
-      <div className="flex flex-col mb-2">
+    <div className="flex flex-col font-light break-inside-avoid h-full mb-4 justify-between">
+      <div>
         <Link
-          className="text-2xl flex flex-col"
+          className="text-2xl flex flex-col justify-start"
           href="/post/[slug]"
           as={`/post/${slug.current}`}
         >
-          <p className="text-sm md:text-md">{title}</p>
-          <span className="text-sm font-thin mb-4">
-            {new Date(publishedAt).toLocaleDateString()}
-          </span>
           {mainImage && (
             <Image
               alt={title}
               src={urlFor(mainImage).width(POST_IMAGE_WIDTH).url()}
-              className="w-full object-cover object-center h-44 mb-4"
-              width="500"
-              height="500"
+              className="w-full object-cover object-center h-44 mb-4 grayscale"
+              width={POST_IMAGE_WIDTH}
+              height={POST_IMAGE_WIDTH}
             />
           )}
+          <p className="text-3xl font-serif">{title}</p>
+          <span className="text-sm font-thin my-2 ">
+            {new Date(publishedAt).toLocaleDateString()}
+          </span>
         </Link>
+        <div>
+          {tags?.map((tag: TagType) => (
+            <Tag key={tag._id} tag={tag} />
+          ))}
+        </div>
         <Link
           className="text-2xl"
           href="/post/[slug]"
@@ -48,11 +44,20 @@ export const PostItem = ({
           <p className="text-sm min-h-fit">{tagline}</p>
         </Link>
       </div>
-      <div className="mt-4">
-        {tags?.map((tag: TagType) => (
-          <Tag key={tag._id} tag={tag} />
-        ))}
+      <div>
+        {post.author && (
+          <div className="mt-4 flex flex-row items-end">
+            <Image
+              alt={post.author.name}
+              src={urlFor(post.author.image).width(AUTHOR_IMAGE_WIDTH).url()}
+              className="w-14 h-14 rounded-md grayscale mr-2"
+              width={AUTHOR_IMAGE_WIDTH}
+              height={AUTHOR_IMAGE_WIDTH}
+            />
+            <span className="text-sm">{post.author.name}</span>
+          </div>
+        )}
       </div>
-    </li>
+    </div>
   );
 };

@@ -9,25 +9,19 @@ export const Wrapper = ({
   header = false,
   footer = false,
   user,
-  footerDark = false,
-  dashboard = false,
 }: {
   children: ReactElement | ReactElement[];
   style?: string;
   header?: boolean;
   footer?: boolean;
   user?: User | undefined;
-  footerDark?: boolean;
-  dashboard?: boolean;
 }) => {
   return (
-    <div
-      className={`flex justify-start min-h-screen w-full font-normal text-neutral-800 ${style}`}
-    >
+    <div className={`flex justify-start w-full font-normal ${style}`}>
       <div className="flex flex-col w-full items-center justify-between">
-        {header && <Header dashboard={dashboard} user={user} />}
+        {header && <Header user={user} />}
         {children}
-        {footer && <Footer dashboard={dashboard} footerDark={footerDark} />}
+        {footer && <Footer />}
       </div>
     </div>
   );

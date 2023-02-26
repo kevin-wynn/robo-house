@@ -23,13 +23,7 @@ export default function AdminDashboard({
   timeReports: any;
 }) {
   return (
-    <Wrapper
-      dashboard
-      header
-      footer
-      user={user}
-      style="items-start bg-neutral-100"
-    >
+    <Wrapper header footer user={user} style="items-start">
       <DashboardHeader admin user={user} />
       <div className="w-full grid grid-cols-4 gap-4 -mt-6 items-stretch"></div>
       <div className="flex flex-col min-h-screen h-full items-center w-full">

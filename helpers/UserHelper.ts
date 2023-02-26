@@ -13,7 +13,10 @@ export const getAllUsersButAdmin = async () => {
   return await User.find({ userType: "client" }).select("-password").lean();
 };
 
-export const getUserByUsername = async (user: string | UserType) => {
+export const getUserByUsername = async (
+  user: string | UserType,
+  login: boolean = false
+) => {
   // todo: this is hacky and not ideal, but sometimes the session is passport.user = 'username' sometimes its passport.user = UserType
   // not sure why it does this, will need to trace back sessions and passport stuff here probably
   await dbConnect();
@@ -24,9 +27,8 @@ export const getUserByUsername = async (user: string | UserType) => {
     } else if (typeof user === "object") {
       usernameLookup = user.username;
     }
-    return await User.findOne({ username: usernameLookup })
-      .select("-password")
-      .lean();
+    const query = User.findOne({ username: usernameLookup }).lean();
+    return login ? await query : await query.select("-password");
   }
 };
 
@@ -53,7 +55,7 @@ export const createUser = async (body: { username: string }) => {
 
 export const updateUserById = async (userId: string, body: UserType) => {
   const hashedPassword = await hashPassword(body.password as string);
-  const userToSave = {
+  const userToSave: UserType = {
     username: body.username,
     password: hashedPassword,
     name: body.name,
@@ -61,7 +63,9 @@ export const updateUserById = async (userId: string, body: UserType) => {
     street: body.street,
     zipcode: body.zipcode,
     state: body.state,
+    city: body.city,
     harvestID: body.harvestID,
+    status: "active",
   };
   return await User.findByIdAndUpdate(userId, userToSave);
 };

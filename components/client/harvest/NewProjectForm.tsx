@@ -56,8 +56,6 @@ export const NewProjectForm = ({
               setShowServerError(false);
               setShowUserPassError(false);
               const formValues = { ...values, ...datePickerValue };
-              console.log("form values:", formValues);
-
               const body = JSON.stringify(formValues, null, 2);
               await fetch("/api/harvest/projects", {
                 method: "POST",

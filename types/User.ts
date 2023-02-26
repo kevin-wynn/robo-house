@@ -1,7 +1,7 @@
 // todo: see this for better typing https://mongoosejs.com/docs/typescript.html
 
 export type User = {
-  _id: string;
+  _id?: string;
   username: string;
   password?: string;
   name?: string;
@@ -9,8 +9,9 @@ export type User = {
   street?: string;
   zipcode?: string;
   state?: string;
+  city?: string;
   userType?: string;
   harvestID?: number;
   code?: number;
-  active: boolean;
+  status: "active" | "created" | "inactive";
 };
