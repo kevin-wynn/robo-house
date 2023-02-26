@@ -34,14 +34,14 @@ export default function Signup() {
           <HeroContent>
             <div className="p-6 w-full flex flex-col">
               <div className="text-5xl md:text-8xl font-serif tracking-tighter">
-                Let's get started
+                Let&apos;s get started
               </div>
               <MaxWidthContent maxWidth="max-w-screen-md">
                 <p className="text-xl mt-4 md:mt-6 tracking-wider mb-8">
-                  By now you've taken the step forward and are ready to get
-                  started with Robo House. That's awesome news! You should have
-                  received a client sign up code by email already, go ahead and
-                  fill out the form and enter the code here to get started.
+                  By now you&apos;ve taken the step forward and are ready to get
+                  started with Robo House. That&apos;s awesome news! You should
+                  have received a client sign up code by email already, go ahead
+                  and fill out the form and enter the code here to get started.
                 </p>
               </MaxWidthContent>
             </div>

@@ -30,7 +30,8 @@ export const ProjectsStatus = ({ user }: { user: User }) => {
 
   useEffect(() => {
     getProjectsStatus();
-  }, []);
+  });
+
   return (
     <>
       <div className="w-full bg-white p-6 flex flex-col justify-center items-center h-full col-span-2">

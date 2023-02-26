@@ -7,7 +7,7 @@ import { getLoginSession } from "../../helpers/Auth";
 
 export default function Discord({ user }: { user: any }) {
   return (
-    <Wrapper dashboard header footer user={user} style="items-start bg-stone">
+    <Wrapper header footer user={user} style="items-start bg-stone">
       <DashboardHeader user={user} />
       <MaxWidthContent>
         <div className="w-full bg-white p-6 -mt-6">
@@ -15,29 +15,29 @@ export default function Discord({ user }: { user: any }) {
             <Link href="/client" className="text-slate">
               dashboard home
             </Link>{" "}
-            // discord
+            / discord
           </span>
-          <h2 className="text-2xl">Let's talk Discord.</h2>
+          <h2 className="text-2xl">Let&apos;s talk Discord.</h2>
           <div className="grid grid-cols-2 gap-4 mt-4">
             <p>
               You may have heard of it, you may not. You may also have heard of
-              Slack. They're pretty similar. But who hates emails? They get lost
-              easily and you're probably not practicing a 0 inbox life like I
-              do. Tooting my own horn there... But also, you want to get in
-              touch with me quickly, right? Why eamil and wait hours before a
-              response when you can just chat me directly? It's faster, it's
-              much easier to get to the bottom of what we need to talk about. We
-              can have impromptu conversations about projects, it's just way
-              easier.
+              Slack. They&apos;re pretty similar. But who hates emails? They get
+              lost easily and you&apos;re probably not practicing a 0 inbox life
+              like I do. Tooting my own horn there... But also, you want to get
+              in touch with me quickly, right? Why eamil and wait hours before a
+              response when you can just chat me directly? It&apos;s faster,
+              it&apos;s much easier to get to the bottom of what we need to talk
+              about. We can have impromptu conversations about projects,
+              it&apos;s just way easier.
             </p>
             <p>
               I set my hours well enough to establish a healthy connection and
-              you, as a client, can know when I'm available and if I'm on
-              Discord - I'm available! I encourage all new clients to join my
-              Discord server, introduce yourselfs if you want, if not that's
-              fine too. But when you join just shoot me a message directly and I
-              will create a new private channel for us to chat about your
-              projects.
+              you, as a client, can know when I&apos;m available and if I&apos;m
+              on Discord - I&apos;m available! I encourage all new clients to
+              join my Discord server, introduce yourselfs if you want, if not
+              that&apos;s fine too. But when you join just shoot me a message
+              directly and I will create a new private channel for us to chat
+              about your projects.
             </p>
           </div>
           <div className="w-full flex flex-col items-center justify-center p-12">

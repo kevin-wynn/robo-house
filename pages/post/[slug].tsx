@@ -11,8 +11,6 @@ const POST_IMAGE_WIDTH = 1200;
 const AUTHOR_IMAGE_WIDTH = 200;
 
 const Post = ({ post }: { post: any }) => {
-  console.log("post:", post);
-
   if (post) {
     return (
       <Wrapper header footer>

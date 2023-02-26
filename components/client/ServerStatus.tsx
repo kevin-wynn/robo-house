@@ -81,8 +81,8 @@ export const ServerStatus = ({
                 when it has finished you will see the details of your new site
                 in your client dashboard. You agree to incur a{" "}
                 <span className="text-orange-500 font-bold">$25.00/mo</span>{" "}
-                added hosting and maintenace charge to your project's invoice by
-                creating a Wordpress site.
+                added hosting and maintenace charge to your project&apos;s
+                invoice by creating a Wordpress site.
               </p>
               <div className="mt-12 w-full flex flex-col items-center justify-center">
                 <Button
