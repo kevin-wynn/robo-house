@@ -75,13 +75,7 @@ export default function Clients({ user }: { user: User }) {
   const tableInstance = useTable({ columns, data });
 
   return (
-    <Wrapper
-      dashboard
-      header
-      footer
-      user={user}
-      style="items-start bg-neutral-100"
-    >
+    <Wrapper header footer user={user} style="items-start bg-neutral-100">
       <Modal openModal={openModal} setOpenModal={setOpenModal}>
         <CreateClientForm closeAndRefreshModal={closeAndRefreshModal} />
       </Modal>
