@@ -75,7 +75,7 @@ export default function InvoicesDashboard({ user }: { user: any }) {
   const tableInstance = useTable({ columns, data });
 
   return (
-    <Wrapper dashboard header footer user={user} style="items-start bg-stone">
+    <Wrapper header footer user={user} style="items-start bg-stone">
       <DashboardHeader user={user} />
       <MaxWidthContent>
         <div className="w-full flex flex-col -mt-6 items-start bg-white p-4">

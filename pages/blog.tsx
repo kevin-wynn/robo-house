@@ -9,7 +9,20 @@ import { HeroContent } from "../components/HeroContent";
 export default function Blog({ posts, user }: { posts: any; user: any }) {
   return (
     <>
-      <Wrapper header footer user={user} style="min-h-screen">
+      <Wrapper header user={user}>
+        <HeroContent>
+          <div className="p-6 w-full flex flex-col">
+            <div className="text-5xl md:text-8xl font-serif tracking-tighter">
+              Recent Posts
+            </div>
+            <p className="text-xl md:text-2xl mt-4 md:mt-6 tracking-wider">
+              See what we&lsquo;ve been up to, read about some of our clients.
+              Or just poke around to see how busy we are.
+            </p>
+          </div>
+        </HeroContent>
+      </Wrapper>
+      <Wrapper footer user={user} style="min-h-screen">
         <MaxWidthContent>
           <PostList posts={posts} />
         </MaxWidthContent>

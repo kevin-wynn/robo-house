@@ -19,42 +19,22 @@ export default function Tags({
 }) {
   return (
     <>
-      <Wrapper
-        header
-        user={user}
-        style="bg-[conic-gradient(at_bottom_right,_var(--tw-gradient-stops))] from-red-900 via-orange-500 to-indigo-700"
-      >
-        <MaxWidthContent>
-          <HeroContent
-            content={
-              <>
-                <div className="text-6xl md:text-8xl font-heavy font-black tracking-tighter">
-                  Recent Posts: {slug}
-                </div>
-                <div className="text-stone flex flex-col w-full md:w-3/4">
-                  <p className="text-3xl font-sans leading-snug mt-8 tracking-widest font-thin">
-                    See what we&lsquo;ve been up to, read about some of our
-                    clients. Or just poke around to see how busy we are.
-                  </p>
-                </div>
-              </>
-            }
-            image={
-              <Image
-                src="/images/robot-house-wave.png"
-                alt="The Robo House Robot"
-                width="700"
-                height="700"
-                className="mt-16"
-                priority
-              />
-            }
-          />
-        </MaxWidthContent>
+      <Wrapper header user={user}>
+        <HeroContent>
+          <div className="p-6 w-full flex flex-col">
+            <div className="text-5xl md:text-8xl font-serif tracking-tighter">
+              Recent Posts: {slug}
+            </div>
+            <p className="text-xl md:text-2xl mt-4 md:mt-6 tracking-wider">
+              See what we&lsquo;ve been up to, read about some of our clients.
+              Or just poke around to see how busy we are.
+            </p>
+          </div>
+        </HeroContent>
       </Wrapper>
-      <Wrapper footer footerDark>
+      <Wrapper footer style="mt-12">
         <MaxWidthContent>
-          <PostList animate posts={posts} />
+          <PostList posts={posts} />
         </MaxWidthContent>
       </Wrapper>
     </>
