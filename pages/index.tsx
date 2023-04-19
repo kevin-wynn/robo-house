@@ -30,17 +30,44 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
         <CardsList cols={3}>
           <CardListColumn>
             <Card>
-              <DividerHeader underline align="left" text="What is Robo House" />
               <div className="flex flex-col">
                 <h2 className="text-3xl font-serif mb-6">
                   Design, planning, and building.
                 </h2>
+
                 <p className="mb-2">
-                  With Robo House we can help you design your new website or
-                  application. With over 10 years of experience in web design we
-                  can provide you with ongoing design support for the best user
-                  experience possible.
+                  At Robo House, we understand that every client is unique and
+                  has their own specific needs and requirements. That's why we
+                  take the time to listen to our clients, understand their
+                  goals, and work with them to develop a custom solution that
+                  meets their needs and exceeds their expectations.
                 </p>
+
+                <p className="mb-2">
+                  Our design process starts with a thorough consultation, where
+                  we get to know our clients and learn about their brand, target
+                  audience, and business objectives. From there, we create a
+                  custom design that reflects their brand and conveys their
+                  message effectively.
+                </p>
+
+                <p className="mb-2">
+                  Once the design is finalized, we gets to work, building a
+                  website or application that is fast, secure, and easy to use.
+                  We use the latest technologies and industry best practices to
+                  ensure that our clients' websites and applications are
+                  functional, reliable, and scalable.
+                </p>
+
+                <p className="mb-2">
+                  In addition to website and application design and development,
+                  we also offer ongoing support and maintenance services to
+                  ensure that our clients' websites and applications remain
+                  up-to-date, secure, and optimized. We are committed to
+                  providing exceptional service and building long-term
+                  relationships with our clients.
+                </p>
+
                 <Image
                   src="/images/studio.jpg"
                   height="300"
@@ -48,19 +75,6 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
                   alt="Studio"
                   className="my-6 grayscale"
                 />
-              </div>
-            </Card>
-            <Card>
-              <div className="flex flex-col">
-                <h2 className="text-3xl font-serif mb-6">
-                  Build anything you can think of.
-                </h2>
-                <p className="mb-2">
-                  From building a marketing site to build your web applicaiton
-                  or iOS/Android application. All can be done through Robo
-                  House. Every step of the process can be accounted for and
-                  performed.
-                </p>
               </div>
             </Card>
           </CardListColumn>
@@ -77,27 +91,92 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
                 <h2 className="text-3xl font-serif mb-6">
                   Manage everything on your dashboard.
                 </h2>
+
                 <p className="mb-2">
-                  See time spent on projects, hault progress, make revisions,
-                  create new projects. See the status of your website and stand
-                  up new ones with only a few clicks. One click deploy Wordpress
-                  and configurable Docker applications. All backed by world
-                  leading resources like AWS and Cloudflare.
+                  At Robo-House, we are committed to providing our clients with
+                  exceptional service and transparency throughout the entire
+                  design and development process. That's why we offer a
+                  comprehensive dashboard that clients can use to log in and
+                  view the status of their projects and website or application
+                  hosting.
+                </p>
+
+                <p className="mb-2">
+                  Our dashboard provides real-time updates on the progress of
+                  each project, including milestones achieved and upcoming
+                  tasks. Clients can also view their website or application
+                  hosting status, including uptime, server load, and other
+                  critical metrics.
+                </p>
+
+                <p className="mb-2">
+                  With our dashboard, clients have complete visibility into the
+                  status of their projects and website or application hosting,
+                  enabling them to make informed decisions and stay up-to-date
+                  on the latest developments. Our team is always available to
+                  answer any questions or concerns and provide support whenever
+                  needed.
                 </p>
               </div>
             </Card>
           </CardListColumn>
           <CardListColumn>
             <Card>
-              <DividerHeader underline align="left" text="From the Desk" />
+              <div className="flex flex-col">
+                <h2 className="text-3xl font-serif mb-6">
+                  Build anything you can think of.
+                </h2>
+
+                <p className="mb-2">
+                  At Robo House, we pride ourselves on being a one-stop-shop for
+                  all your digital needs. We are experts with a wealth of
+                  experience in planning, designing, and building a wide range
+                  of digital products, including websites, applications,
+                  infrastructure, and mobile applications for both iOS and
+                  Android.
+                </p>
+
+                <p className="mb-2">
+                  Whether you're looking to launch a new website, develop a
+                  custom application, or build a robust infrastructure to
+                  support your digital needs, we have the expertise and
+                  resources to bring your vision to life. We use the latest
+                  technologies and industry best practices to ensure that your
+                  digital products are fast, secure, and easy to use.
+                </p>
+
+                <p className="mb-2">
+                  Our approach to development is collaborative and
+                  client-focused, and we work closely with our clients to
+                  understand their goals and requirements. We provide regular
+                  updates and seek feedback throughout the development process,
+                  ensuring that our clients are always informed and satisfied
+                  with the end product.
+                </p>
+
+                <Image
+                  src="/images/desk.jpg"
+                  height="300"
+                  width="500"
+                  alt="Desk"
+                  className="my-6 grayscale"
+                />
+              </div>
             </Card>
-            {posts.map((post: any) => (
-              <Card key={post._id}>
-                <PostItem post={post} />
-              </Card>
-            ))}
           </CardListColumn>
         </CardsList>
+        <div className="w-full">
+          <DividerHeader underline align="left" text="From the Desk" />
+          <CardsList cols={3}>
+            {posts.map((post: any) => (
+              <div>
+                <Card key={post._id}>
+                  <PostItem post={post} />
+                </Card>
+              </div>
+            ))}
+          </CardsList>
+        </div>
       </Wrapper>
     </>
   );
