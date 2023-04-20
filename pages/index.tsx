@@ -37,8 +37,8 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
 
                 <p className="mb-2">
                   At Robo House, we understand that every client is unique and
-                  has their own specific needs and requirements. That's why we
-                  take the time to listen to our clients, understand their
+                  has their own specific needs and requirements. That&apos;s why
+                  we take the time to listen to our clients, understand their
                   goals, and work with them to develop a custom solution that
                   meets their needs and exceeds their expectations.
                 </p>
@@ -55,14 +55,14 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
                   Once the design is finalized, we gets to work, building a
                   website or application that is fast, secure, and easy to use.
                   We use the latest technologies and industry best practices to
-                  ensure that our clients' websites and applications are
+                  ensure that our clients&apos; websites and applications are
                   functional, reliable, and scalable.
                 </p>
 
                 <p className="mb-2">
                   In addition to website and application design and development,
                   we also offer ongoing support and maintenance services to
-                  ensure that our clients' websites and applications remain
+                  ensure that our clients&apos; websites and applications remain
                   up-to-date, secure, and optimized. We are committed to
                   providing exceptional service and building long-term
                   relationships with our clients.
@@ -95,7 +95,7 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
                 <p className="mb-2">
                   At Robo-House, we are committed to providing our clients with
                   exceptional service and transparency throughout the entire
-                  design and development process. That's why we offer a
+                  design and development process. That&apos;s why we offer a
                   comprehensive dashboard that clients can use to log in and
                   view the status of their projects and website or application
                   hosting.
@@ -137,7 +137,7 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
                 </p>
 
                 <p className="mb-2">
-                  Whether you're looking to launch a new website, develop a
+                  Whether you&apos;re looking to launch a new website, develop a
                   custom application, or build a robust infrastructure to
                   support your digital needs, we have the expertise and
                   resources to bring your vision to life. We use the latest
@@ -169,8 +169,8 @@ export default function Home({ posts, user }: { posts: any; user: any }) {
           <DividerHeader underline align="left" text="From the Desk" />
           <CardsList cols={3}>
             {posts.map((post: any) => (
-              <div>
-                <Card key={post._id}>
+              <div key={post._id}>
+                <Card>
                   <PostItem post={post} />
                 </Card>
               </div>
