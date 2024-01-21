@@ -1,28 +1,34 @@
 {
-  "fun": {
+  "corporate": {
     "chapter": {
       "1": {
         "title": "Chapter 1: Don't settle for fast food developers.",
-        "content": "What's up, baby; I am a full stack engineer. And I mean that, infrastructure, backend, frontend, you name it I got it. Don't be fooled by all these middle of the aisle mall kiosk developers trying to sell themselves as \"full stack\" and bringing to the table only Javascript. Let's be real here that ain't it that's a fast food developer. I'm a five course fine dining check your coat at the door and sit down, have a drink, stay a while and chat kind of developer. Let me talk more words about that."
+        "content": "I am a a multidisciplinary Full Stack engineer. Bringing to the table a plethora of skills and abilities alongside my 10+ years experience."
       },
       "2": {
-        "title": "Chapter 2: More words about that.",
+        "title": "Chapter 2: More to Full Stack than frontend and backend.",
         "content": {
-          "1": "I had a manager a few jobs back that told me he didn't see you as a Full Stack Engineer until you also had experience working in devops/infrastructure. And it got me thinking about how right that statement is, it lives with me, it is me... I am the stack! And I take that to heart too. At that time I had dabbled in both frontend and backend and had a pretty robust understanding of both. But upon realizing that in order to truly feel Full Stack, one needs to be able to grasp every stage of software development lifecycle. This is the path forward from leaving the fast food industry for greater things. I studied French cuisine so I know a thing or two about mise en place.",
-          "2": "I got my start in web design and did that for a few years. I loved it and sometimes long for the ui, I think that helps me as a developer sometimes too. After that I moved into frontend development building what I was designing. Which was pretty dope ngl being able to take the visuals and I myself turn them concrete. Then naturally I felt the calling of building the backend, because that frontend was only so cool without adding an element of dynamic data to it. I rode this wave for a while, playing with different databases, finding what I liked and what I didn't. Then as the flow of life is, infrastructure came around. I started building CLI tools to help scaffoled out my projects, do various tasks, cronjobs, etc. And being insanely in debt and broke because of my punk rock attitude and let's be real spending all my money on tattoos and booze. I got real good at standing up projects for as cheap as I could. Some of my OG work was born out of raiding Goodwill's tech section and rebuilding old HP rack mount servers that I propped up on cinder blocks in my apartment closet. But the good graces of the cloud fell into place and those $100.00 a year developer credits with GCP I made go a long, long, ways. And so here we land, with our menu as crafted as such..."
+          "1": "Having had a a range of mentors and wonderful managers. I have been able to craft my skills in every aspect of the tech world and software development lifecycle to fit a multitude of positions.",
+          "2": "I got my start in the early 2013s as a web designer. At first building graphic designs for sign printing teaching myself the basics of Adobe Illustrator and Photoshop, etc. That led into a world of building UIs and UX workflows for websites. Eventually the curiosity grew, and so did the learning, continuing the path into software development learning Javascript to build upon my designs and turn them into tangible websites. Naturally, this led into backend development, learning Java, Ruby on Rails, and eventually settling into Golang constructing the backend pieces to power my frontend skills. And as time always tells, this inevitably led to learning the ins and outs of devops, infrastructure, and cloud computing. Allowing me to perform every aspect of the lifecycle in isolation or within a team."
         }
       },
       "3": {
-        "title": "Chapter 3: The Menu.",
+        "title": "Chapter 4: Where are we today?",
+        "content": {
+          "1": "Today I continue working as a Full Stack Engineer, continuing my learning and spending more time getting comfortable in Golang. Building more serverless and client side frontend pieces using Astro and Edge based SSR websites.",
+          "2": "Outside of the world of tech I am working towards writing more and spending more time sketching and painting again. Taking care of and spending time with my family. All the while continuing to cook and jot down movie reviews from time to time."
+        }
+      },
+      "4": {
+        "title": "Chapter 5: Where do we go from here?",
+        "content": "If you have made it this far you may have an interest in working with me. That's great. Shoot me an email, let's get started."
+      },
+      "skills": {
+        "title": "The tools of the trade",
         "content": [
           {
             "title": "Design 2012 - 2014:",
-            "items": [
-              "Adobe Illustrator",
-              "Abode Photoshop",
-              "Figma",
-              "Sketch (rip)"
-            ]
+            "items": ["Adobe Illustrator", "Abode Photoshop", "Figma", "Sketch"]
           },
           {
             "title": "Frontend Development 2014 - Present Day:",
@@ -40,7 +46,7 @@
           {
             "title": "Backend Development 2016 - Present Day:",
             "items": [
-              "Javascript (node, ya know how it is)",
+              "Javascript (NodeJS)",
               "Typescript",
               "Java",
               "Ruby on Rails",
@@ -52,7 +58,7 @@
             ]
           },
           {
-            "title": "SRE, DevOps, Infrastrcture 2018 - Present Day:",
+            "title": "SRE, DevOps, Infrastructure 2018 - Present Day:",
             "items": [
               "Kubernetes",
               "Terraform",
@@ -64,34 +70,21 @@
             ]
           },
           {
-            "title": "Just general software stuff, baby 2014 - Present Day:",
+            "title": "Just general tech industry 2014 - Present Day:",
             "items": [
               "Git(hub)",
-              "Jira",
-              "Confluence (all the Atlassian stuff)",
-              "Google (like gtag and analytics not like I google how to center divs)",
-              "Google (like how to center a div)",
-              "Adobe (a/b testing, etc... I have legitimately seen people get hired because they said they can do 'A/B testing so here we are...')",
+              "Jira and the Atlassian Suite",
+              "Google (Google Tag Manager, Analytics, Optimize, etc...)",
+              "Adobe (a/b testing, etc...)",
               "CMS (Contentful, MDX, Sanity.io, Ghost)",
-              "Draw.io (yeah I've put together some charts in my days)"
+              "Draw.io"
             ]
           }
         ]
-      },
-      "4": {
-        "title": "Chapter 4: A 5 start restaurant, a look at the future, and a past calling.",
-        "content": {
-          "1": "So where we do go from here? Who am I today? What is this all about? Those are the life questions best left for nights of booze. But I will give you some insight as to where I might land here... I currently reside in the United States. I had the wonderful fortune of meeting a Swiss citizen and marrying here and from that, had an equally wonderful daughter. Priorities change, you get soft around the edges, the tattoos begin to fade. You start to want only for others. A better education for my daughter, a home built of peace with a strong foundation. And from that the decision to leave my own home and move to Switzerland to provide a better life for my family is upon us. That is why we are all here. Because the most punk rock thing I can do isn't listen to The Casualties while pounding back 4 beers while my camera and mic are off during a 10:00am stand up meeting talking nonsensical bullshit about some fucking bug that doesn't mean a goddamn thing to anyone. In fact the most punk rock thing I can do is say fuck off to this rat race and find my happiness taking care of my family.",
-          "2": "And so with that being said. If you've made it here you probably have a sense of humor and you probably don't take life all that damn serious. And you are the kind of person I want to be working with. I'm going to go in and list my professional work next, maybe you care. And if you do let's chat. If you are down with me working from anywhere, know it will be from Switzerland soon."
-        }
-      },
-      "5": {
-        "title": "Chapter 5: Offer me a job",
-        "content": "At this point, just send me an email and let's get the show on the road."
       }
     }
   },
-  "corporate": {
+  "fun": {
     "chapter": {
       "1": {
         "title": "Chapter 1: Synergy, moving the needle, game changing.",
@@ -105,7 +98,18 @@
         }
       },
       "3": {
-        "title": "Chapter 3: Corporate Culinary Playbook.",
+        "title": "Chapter 4: An avant-garde dining establishment, a glimpse into tomorrow's trends, and a nostalgic echo from yesteryears beckoning.",
+        "content": {
+          "1": "In contemplating the corporate trajectory, questions of identity and purpose take center stage. Currently situated in the United States, a serendipitous encounter with a Swiss citizen led to marriage and the addition of a daughter, prompting a shift in priorities toward familial prosperity. The rebellious edges of punk rock rebellion soften as aspirations for a superior education and a tranquil home with a robust foundation take precedence. The decision to uproot and relocate to Switzerland is driven by a commitment to crafting an elevated life for the family. Departing from the conventional punk ethos, the audacious act lies in prioritizing family well-being over the trivialities of the corporate rat race. True punk rock, in this narrative, is found in asserting autonomy and embracing happiness through familial care, a paradigm shift away from the inconsequential buzz of corporate discussions.",
+          "2": "In conclusion, if you've successfully navigated to this juncture, it's evident that you possess a discerning sense of humor and a commendable lack of inclination towards taking life overly seriously. Your alignment with such values makes you an ideal collaborator for my professional endeavors. Moving forward, I'll meticulously detail my professional experience – a narrative that might pique your interest. If you find resonance in the prospect of remote collaboration and can anticipate my imminent transition to a Swiss work setting, I invite you to engage in a conversation about potential collaboration."
+        }
+      },
+      "4": {
+        "title": "Chapter 5: I am well-suited for the job; let's move forward with the offer.",
+        "content": "Shoot me an email; let's not drag this out. Time is money, you know."
+      },
+      "skills": {
+        "title": "Corporate Culinary Playbook.",
         "content": [
           {
             "title": "Design 2012 - 2014:",
@@ -144,7 +148,7 @@
             ]
           },
           {
-            "title": "SRE, DevOps, Infrastrcture 2018 - Present Day:",
+            "title": "SRE, DevOps, Infrastructure 2018 - Present Day:",
             "items": [
               "Kubernetes",
               "Terraform",
@@ -169,17 +173,6 @@
             ]
           }
         ]
-      },
-      "4": {
-        "title": "Chapter 4: An avant-garde dining establishment, a glimpse into tomorrow's trends, and a nostalgic echo from yesteryears beckoning.",
-        "content": {
-          "1": "In contemplating the corporate trajectory, questions of identity and purpose take center stage. Currently situated in the United States, a serendipitous encounter with a Swiss citizen led to marriage and the addition of a daughter, prompting a shift in priorities toward familial prosperity. The rebellious edges of punk rock rebellion soften as aspirations for a superior education and a tranquil home with a robust foundation take precedence. The decision to uproot and relocate to Switzerland is driven by a commitment to crafting an elevated life for the family. Departing from the conventional punk ethos, the audacious act lies in prioritizing family well-being over the trivialities of the corporate rat race. True punk rock, in this narrative, is found in asserting autonomy and embracing happiness through familial care, a paradigm shift away from the inconsequential buzz of corporate discussions.",
-          "2": "In conclusion, if you've successfully navigated to this juncture, it's evident that you possess a discerning sense of humor and a commendable lack of inclination towards taking life overly seriously. Your alignment with such values makes you an ideal collaborator for my professional endeavors. Moving forward, I'll meticulously detail my professional experience – a narrative that might pique your interest. If you find resonance in the prospect of remote collaboration and can anticipate my imminent transition to a Swiss work setting, I invite you to engage in a conversation about potential collaboration."
-        }
-      },
-      "5": {
-        "title": "Chapter 5: I am well-suited for the job; let's move forward with the offer.",
-        "content": "Shoot me an email; let's not drag this out. Time is money, you know."
       }
     }
   }

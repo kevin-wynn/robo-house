@@ -51,7 +51,13 @@ export const ImageTitle = () => {
           />
         </div>
         <div class="flex flex-col text-center md:text-left mt-6 md:mt-0 justify-center md:justify-start">
-          <h1 class="text-5xl md:text-6xl">Kevin Wynn</h1>
+          <h1 class="text-4xl md:text-5xl">Kevin Wynn</h1>
+          <div class="my-2">
+            Already interested?{" "}
+            <a class="text-blue-500" href="mailto:kevin@robo-house.com">
+              Get an email my way
+            </a>
+          </div>
           <FunToggle />
           <h2 class="text-xl md:text-2xl mt-2 text-gray-400 font-thin">
             Senior Software Engineer

@@ -15,7 +15,7 @@ export const FunToggle = () => {
         <button
           onClick={() => handleClick(1)}
           type="button"
-          class={`${$fun && "text-orange-500"} mr-1 underline`}
+          class={`${$fun && "text-blue-500"} mr-1 underline`}
         >
           Fun
         </button>
@@ -23,7 +23,7 @@ export const FunToggle = () => {
         <button
           onClick={() => handleClick(0)}
           type="button"
-          class={`${!$fun && "text-orange-500"} mr-1 underline`}
+          class={`${!$fun && "text-blue-500"} mr-1 underline`}
         >
           Corproate
         </button>

@@ -33,35 +33,25 @@ export const Text = () => {
         <p class="mb-2">{en[funLevel].chapter["2"].content["1"]}</p>
         <p>{en[funLevel].chapter["2"].content["2"]}</p>
       </div>
-      <div>
+      <div class="mb-4">
         <h3 class="font-bold text-xl mb-2">
           {en[funLevel].chapter["3"].title}
         </h3>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 max-w-3xl">
-        {en[funLevel].chapter["3"].content.map((item) => (
-          <div class="mb-4">
-            <p class="font-bold mb-2">{item.title}</p>
-            <ul class="ml-4">
-              {item.items.map((liItem) => (
-                <li class="list-disc">{liItem}</li>
-              ))}
-            </ul>
-          </div>
-        ))}
+        <p class="mb-2">{en[funLevel].chapter["3"].content["1"]}</p>
+        <p class="mb-2">{en[funLevel].chapter["3"].content["2"]}</p>
       </div>
       <div class="mb-4">
         <h3 class="font-bold text-xl mb-2">
           {en[funLevel].chapter["4"].title}
         </h3>
-        <p class="mb-2">{en[funLevel].chapter["4"].content["1"]}</p>
-        <p class="mb-2">{en[funLevel].chapter["4"].content["2"]}</p>
+        <p class="mb-2">{en[funLevel].chapter["4"].content}</p>
       </div>
-      <div class="mb-4">
-        <h3 class="font-bold text-xl mb-2">
-          {en[funLevel].chapter["5"].title}
+      <div>
+        <h3 class="font-bold text-xl">
+          <a class="text-blue-500" href="mailto:kevin@robo-house.com">
+            kevin@robo-house.com
+          </a>
         </h3>
-        <p class="mb-2">{en[funLevel].chapter["5"].content}</p>
       </div>
     </div>
   );
