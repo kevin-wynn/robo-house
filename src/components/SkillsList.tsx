@@ -26,10 +26,10 @@ export const SkillsList = () => {
       <div class="grid grid-cols-1 md:grid-cols-2 max-w-3xl">
         {en[funLevel].chapter.skills.content.map((item) => (
           <div class="mb-4">
-            <p class="font-bold mb-2">{item.title}</p>
+            <p class="font-bold mb-2 text-gray-600">{item.title}</p>
             <ul class="ml-4">
               {item.items.map((liItem) => (
-                <li class="list-disc">{liItem}</li>
+                <li class="list-disc text-gray-500">{liItem}</li>
               ))}
             </ul>
           </div>
