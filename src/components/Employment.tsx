@@ -9,7 +9,7 @@ export const Employment = () => {
         {en.employment.content.map((item) => (
           <div class="mb-4 md:mr-4">
             <div class="flex flex-col">
-              <a class="flex items-center" href={item.website}>
+              <a target="_blank" class="flex items-center" href={item.website}>
                 <img
                   class="max-h-16 max-w-16 my-4 mr-4 md:m-4"
                   src={item.logo}
