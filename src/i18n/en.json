@@ -1,0 +1,186 @@
+{
+  "fun": {
+    "chapter": {
+      "1": {
+        "title": "Chapter 1: Don't settle for fast food developers.",
+        "content": "What's up, baby; I am a full stack engineer. And I mean that, infrastructure, backend, frontend, you name it I got it. Don't be fooled by all these middle of the aisle mall kiosk developers trying to sell themselves as \"full stack\" and bringing to the table only Javascript. Let's be real here that ain't it that's a fast food developer. I'm a five course fine dining check your coat at the door and sit down, have a drink, stay a while and chat kind of developer. Let me talk more words about that."
+      },
+      "2": {
+        "title": "Chapter 2: More words about that.",
+        "content": {
+          "1": "I had a manager a few jobs back that told me he didn't see you as a Full Stack Engineer until you also had experience working in devops/infrastructure. And it got me thinking about how right that statement is, it lives with me, it is me... I am the stack! And I take that to heart too. At that time I had dabbled in both frontend and backend and had a pretty robust understanding of both. But upon realizing that in order to truly feel Full Stack, one needs to be able to grasp every stage of software development lifecycle. This is the path forward from leaving the fast food industry for greater things. I studied French cuisine so I know a thing or two about mise en place.",
+          "2": "I got my start in web design and did that for a few years. I loved it and sometimes long for the ui, I think that helps me as a developer sometimes too. After that I moved into frontend development building what I was designing. Which was pretty dope ngl being able to take the visuals and I myself turn them concrete. Then naturally I felt the calling of building the backend, because that frontend was only so cool without adding an element of dynamic data to it. I rode this wave for a while, playing with different databases, finding what I liked and what I didn't. Then as the flow of life is, infrastructure came around. I started building CLI tools to help scaffoled out my projects, do various tasks, cronjobs, etc. And being insanely in debt and broke because of my punk rock attitude and let's be real spending all my money on tattoos and booze. I got real good at standing up projects for as cheap as I could. Some of my OG work was born out of raiding Goodwill's tech section and rebuilding old HP rack mount servers that I propped up on cinder blocks in my apartment closet. But the good graces of the cloud fell into place and those $100.00 a year developer credits with GCP I made go a long, long, ways. And so here we land, with our menu as crafted as such..."
+        }
+      },
+      "3": {
+        "title": "Chapter 3: The Menu.",
+        "content": [
+          {
+            "title": "Design 2012 - 2014:",
+            "items": [
+              "Adobe Illustrator",
+              "Abode Photoshop",
+              "Figma",
+              "Sketch (rip)"
+            ]
+          },
+          {
+            "title": "Frontend Development 2014 - Present Day:",
+            "items": [
+              "Javascript",
+              "Typescript",
+              "Astro",
+              "React",
+              "Preact (do I list this along with React? idc)",
+              "Vue",
+              "Gatsby",
+              "GraphQL (client)"
+            ]
+          },
+          {
+            "title": "Backend Development 2016 - Present Day:",
+            "items": [
+              "Javascript (node, ya know how it is)",
+              "Typescript",
+              "Java",
+              "Ruby on Rails",
+              "Golang",
+              "MySQL",
+              "Postgres",
+              "MongoDB",
+              "GraphQL (server)"
+            ]
+          },
+          {
+            "title": "SRE, DevOps, Infrastrcture 2018 - Present Day:",
+            "items": [
+              "Kubernetes",
+              "Terraform",
+              "Helm",
+              "Docker",
+              "GCP",
+              "AWS",
+              "Linux, bash, etc..."
+            ]
+          },
+          {
+            "title": "Just general software stuff, baby 2014 - Present Day:",
+            "items": [
+              "Git(hub)",
+              "Jira",
+              "Confluence (all the Atlassian stuff)",
+              "Google (like gtag and analytics not like I google how to center divs)",
+              "Google (like how to center a div)",
+              "Adobe (a/b testing, etc... I have legitimately seen people get hired because they said they can do 'A/B testing so here we are...')",
+              "CMS (Contentful, MDX, Sanity.io, Ghost)",
+              "Draw.io (yeah I've put together some charts in my days)"
+            ]
+          }
+        ]
+      },
+      "4": {
+        "title": "Chapter 4: A 5 start restaurant, a look at the future, and a past calling.",
+        "content": {
+          "1": "So where we do go from here? Who am I today? What is this all about? Those are the life questions best left for nights of booze. But I will give you some insight as to where I might land here... I currently reside in the United States. I had the wonderful fortune of meeting a Swiss citizen and marrying here and from that, had an equally wonderful daughter. Priorities change, you get soft around the edges, the tattoos begin to fade. You start to want only for others. A better education for my daughter, a home built of peace with a strong foundation. And from that the decision to leave my own home and move to Switzerland to provide a better life for my family is upon us. That is why we are all here. Because the most punk rock thing I can do isn't listen to The Casualties while pounding back 4 beers while my camera and mic are off during a 10:00am stand up meeting talking nonsensical bullshit about some fucking bug that doesn't mean a goddamn thing to anyone. In fact the most punk rock thing I can do is say fuck off to this rat race and find my happiness taking care of my family.",
+          "2": "And so with that being said. If you've made it here you probably have a sense of humor and you probably don't take life all that damn serious. And you are the kind of person I want to be working with. I'm going to go in and list my professional work next, maybe you care. And if you do let's chat. If you are down with me working from anywhere, know it will be from Switzerland soon."
+        }
+      },
+      "5": {
+        "title": "Chapter 5: Offer me a job",
+        "content": "At this point, just send me an email and let's get the show on the road."
+      }
+    }
+  },
+  "corporate": {
+    "chapter": {
+      "1": {
+        "title": "Chapter 1: Synergy, moving the needle, game changing.",
+        "content": "In the dynamic landscape of technological prowess, Kevin Wynn emerges as a paragon of multidisciplinary excellence, seamlessly navigating the realms of frontend, backend, and devops/infrastructure with unparalleled finesse. His seasoned professional tenure in these arenas has bestowed upon him a transcendental insight, a veritable omniscience that transcends the mundane constraints of the software development lifecycle. Kevin's strategic acumen manifests in decisions that not only meticulously weigh each facet but transcend conventional perspectives, providing an avant-garde vantage point that not merely alleviates friction but orchestrates a symphony of operational optimization. His corporate odyssey is a saga of transcendence, where each keystroke resonates with the harmonious cadence of corporate conquest."
+      },
+      "2": {
+        "title": "Chapter 2: The epitome of Comprehensive Stack Proficiency.",
+        "content": {
+          "1": "In a pivotal juncture of his professional journey, Kevin Wynn received sagacious counsel from a former manager who asserted that true mastery of Full Stack Engineering necessitates a profound immersion in the realms of devops and infrastructure. This revelation became an indelible mantra that has reverberated through his career. Kevin internalized this wisdom, recognizing that while his proficiency in frontend and backend domains was commendable, achieving true Full Stack status demanded an encompassing comprehension of the entire the development process, marking a transformative chapter in his pursuit of corporate excellence.",
+          "2": "Embarking on his professional odyssey, Kevin Wynn commenced his journey in the realm of web design, honing his craft over several years. This initial foray laid the foundation for his transition into frontend development, where he seamlessly translated his design concepts into tangible digital interfaces. As his expertise evolved, Kevin delved into backend development, orchestrating the intricate data flow that empowered his frontend creations. The progression continued into the domain of infrastructure, where he meticulously crafted the digital abode to house his comprehensive creations. Kevin now invites you to a detailed exploration of his professional chronicles, unveiling the intricacies of his experiences, the temporal tapestry of his endeavors, and the array of tools that have been wielded across his illustrious career. Consider this narrative a curated menu, offering a tantalizing glimpse into the culinary artistry of Kevin's professional repertoire."
+        }
+      },
+      "3": {
+        "title": "Chapter 3: Corporate Culinary Playbook.",
+        "content": [
+          {
+            "title": "Design 2012 - 2014:",
+            "items": [
+              "Adobe Illustrator",
+              "Abode Photoshop",
+              "Figma",
+              "Sketch (rip)"
+            ]
+          },
+          {
+            "title": "Frontend Development 2014 - Present Day:",
+            "items": [
+              "Javascript",
+              "Typescript",
+              "Astro",
+              "React",
+              "Preact (do I list this along with React? idc)",
+              "Vue",
+              "Gatsby",
+              "GraphQL (client)"
+            ]
+          },
+          {
+            "title": "Backend Development 2016 - Present Day:",
+            "items": [
+              "Javascript (node, ya know how it is)",
+              "Typescript",
+              "Java",
+              "Ruby on Rails",
+              "Golang",
+              "MySQL",
+              "Postgres",
+              "MongoDB",
+              "GraphQL (server)"
+            ]
+          },
+          {
+            "title": "SRE, DevOps, Infrastrcture 2018 - Present Day:",
+            "items": [
+              "Kubernetes",
+              "Terraform",
+              "Helm",
+              "Docker",
+              "GCP",
+              "AWS",
+              "Linux, bash, etc..."
+            ]
+          },
+          {
+            "title": "Just general software stuff, baby 2014 - Present Day:",
+            "items": [
+              "Git(hub)",
+              "Jira",
+              "Confluence (all the Atlassian stuff)",
+              "Google (like gtag and analytics not like I google how to center divs)",
+              "Google (like how to center a div)",
+              "Adobe (a/b testing, etc... I have legitimately seen people get hired because they said they can do 'A/B testing so here we are...')",
+              "CMS (Contentful, MDX, Sanity.io, Ghost)",
+              "Draw.io (yeah I've put together some charts in my days)"
+            ]
+          }
+        ]
+      },
+      "4": {
+        "title": "Chapter 4: An avant-garde dining establishment, a glimpse into tomorrow's trends, and a nostalgic echo from yesteryears beckoning.",
+        "content": {
+          "1": "In contemplating the corporate trajectory, questions of identity and purpose take center stage. Currently situated in the United States, a serendipitous encounter with a Swiss citizen led to marriage and the addition of a daughter, prompting a shift in priorities toward familial prosperity. The rebellious edges of punk rock rebellion soften as aspirations for a superior education and a tranquil home with a robust foundation take precedence. The decision to uproot and relocate to Switzerland is driven by a commitment to crafting an elevated life for the family. Departing from the conventional punk ethos, the audacious act lies in prioritizing family well-being over the trivialities of the corporate rat race. True punk rock, in this narrative, is found in asserting autonomy and embracing happiness through familial care, a paradigm shift away from the inconsequential buzz of corporate discussions.",
+          "2": "In conclusion, if you've successfully navigated to this juncture, it's evident that you possess a discerning sense of humor and a commendable lack of inclination towards taking life overly seriously. Your alignment with such values makes you an ideal collaborator for my professional endeavors. Moving forward, I'll meticulously detail my professional experience – a narrative that might pique your interest. If you find resonance in the prospect of remote collaboration and can anticipate my imminent transition to a Swiss work setting, I invite you to engage in a conversation about potential collaboration."
+        }
+      },
+      "5": {
+        "title": "Chapter 5: I am well-suited for the job; let's move forward with the offer.",
+        "content": "Shoot me an email; let's not drag this out. Time is money, you know."
+      }
+    }
+  }
+}
