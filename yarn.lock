@@ -1248,9 +1248,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"astro@npm:4.2.0":
-  version: 4.2.0
-  resolution: "astro@npm:4.2.0"
+"astro@npm:4.2.1":
+  version: 4.2.1
+  resolution: "astro@npm:4.2.1"
   dependencies:
     "@astrojs/compiler": "npm:^2.3.4"
     "@astrojs/internal-helpers": "npm:0.2.1"
@@ -1321,7 +1321,7 @@ __metadata:
       optional: true
   bin:
     astro: astro.js
-  checksum: 158b66de4537c33fec52499dc02739683a38156c4f7d39fa4367d6727bb58c8bd1fbc4aff1f02ed6a74a0a1676a5f2fd4fab721fb4c6e6882496806e55990ffe
+  checksum: 27dd1d04c5a6e9595a15caa0824baa1904b6905bac258188702693efd626a2fe1515735753eaf6d3086cc603061971081321f3d247913ae95c593c2b8ab15b5e
   languageName: node
   linkType: hard
 
@@ -1866,23 +1866,6 @@ __metadata:
   checksum: 1c6b0abcdb901e13a44c7d699116d3d4279fdb261983122a3783e7273844d5f2537dc2e1c454a23fcf645917f93fbf8d07101c1d03c015a87faa662755212566
   languageName: node
   linkType: hard
-
-"deeply-dwarf@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "deeply-dwarf@workspace:."
-  dependencies:
-    "@astrojs/mdx": "npm:2.0.5"
-    "@astrojs/preact": "npm:^3.1.0"
-    "@astrojs/rss": "npm:4.0.2"
-    "@astrojs/sitemap": "npm:3.0.5"
-    "@astrojs/tailwind": "npm:5.1.0"
-    "@nanostores/preact": "npm:^0.5.0"
-    astro: "npm:4.2.0"
-    nanostores: "npm:^0.9.5"
-    preact: "npm:^10.19.3"
-    tailwindcss: "npm:^3.0.24"
-  languageName: unknown
-  linkType: soft
 
 "dequal@npm:^2.0.0, dequal@npm:^2.0.3":
   version: 2.0.3
@@ -5084,6 +5067,23 @@ __metadata:
   checksum: c19ef26e4e188f408922c46f7ff480d38e8dfc55d448310dfb518736b23ed2c4f547fb64a6ed5bdba92cd7e7ddc889d36ff78f794816d5e71498d645ef476107
   languageName: node
   linkType: hard
+
+"robo-house@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "robo-house@workspace:."
+  dependencies:
+    "@astrojs/mdx": "npm:2.0.5"
+    "@astrojs/preact": "npm:^3.1.0"
+    "@astrojs/rss": "npm:4.0.2"
+    "@astrojs/sitemap": "npm:3.0.5"
+    "@astrojs/tailwind": "npm:5.1.0"
+    "@nanostores/preact": "npm:^0.5.0"
+    astro: "npm:4.2.1"
+    nanostores: "npm:^0.9.5"
+    preact: "npm:^10.19.3"
+    tailwindcss: "npm:^3.0.24"
+  languageName: unknown
+  linkType: soft
 
 "rollup@npm:^4.2.0":
   version: 4.9.6
