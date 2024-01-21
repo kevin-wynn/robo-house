@@ -54,7 +54,10 @@ export const ImageTitle = () => {
           <h1 class="text-4xl md:text-5xl">Kevin Wynn</h1>
           <div class="my-2">
             Already interested?{" "}
-            <a class="text-blue-500" href="mailto:kevin@robo-house.com">
+            <a
+              class="text-blue-500 underline"
+              href="mailto:kevin@robo-house.com"
+            >
               Get an email my way
             </a>
           </div>

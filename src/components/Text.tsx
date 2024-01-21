@@ -56,7 +56,7 @@ export const Text = () => {
       </div>
       <div>
         <h3 class="font-bold text-xl">
-          <a class="text-blue-500" href="mailto:kevin@robo-house.com">
+          <a class="text-blue-500 underline" href="mailto:kevin@robo-house.com">
             kevin@robo-house.com
           </a>
         </h3>
