@@ -3,6 +3,7 @@ import BaseHead from "./BaseHead.astro";
 import Header from "./Header.astro";
 import Footer from "./Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import CookieConsentBanner from "./CookieConsentBanner.astro";
 ---
 
 <!doctype html>
@@ -15,6 +16,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
     <main class="min-h-screen grid grid-cols-1 md:grid-cols-2">
       <slot />
     </main>
+    <CookieConsentBanner />
     <Footer />
   </body>
 </html>

@@ -1,0 +1,48 @@
+---
+// get cookie, if they have cookie don't show banner
+// default cookie accept to false
+let cookieAccept = false;
+
+if (Astro.cookies.has("rh_cookieAccept")) {
+  const cookie = Astro.cookies.get("rh_cookieAccept");
+
+  // todo: make this better obviously just convert to boolean and set it
+  if (cookie?.value === "true") {
+    cookieAccept = true;
+  } else {
+    cookieAccept = false;
+  }
+}
+---
+
+{
+  !cookieAccept && (
+    <div
+      id="cookieConsentBanner"
+      class="flex justify-between fixed bottom-0 w-full p-8 bg-white border-t-gray-500 border-t-2"
+    >
+      This website uses cookies to help understand our traffic. By clicking
+      agree you give consent for using cookies.
+      <button
+        class="bg-blue-500 px-4 py-2 text-white hover:bg-blue-700 duration-200"
+        id="cookieConsentButton"
+        type="button"
+      >
+        Agree
+      </button>
+    </div>
+  )
+}
+
+<script>
+  const banner = document.getElementById("cookieConsentBanner");
+  const button = document.getElementById("cookieConsentButton");
+
+  button?.addEventListener("click", () => {
+    // if they click the button, they accept and we set the cookie
+    document.cookie = "rh_cookieAccept=true";
+
+    // remove the banner
+    banner?.remove();
+  });
+</script>
