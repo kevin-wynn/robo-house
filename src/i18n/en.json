@@ -1,4 +1,63 @@
 {
+  "employment": {
+    "title": "Employment History",
+    "content": [
+      {
+        "title": "Cloudflare",
+        "website": "https://www.cloudflare.com",
+        "logo": "/cloudflare.png",
+        "content": "Building scalable SSR solutions and providing better user experience by integrating 3rd party platforms to our Core network.",
+        "tools": "Java(Type)script, Node, Astro, React, GraphQL, Gatsby, Golang, Kubernetes, Helm, GCP, Terraform, Postgres",
+        "tenure": "2021 - Present",
+        "job": "Senior Systems Engineer"
+      },
+      {
+        "title": "Starship HSA",
+        "website": "https://starshiphsa.com/",
+        "logo": "/starshiphsa.jpeg",
+        "content": "Building React Native based iOS and Android application to help monitor HSA Bank transactions. As well as a platform for stock trading.",
+        "tools": "Java(Type)script, Node, Prisma, React Native, GraphQL, Express, Lerna, Postgres, AWS, Kubernetes, Helm",
+        "tenure": "2020 - 2021",
+        "job": "Senior Software Engineer"
+      },
+      {
+        "title": "YouEarnedIt, Kazoo, Worktango",
+        "website": "https://www.worktango.com/",
+        "logo": "/worktango.png",
+        "content": "Building and scaling our Ruby on Rails platform while also helping build our dashboard using React. Eventually transitioned to SRE where I helped build and maintain our infrastructure in GCP using Kubernetes.",
+        "tools": "Java(Type)script, Ruby on Rails, GraphQL, React, MongoDB, GCP, Kubernetes, Spinnaker, Helm",
+        "tenure": "2018 - 2020",
+        "job": "Senior Software Engineer"
+      },
+      {
+        "title": "HomeAdvisor",
+        "website": "https://www.homeadvisor.com/",
+        "logo": "/homeadvisor.png",
+        "content": "Building our custom frontend framework to help with our survey platform. Migrated from custom framework to React.",
+        "tools": "Java(Type)script, Java, React, MySQL",
+        "tenure": "2017 - 2018",
+        "job": "Software Engineer"
+      },
+      {
+        "title": "OutboundEngine",
+        "website": "https://www.outboundengine.com/",
+        "logo": "/outboundengine.png",
+        "content": "Began as a Web Designer to build our applications UI/UX. Transitioned to Software Engineer helping build our application's frontend using ExtJs and React. Worked with maintaining and building dynamic user websites with Java and MySQL.",
+        "tools": "Javascript, Java, ExtJS, React, MySQL, Photoshop, Illustrator",
+        "tenure": "2014 - 2017",
+        "job": "Web Designer, Software Engineer"
+      },
+      {
+        "title": "Atomic Design and Consulting",
+        "website": "https://www.atomicdc.com/",
+        "logo": "/atomicdc.jpeg",
+        "content": "Helped design and build Wordpress themes for various customers. Worked with clients to help build their website designs and then led the development team into creating themes to be maintained by the clients.",
+        "tools": "Wordpress, PHP, Javascript, Photoshop, Illustrator, Sketch",
+        "tenure": "2013 - 2014",
+        "job": "Web Designer, Software Engineer"
+      }
+    ]
+  },
   "corporate": {
     "chapter": {
       "1": {

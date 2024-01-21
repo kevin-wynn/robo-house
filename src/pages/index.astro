@@ -3,6 +3,7 @@ import Wrapper from "../components/Wrapper.astro";
 import { ImageTitle } from "../components/ImageTitle";
 import { Text } from "../components/Text";
 import { SkillsList } from "../components/SkillsList";
+import { Employment } from "../components/Employment";
 ---
 
 <Wrapper>
@@ -12,6 +13,6 @@ import { SkillsList } from "../components/SkillsList";
   </div>
   <div class="p-6 md:p-12 flex flex-col justify-start">
     <SkillsList client:load />
+    <Employment />
   </div>
-  <!-- add employment history here -->
 </Wrapper>
