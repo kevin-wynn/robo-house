@@ -35,13 +35,22 @@ if (Astro.cookies.has("rh_cookieAccept")) {
 }
 
 <script>
+  function setCookie(c_name: string, c_value: string, exdays: number) {
+    var exdate = new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    document.cookie =
+      encodeURIComponent(c_name) +
+      "=" +
+      encodeURIComponent(c_value) +
+      (!exdays ? "" : "; expires=" + exdate.toUTCString());
+  }
+
   const banner = document.getElementById("cookieConsentBanner");
   const button = document.getElementById("cookieConsentButton");
 
   button?.addEventListener("click", () => {
     // if they click the button, they accept and we set the cookie
-    document.cookie = "rh_cookieAccept=true";
-
+    setCookie("rh_cookieAccept", "true", 60);
     // remove the banner
     banner?.remove();
   });
