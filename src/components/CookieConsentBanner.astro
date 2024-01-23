@@ -50,7 +50,7 @@ if (Astro.cookies.has("rh_cookieAccept")) {
 
   button?.addEventListener("click", () => {
     // if they click the button, they accept and we set the cookie
-    setCookie("rh_cookieAccept", "true", 60);
+    setCookie("rh_cookieAccept", "true", 365);
     // remove the banner
     banner?.remove();
   });
