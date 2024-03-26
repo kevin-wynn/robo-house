@@ -1,5 +1,4 @@
 {
-  "name": "",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
@@ -21,5 +20,6 @@
   "devDependencies": {
     "@types/mailchimp__mailchimp_marketing": "^3.0.19",
     "@types/matter-js": "^0.19.6"
-  }
+  },
+  "packageManager": "yarn@4.1.1"
 }
