@@ -1,44 +1,45 @@
 ---
-import mailchimp from "@mailchimp/mailchimp_marketing";
+import client from "@sendgrid/client";
 
 const { noText } = Astro.props;
 
-mailchimp.setConfig({
-  apiKey: import.meta.env.MAILCHIMP_API_KEY,
-  server: "us18",
-});
-
-const LIST_ID = "8a6f11c67d";
+client.setApiKey(import.meta.env.SENDGRID_API_KEY);
 
 let hasSubmitted = false;
 
 if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-    const first = data.get("first");
-    const last = data.get("last");
-    const phone = data.get("phone");
-    const email = data.get("email");
+  const data = await Astro.request.formData();
+  const first = data.get("first");
+  const last = data.get("last");
+  const phone = data.get("phone");
+  const email = data.get("email");
 
-    const response = await mailchimp.lists.addListMember(LIST_ID, {
-      email_address: email,
-      status: "subscribed",
-      merge_fields: {
-        FNAME: first,
-        LNAME: last,
-        PHONE: phone,
+  const sendgridData = {
+    contacts: [
+      {
+        email: email,
+        first_name: first,
+        last_name: last,
+        phone_number: phone,
       },
-    });
+    ],
+  };
 
-    console.log(
-      `Successfully added contact as an audience member. The contact's id is ${response.id}.`
-    );
-  } catch (error) {
-    console.log("error!:", error);
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-  }
+  const request = {
+    url: `/v3/marketing/contacts`,
+    method: "PUT",
+    body: sendgridData,
+  };
+
+  client
+    .request(request as any)
+    .then(([response, body]) => {
+      console.log(response.statusCode);
+      console.log(response.body);
+    })
+    .catch((error) => {
+      console.error(error.response.body);
+    });
 
   hasSubmitted = true;
 }
