@@ -1123,13 +1123,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/matter-js@npm:^0.19.6":
-  version: 0.19.6
-  resolution: "@types/matter-js@npm:0.19.6"
-  checksum: 10c0/d88b4facb8c630212ecfb375df79a7218278a0fab469f8cbddaab7d9be177a7e12288242157be4d76f27d174c20bbf995fef209606c19300c6bef41795a4bf36
-  languageName: node
-  linkType: hard
-
 "@types/mdast@npm:^4.0.0":
   version: 4.0.3
   resolution: "@types/mdast@npm:4.0.3"
@@ -4720,13 +4713,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"querystring@npm:^0.2.1":
-  version: 0.2.1
-  resolution: "querystring@npm:0.2.1"
-  checksum: 10c0/6841b32bec4f16ffe7f5b5e4373b47ad451f079cde3a7f45e63e550f0ecfd8f8189ef81fb50079413b3fc1c59b06146e4c98192cb74ed7981aca72090466cd94
-  languageName: node
-  linkType: hard
-
 "queue-microtask@npm:^1.2.2":
   version: 1.2.3
   resolution: "queue-microtask@npm:1.2.3"
@@ -5062,9 +5048,7 @@ __metadata:
     "@astrojs/check": "npm:^0.5.10"
     "@astrojs/cloudflare": "npm:^9.2.0"
     "@astrojs/tailwind": "npm:^5.1.0"
-    "@types/matter-js": "npm:^0.19.6"
     astro: "npm:^4.5.9"
-    querystring: "npm:^0.2.1"
     tailwindcss: "npm:^3.4.1"
     typescript: "npm:^5.4.3"
   languageName: unknown
