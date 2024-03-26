@@ -1,27 +1,25 @@
 {
-  "name": "robo-house",
+  "name": "",
   "type": "module",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "astro check && astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/cloudflare": "^8.1.0",
-    "@astrojs/mdx": "2.0.5",
-    "@astrojs/partytown": "^2.0.4",
-    "@astrojs/preact": "^3.1.0",
-    "@astrojs/rss": "4.0.2",
-    "@astrojs/sitemap": "3.0.5",
-    "@astrojs/tailwind": "5.1.0",
-    "@nanostores/preact": "^0.5.0",
-    "astro": "4.2.1",
-    "nanostores": "^0.9.5",
-    "preact": "^10.19.3",
-    "tailwindcss": "^3.0.24"
+    "@astrojs/check": "^0.5.10",
+    "@astrojs/cloudflare": "^9.2.0",
+    "@astrojs/tailwind": "^5.1.0",
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
+    "astro": "^4.5.9",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.4.3"
   },
-  "packageManager": "yarn@4.0.2"
+  "devDependencies": {
+    "@types/mailchimp__mailchimp_marketing": "^3.0.19",
+    "@types/matter-js": "^0.19.6"
+  }
 }

@@ -1,0 +1,18 @@
+---
+import Wrapper from "../components/wrapper.astro";
+import Navigation from "../components/navigation.astro";
+import Content from "../components/content.astro";
+import ContactForm from "../components/contact.astro";
+---
+
+<Wrapper>
+  <Navigation />
+  <Content>
+    <h1 class="font-playfair text-7xl md:text-9xl">Let's Talk</h1>
+    <p class="mt-12">
+      I'm always looking to expand. Fill out the form and I will be in touch as
+      soon as possible.
+    </p>
+    <ContactForm noText />
+  </Content>
+</Wrapper>

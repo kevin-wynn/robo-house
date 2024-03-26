@@ -1,7 +1,3 @@
 {
-  "extends": "astro/tsconfigs/strict",
-  "compilerOptions": {
-    "jsx": "react",
-    "strictNullChecks": true
-  }
+  "extends": "astro/tsconfigs/strict"
 }
