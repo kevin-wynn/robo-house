@@ -1,5 +1,6 @@
 ---
 import { getEntries } from "astro:content";
+import GoogleAnalytics from "./googleAnalytics.astro";
 
 let authors;
 const { post } = Astro.props;
@@ -11,6 +12,16 @@ if (post) {
     //@ts-ignore
     return author.data.name;
   });
+}
+
+let hasAcceptedCookies = false;
+
+if (Astro.cookies.has("cc_cookie")) {
+  const cookieConsent = Astro.cookies.get("cc_cookie");
+  // todo: typing
+  //@ts-ignore
+  const cookieJSON = JSON.parse(cookieConsent.value);
+  hasAcceptedCookies = cookieJSON.categories.includes("analytics");
 }
 
 const canonicalUrl = Astro.url.href;
@@ -93,18 +104,15 @@ const canonicalUrl = Astro.url.href;
     rel="stylesheet"
   />
 
-  <!-- Google tag (gtag.js) -->
-  <script
-    type="text/partytown"
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=G-DF09BD6V11"></script>
-  <script type="text/partytown">
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+  {hasAcceptedCookies && <GoogleAnalytics />}
 
-    gtag("config", "G-DF09BD6V11");
-  </script>
+  <!-- cookie consent -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.css"
+  />
+  <script
+    type="module"
+    src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v3.0.0/dist/cookieconsent.umd.js"
+  ></script>
 </head>
