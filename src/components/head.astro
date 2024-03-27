@@ -70,7 +70,10 @@ const canonicalUrl = Astro.url.href;
       : "Robo House, web design, web development, custom web development, wordpress, wordpress theme, wordpress plugin, custom wordpress, Waco TX, web design, website development"}
   />
 
-  {post && <meta property="og:image" content={post.data.image} />}
+  <meta
+    property="og:image"
+    content={post ? post.data.image : "/images/rh.jpg"}
+  />
 
   <meta property="og:url" content={canonicalUrl} />
   <meta property="og:type" content="website" />
@@ -91,7 +94,10 @@ const canonicalUrl = Astro.url.href;
       : "Robo House, web design, web development, custom web development, wordpress, wordpress theme, wordpress plugin, custom wordpress, Waco TX, web design, website development"}
   />
 
-  {post && <meta name="twitter:image" content={post.data.image} />}
+  <meta
+    name="twitter:image"
+    content={post ? post.data.image : "/images/rh.jpg"}
+  />
 
   <!-- Favicon -->
   <link rel="icon" href="favicon.ico" type="image/x-icon" />
