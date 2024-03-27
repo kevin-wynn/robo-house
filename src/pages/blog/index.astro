@@ -1,0 +1,23 @@
+---
+import { getCollection } from "astro:content";
+import Wrapper from "../../components/wrapper.astro";
+import Navigation from "../../components/navigation.astro";
+import Content from "../../components/content.astro";
+import PostCard from "../../components/postCard.astro";
+
+const posts = await getCollection("posts");
+---
+
+<Wrapper>
+  <Navigation />
+  <Content>
+    <h1 class="font-playfair text-7xl md:text-9xl">Read more...</h1>
+    <p class="mt-12">
+      Keep up to date with our latest news. As we gain clientele and publish
+      case studies we will do write-ups here about those.
+    </p>
+    <ul class="min-h-screen">
+      {posts.map((post) => <PostCard post={post} />)}
+    </ul>
+  </Content>
+</Wrapper>

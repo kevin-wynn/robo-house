@@ -1,0 +1,56 @@
+---
+import { getEntry, getEntries } from "astro:content";
+import Wrapper from "../../components/wrapper.astro";
+import ContentWrapper from "../../components/content.astro";
+import Navigation from "../../components/navigation.astro";
+import Tag from "../../components/tag.astro";
+import { Image } from "astro:assets";
+
+const { slug } = Astro.params;
+
+const blogPost = await getEntry("posts", slug ?? "");
+
+if (!blogPost) {
+  return new Response(Astro.response, { status: 404 });
+}
+
+const { Content } = await blogPost.render();
+
+const authors = await getEntries(blogPost.data.authors);
+const tags = await getEntries(blogPost.data.tags);
+---
+
+<Wrapper post={blogPost}>
+  <Navigation />
+  <ContentWrapper>
+    <div class="mb-6">
+      <span class="font-bold">Blog</span>&nbsp;<span class="font-thin text-sm"
+        >Published on {new Date(blogPost.data.date).toDateString()}</span
+      >
+    </div>
+    <h1 class="font-playfair text-5xl md:text-6xl">{blogPost.data.title}</h1>
+    <p class="">
+      By&nbsp;{
+        authors.map((author) => <span class="mr-2">{author.data.name}</span>)
+      }
+    </p>
+    <div class="flex flex-wrap my-4">
+      {
+        tags.map((tag) => (
+          <Tag color={tag.data.color} slug={tag.slug}>
+            {tag.data.name}
+          </Tag>
+        ))
+      }
+    </div>
+    <div class="mt-6">
+      <Image
+        width={900}
+        height={514}
+        src={blogPost.data.image}
+        alt={blogPost.data.description}
+      />
+    </div>
+    <Content />
+  </ContentWrapper>
+</Wrapper>

@@ -1,15 +1,48 @@
 ---
 import Footer from "./footer.astro";
 import Head from "./head.astro";
+
+const { post } = Astro.props;
 ---
 
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    h2 {
+      @apply font-playfair text-4xl font-bold mb-2;
+    }
+
+    p {
+      @apply leading-relaxed mb-4 mt-2 font-thin;
+    }
+
+    span {
+      @apply font-thin;
+    }
+
+    ul {
+      @apply list-disc list-inside mb-4 mt-2 font-thin;
+    }
+
+    ol {
+      @apply list-decimal list-inside mb-4 mt-2 font-thin;
+    }
+
+    a {
+      @apply hover:text-red-600 duration-150 underline;
+    }
+  }
+</style>
 <html
   lang="en"
   class="bg-gradient-to-br from-neutral-900 to-slate-900 bg-neutral-900"
 >
-  <Head />
+  <Head post={post} />
   <body
-    class="bg-neutral-900 text-neutral-100 bg-gradient-to-br from-neutral-900 to-slate-900"
+    class="bg-neutral-900 text-neutral-100 bg-gradient-to-br from-neutral-900 to-slate-900 min-h-dvh"
   >
     <slot />
     <Footer />

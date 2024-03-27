@@ -1,4 +1,18 @@
 ---
+import { getEntries } from "astro:content";
+
+let authors;
+const { post } = Astro.props;
+
+if (post) {
+  authors = await getEntries(post.data.authors);
+  authors = authors.map((author) => {
+    // todo: typing here
+    //@ts-ignore
+    return author.data.name;
+  });
+}
+
 const canonicalUrl = Astro.url.href;
 ---
 
@@ -6,18 +20,24 @@ const canonicalUrl = Astro.url.href;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>
-    Robo House: Custom Website Design and Development Shop in Waco, TX
+    {
+      post
+        ? `Robo House: ${post.data.title}`
+        : "Robo House: Custom Website Design and Development Shop in Waco, TX"
+    }
   </title>
   <meta
     name="description"
-    content="Robo House is a custom web design and web development shop based in the heart of Waco, TX. Specializing in creating bespoke online solutions tailored to your unique needs and preferences. From stunning website designs to robust web development, committed to bringing your vision to life with creativity, precision, and expertise."
+    content={post
+      ? post.data.description
+      : "Robo House, web design, web development, custom web development, wordpress, wordpress theme, wordpress plugin, custom wordpress, Waco TX, web design, website development"}
   />
   <meta
     name="keywords"
     content="Robo House, web design, web development, custom web development, wordpress, wordpress theme, wordpress plugin, custom wordpress, Waco TX, web design, website development"
   />
   <meta name="robots" content="index, follow" />
-  <meta name="author" content="Robo House" />
+  <meta name="author" content={authors ? authors.join(", ") : "Robo House"} />
   <meta name="copyright" content="Copyright © 2024, Robo House" />
   <meta name="theme-color" content="#ffffff" />
   <!-- Add more meta tags as needed for specific SEO requirements -->
@@ -28,11 +48,15 @@ const canonicalUrl = Astro.url.href;
   <!-- Open Graph / Facebook -->
   <meta
     property="og:title"
-    content="Robo House: Custom Website Design and Development Shop in Waco, TX"
+    content={post
+      ? `Robo House: ${post.data.title}`
+      : "Robo House: Custom Website Design and Development Shop in Waco, TX"}
   />
   <meta
     property="og:description"
-    content="Robo House, web design, web development, custom web development, wordpress, wordpress theme, wordpress plugin, custom wordpress, Waco TX, web design, website development"
+    content={post
+      ? post.data.description
+      : "Robo House, web design, web development, custom web development, wordpress, wordpress theme, wordpress plugin, custom wordpress, Waco TX, web design, website development"}
   />
 
   <!-- make an og image for twitter and facebook -->
@@ -49,11 +73,15 @@ const canonicalUrl = Astro.url.href;
   <meta name="twitter:card" content="summary_large_image" />
   <meta
     name="twitter:title"
-    content="Robo House: Custom Website Design and Development Shop in Waco, TX"
+    content={post
+      ? `Robo House: ${post.data.title}`
+      : "Robo House: Custom Website Design and Development Shop in Waco, TX"}
   />
   <meta
     name="twitter:description"
-    content="Robo House, web design, web development, custom web development, wordpress, wordpress theme, wordpress plugin, custom wordpress, Waco TX, web design, website development"
+    content={post
+      ? post.data.description
+      : "Robo House, web design, web development, custom web development, wordpress, wordpress theme, wordpress plugin, custom wordpress, Waco TX, web design, website development"}
   />
   <!-- <meta
     name="twitter:image"
