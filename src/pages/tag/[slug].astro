@@ -1,8 +1,9 @@
 ---
-import { getEntry } from "astro:content";
+import { getCollection, getEntry } from "astro:content";
 import Wrapper from "../../components/wrapper.astro";
 import ContentWrapper from "../../components/content.astro";
 import Navigation from "../../components/navigation.astro";
+import PostCard from "../../components/postCard.astro";
 
 const { slug } = Astro.params;
 
@@ -12,7 +13,15 @@ if (!tag) {
   return new Response(Astro.response, { status: 404 });
 }
 
-// get posts for tag
+const posts = await getCollection("posts", ({ data }) => {
+  const matchingTags = data.tags.filter((postTag) => {
+    return postTag.slug === tag.slug;
+  });
+
+  if (matchingTags.length) {
+    return data;
+  }
+});
 ---
 
 <Wrapper>
@@ -22,5 +31,8 @@ if (!tag) {
       <span class="font-bold">Tag</span>
     </div>
     <h1 class="font-playfair text-5xl md:text-6xl">{tag.data.name}</h1>
+    <div class="mt-12">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
   </ContentWrapper>
 </Wrapper>

@@ -5,7 +5,12 @@ import Navigation from "../../components/navigation.astro";
 import Content from "../../components/content.astro";
 import PostCard from "../../components/postCard.astro";
 
-const posts = await getCollection("posts");
+let posts = await getCollection("posts");
+posts = posts.sort((a, b) => {
+  // todo: typing
+  // @ts-ignore
+  return b.data.date - a.data.date;
+});
 ---
 
 <Wrapper>

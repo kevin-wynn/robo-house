@@ -7,7 +7,12 @@ import ContactForm from "../components/contactForm.astro";
 import PostCard from "../components/postCard.astro";
 import { getCollection } from "astro:content";
 
-const posts = await getCollection("posts");
+let posts = await getCollection("posts");
+posts = posts.sort((a, b) => {
+  // todo: typing
+  // @ts-ignore
+  return b.data.date - a.data.date;
+});
 ---
 
 <Wrapper>
