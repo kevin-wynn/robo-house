@@ -1,5 +1,5 @@
 ---
-import { getEntry, getEntries } from "astro:content";
+import { getEntries, getCollection } from "astro:content";
 import Wrapper from "../../components/wrapper.astro";
 import ContentWrapper from "../../components/content.astro";
 import Navigation from "../../components/navigation.astro";
@@ -7,29 +7,33 @@ import Tag from "../../components/tag.astro";
 import { Image } from "astro:assets";
 import ContactForm from "../../components/contactForm.astro";
 
-const { slug } = Astro.params;
+export const prerender = true;
 
-const blogPost = await getEntry("posts", slug ?? "");
-
-if (!blogPost) {
-  return new Response(Astro.response, { status: 404 });
+export async function getStaticPaths() {
+  const blogEntries = await getCollection("posts");
+  return blogEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { post: entry },
+  }));
 }
 
-const { Content } = await blogPost.render();
+const { post } = Astro.props;
 
-const authors = await getEntries(blogPost.data.authors);
-const tags = await getEntries(blogPost.data.tags);
+const { Content } = await post.render();
+
+const authors = await getEntries(post.data.authors);
+const tags = await getEntries(post.data.tags);
 ---
 
-<Wrapper post={blogPost}>
+<Wrapper post={post}>
   <Navigation />
   <ContentWrapper>
     <div class="mb-6">
       <span class="font-bold">Blog</span>&nbsp;<span class="font-thin text-sm"
-        >Published on {new Date(blogPost.data.date).toDateString()}</span
+        >Published on {new Date(post.data.date).toDateString()}</span
       >
     </div>
-    <h1 class="font-playfair text-5xl md:text-6xl">{blogPost.data.title}</h1>
+    <h1 class="font-playfair text-5xl md:text-6xl">{post.data.title}</h1>
     <p class="">
       By&nbsp;{
         authors.map((author) => <span class="mr-2">{author.data.name}</span>)
@@ -48,8 +52,8 @@ const tags = await getEntries(blogPost.data.tags);
       <Image
         width={900}
         height={514}
-        src={blogPost.data.image}
-        alt={blogPost.data.description}
+        src={post.data.image}
+        alt={post.data.description}
       />
     </div>
     <Content />
