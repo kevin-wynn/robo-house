@@ -66,67 +66,74 @@ if (Astro.request.method === "POST") {
           look forward to the opportunity to collaborate with you and bring your
           vision to life.
         </p>
-        <form method="POST" class="max-w-md">
-          <div class="flex flex-row w-full">
-            <div class="flex flex-col">
-              <label class="flex flex-row mt-6">First:</label>
+        <form method="POST" class="max-w-md flex flex-col">
+          <div class="flex flex-row flex-wrap w-full">
+            <div class="flex flex-col mr-2">
+              <label for="first">First:</label>
               <input
+                id="first"
                 type="text"
                 name="first"
-                class="block text-neutral-950 p-2 outline-none mr-2"
+                class="block text-neutral-950 p-2 outline-none"
               />
             </div>
-            <div class="flex flex-col flex-grow">
-              <label class="flex flex-row mt-6">Last:</label>
+            <div class="flex flex-col flex-grow mr-2">
+              <label for="last">Last:</label>
               <input
+                id="last"
                 type="text"
                 name="last"
                 class="block text-neutral-950 p-2 outline-none"
               />
             </div>
+            <div class="flex flex-col mr-2">
+              <label for="phone">Phone:</label>
+              <input
+                id="phone"
+                type="text"
+                name="phone"
+                class="block text-neutral-950 p-2 outline-none"
+              />
+            </div>
+            <div class="flex flex-col mr-2 flex-grow">
+              <label for="email">Email:</label>
+              <input
+                id="email"
+                required
+                type="email"
+                name="email"
+                class="block text-neutral-950 p-2 outline-none"
+              />
+            </div>
+            <div class="flex flex-col mr-2 w-full">
+              <label for="service">Service:</label>
+              <select
+                required
+                name="service"
+                id="service"
+                class="bg-gray-50 border p-2.5 border-gray-300 text-gray-900 text-sm outline-none block w-full"
+              >
+                <option value="website">Custom Website</option>
+                <option value="seo">SEO & PPC</option>
+                <option value="app">Custom Application</option>
+                <option value="infrastructure">Infrastructure</option>
+              </select>
+            </div>
           </div>
-          <label class="flex flex-col mt-6">
-            Phone:
-            <input
-              type="text"
-              name="phone"
-              class="block text-neutral-950 p-2 outline-none"
-            />
-          </label>
-          <label class="flex flex-col mt-6">
-            Email:
-            <input
-              required
-              type="email"
-              name="email"
-              class="block text-neutral-950 p-2 outline-none"
-            />
-          </label>
-          <label class="flex flex-col mt-6">
-            Service:
-            <select
-              required
-              name="service"
-              id="service"
-              class="bg-gray-50 border p-2 border-gray-300 text-gray-900 text-sm outline-none block w-full"
-            >
-              <option value="website">Custom Website</option>
-              <option value="seo">SEO & PPC</option>
-              <option value="app">Custom Application</option>
-              <option value="infrastructure">Infrastructure</option>
-            </select>
-          </label>
-          <label class="flex flex-col mt-6">
-            Message:
-            <textarea
-              required
-              name="message"
-              class="block text-neutral-950 p-2 outline-none"
-            />
-          </label>
-          <button class="bg-red-600 color-neutral-50 py-2 px-4 rounded-full mt-6 hover:bg-red-700 duration-150">
-            Submit
-          </button>
+          <div class="flex flex-col mr-2 w-full">
+            <div class="flex flex-col w-full">
+              <label for="message">Message:</label>
+              <textarea
+                id="message"
+                required
+                name="message"
+                class="block text-neutral-950 p-2 outline-none w-full"
+              />
+            </div>
+            <button class="bg-red-600 color-neutral-50 max-h-12 max-w-24 py-2 px-4 rounded-full mt-6 hover:bg-red-700 duration-150">
+              Submit
+            </button>
+          </div>
         </form>
       </>
     )
