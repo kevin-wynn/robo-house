@@ -5,6 +5,7 @@ import ContentWrapper from "../../components/content.astro";
 import Navigation from "../../components/navigation.astro";
 import Tag from "../../components/tag.astro";
 import { Image } from "astro:assets";
+import ContactForm from "../../components/contactForm.astro";
 
 const { slug } = Astro.params;
 
@@ -52,5 +53,6 @@ const tags = await getEntries(blogPost.data.tags);
       />
     </div>
     <Content />
+    <ContactForm />
   </ContentWrapper>
 </Wrapper>

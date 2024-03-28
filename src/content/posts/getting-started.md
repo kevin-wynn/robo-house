@@ -4,7 +4,7 @@ date: 2024-03-26
 description: "The newest and hottest custom web development shop located in Waco, TX"
 authors: ["kevin-wynn"]
 tags: ["company"]
-image: "/images/getting-started.jpeg"
+image: "/images/getting-started.jpg"
 ---
 
 Robo House was created in 2010 by me, Kevin Wynn. At the beginning it served as a place for me to hone my development skills. Providing me a domain for working on personal projects.
