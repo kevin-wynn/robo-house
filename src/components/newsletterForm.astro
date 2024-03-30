@@ -1,6 +1,10 @@
 ---
 let hasSubmitted = false;
 
+// todo: need to check and make sure they are
+// actually submitting newsletter form or contact form
+// since this check now exists on all pages
+// if this newsletter sign up is in the footer
 if (Astro.request.method === "POST") {
   const data = await Astro.request.formData();
   const email = data.get("email");
