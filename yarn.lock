@@ -483,6 +483,26 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudflare/kv-asset-handler@npm:0.4.2":
+  version: 0.4.2
+  resolution: "@cloudflare/kv-asset-handler@npm:0.4.2"
+  checksum: 10c0/c8877851ce069b04d32d50a640c9c0faaab054970204f64a4111bac3dd85f177c001a0b57d32f7e65269e3896268b8f94605f31e4fa06253a6a5779587a63d17
+  languageName: node
+  linkType: hard
+
+"@cloudflare/unenv-preset@npm:2.14.0":
+  version: 2.14.0
+  resolution: "@cloudflare/unenv-preset@npm:2.14.0"
+  peerDependencies:
+    unenv: 2.0.0-rc.24
+    workerd: ^1.20260218.0
+  peerDependenciesMeta:
+    workerd:
+      optional: true
+  checksum: 10c0/6e2f8462f74e07b89555de5c1dcb608da0b68bd5d7c7dfd0b951a0810e4b2816a3d9d264dd385d8a0c796c713a544f1d459577a41bd20d83d519503d06e93e6a
+  languageName: node
+  linkType: hard
+
 "@cloudflare/unenv-preset@npm:2.7.11":
   version: 2.7.11
   resolution: "@cloudflare/unenv-preset@npm:2.7.11"
@@ -503,9 +523,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudflare/workerd-darwin-64@npm:1.20260219.0":
+  version: 1.20260219.0
+  resolution: "@cloudflare/workerd-darwin-64@npm:1.20260219.0"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@cloudflare/workerd-darwin-arm64@npm:1.20251118.0":
   version: 1.20251118.0
   resolution: "@cloudflare/workerd-darwin-arm64@npm:1.20251118.0"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@cloudflare/workerd-darwin-arm64@npm:1.20260219.0":
+  version: 1.20260219.0
+  resolution: "@cloudflare/workerd-darwin-arm64@npm:1.20260219.0"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
@@ -517,6 +551,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudflare/workerd-linux-64@npm:1.20260219.0":
+  version: 1.20260219.0
+  resolution: "@cloudflare/workerd-linux-64@npm:1.20260219.0"
+  conditions: os=linux & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@cloudflare/workerd-linux-arm64@npm:1.20251118.0":
   version: 1.20251118.0
   resolution: "@cloudflare/workerd-linux-arm64@npm:1.20251118.0"
@@ -524,9 +565,23 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudflare/workerd-linux-arm64@npm:1.20260219.0":
+  version: 1.20260219.0
+  resolution: "@cloudflare/workerd-linux-arm64@npm:1.20260219.0"
+  conditions: os=linux & cpu=arm64
+  languageName: node
+  linkType: hard
+
 "@cloudflare/workerd-windows-64@npm:1.20251118.0":
   version: 1.20251118.0
   resolution: "@cloudflare/workerd-windows-64@npm:1.20251118.0"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@cloudflare/workerd-windows-64@npm:1.20260219.0":
+  version: 1.20260219.0
+  resolution: "@cloudflare/workerd-windows-64@npm:1.20260219.0"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -3425,6 +3480,95 @@ __metadata:
   languageName: node
   linkType: hard
 
+"esbuild@npm:0.27.3, esbuild@npm:^0.27.3":
+  version: 0.27.3
+  resolution: "esbuild@npm:0.27.3"
+  dependencies:
+    "@esbuild/aix-ppc64": "npm:0.27.3"
+    "@esbuild/android-arm": "npm:0.27.3"
+    "@esbuild/android-arm64": "npm:0.27.3"
+    "@esbuild/android-x64": "npm:0.27.3"
+    "@esbuild/darwin-arm64": "npm:0.27.3"
+    "@esbuild/darwin-x64": "npm:0.27.3"
+    "@esbuild/freebsd-arm64": "npm:0.27.3"
+    "@esbuild/freebsd-x64": "npm:0.27.3"
+    "@esbuild/linux-arm": "npm:0.27.3"
+    "@esbuild/linux-arm64": "npm:0.27.3"
+    "@esbuild/linux-ia32": "npm:0.27.3"
+    "@esbuild/linux-loong64": "npm:0.27.3"
+    "@esbuild/linux-mips64el": "npm:0.27.3"
+    "@esbuild/linux-ppc64": "npm:0.27.3"
+    "@esbuild/linux-riscv64": "npm:0.27.3"
+    "@esbuild/linux-s390x": "npm:0.27.3"
+    "@esbuild/linux-x64": "npm:0.27.3"
+    "@esbuild/netbsd-arm64": "npm:0.27.3"
+    "@esbuild/netbsd-x64": "npm:0.27.3"
+    "@esbuild/openbsd-arm64": "npm:0.27.3"
+    "@esbuild/openbsd-x64": "npm:0.27.3"
+    "@esbuild/openharmony-arm64": "npm:0.27.3"
+    "@esbuild/sunos-x64": "npm:0.27.3"
+    "@esbuild/win32-arm64": "npm:0.27.3"
+    "@esbuild/win32-ia32": "npm:0.27.3"
+    "@esbuild/win32-x64": "npm:0.27.3"
+  dependenciesMeta:
+    "@esbuild/aix-ppc64":
+      optional: true
+    "@esbuild/android-arm":
+      optional: true
+    "@esbuild/android-arm64":
+      optional: true
+    "@esbuild/android-x64":
+      optional: true
+    "@esbuild/darwin-arm64":
+      optional: true
+    "@esbuild/darwin-x64":
+      optional: true
+    "@esbuild/freebsd-arm64":
+      optional: true
+    "@esbuild/freebsd-x64":
+      optional: true
+    "@esbuild/linux-arm":
+      optional: true
+    "@esbuild/linux-arm64":
+      optional: true
+    "@esbuild/linux-ia32":
+      optional: true
+    "@esbuild/linux-loong64":
+      optional: true
+    "@esbuild/linux-mips64el":
+      optional: true
+    "@esbuild/linux-ppc64":
+      optional: true
+    "@esbuild/linux-riscv64":
+      optional: true
+    "@esbuild/linux-s390x":
+      optional: true
+    "@esbuild/linux-x64":
+      optional: true
+    "@esbuild/netbsd-arm64":
+      optional: true
+    "@esbuild/netbsd-x64":
+      optional: true
+    "@esbuild/openbsd-arm64":
+      optional: true
+    "@esbuild/openbsd-x64":
+      optional: true
+    "@esbuild/openharmony-arm64":
+      optional: true
+    "@esbuild/sunos-x64":
+      optional: true
+    "@esbuild/win32-arm64":
+      optional: true
+    "@esbuild/win32-ia32":
+      optional: true
+    "@esbuild/win32-x64":
+      optional: true
+  bin:
+    esbuild: bin/esbuild
+  checksum: 10c0/fdc3f87a3f08b3ef98362f37377136c389a0d180fda4b8d073b26ba930cf245521db0a368f119cc7624bc619248fff1439f5811f062d853576f8ffa3df8ee5f1
+  languageName: node
+  linkType: hard
+
 "esbuild@npm:^0.25.0":
   version: 0.25.12
   resolution: "esbuild@npm:0.25.12"
@@ -3511,95 +3655,6 @@ __metadata:
   bin:
     esbuild: bin/esbuild
   checksum: 10c0/c205357531423220a9de8e1e6c6514242bc9b1666e762cd67ccdf8fdfdc3f1d0bd76f8d9383958b97ad4c953efdb7b6e8c1f9ca5951cd2b7c5235e8755b34a6b
-  languageName: node
-  linkType: hard
-
-"esbuild@npm:^0.27.3":
-  version: 0.27.3
-  resolution: "esbuild@npm:0.27.3"
-  dependencies:
-    "@esbuild/aix-ppc64": "npm:0.27.3"
-    "@esbuild/android-arm": "npm:0.27.3"
-    "@esbuild/android-arm64": "npm:0.27.3"
-    "@esbuild/android-x64": "npm:0.27.3"
-    "@esbuild/darwin-arm64": "npm:0.27.3"
-    "@esbuild/darwin-x64": "npm:0.27.3"
-    "@esbuild/freebsd-arm64": "npm:0.27.3"
-    "@esbuild/freebsd-x64": "npm:0.27.3"
-    "@esbuild/linux-arm": "npm:0.27.3"
-    "@esbuild/linux-arm64": "npm:0.27.3"
-    "@esbuild/linux-ia32": "npm:0.27.3"
-    "@esbuild/linux-loong64": "npm:0.27.3"
-    "@esbuild/linux-mips64el": "npm:0.27.3"
-    "@esbuild/linux-ppc64": "npm:0.27.3"
-    "@esbuild/linux-riscv64": "npm:0.27.3"
-    "@esbuild/linux-s390x": "npm:0.27.3"
-    "@esbuild/linux-x64": "npm:0.27.3"
-    "@esbuild/netbsd-arm64": "npm:0.27.3"
-    "@esbuild/netbsd-x64": "npm:0.27.3"
-    "@esbuild/openbsd-arm64": "npm:0.27.3"
-    "@esbuild/openbsd-x64": "npm:0.27.3"
-    "@esbuild/openharmony-arm64": "npm:0.27.3"
-    "@esbuild/sunos-x64": "npm:0.27.3"
-    "@esbuild/win32-arm64": "npm:0.27.3"
-    "@esbuild/win32-ia32": "npm:0.27.3"
-    "@esbuild/win32-x64": "npm:0.27.3"
-  dependenciesMeta:
-    "@esbuild/aix-ppc64":
-      optional: true
-    "@esbuild/android-arm":
-      optional: true
-    "@esbuild/android-arm64":
-      optional: true
-    "@esbuild/android-x64":
-      optional: true
-    "@esbuild/darwin-arm64":
-      optional: true
-    "@esbuild/darwin-x64":
-      optional: true
-    "@esbuild/freebsd-arm64":
-      optional: true
-    "@esbuild/freebsd-x64":
-      optional: true
-    "@esbuild/linux-arm":
-      optional: true
-    "@esbuild/linux-arm64":
-      optional: true
-    "@esbuild/linux-ia32":
-      optional: true
-    "@esbuild/linux-loong64":
-      optional: true
-    "@esbuild/linux-mips64el":
-      optional: true
-    "@esbuild/linux-ppc64":
-      optional: true
-    "@esbuild/linux-riscv64":
-      optional: true
-    "@esbuild/linux-s390x":
-      optional: true
-    "@esbuild/linux-x64":
-      optional: true
-    "@esbuild/netbsd-arm64":
-      optional: true
-    "@esbuild/netbsd-x64":
-      optional: true
-    "@esbuild/openbsd-arm64":
-      optional: true
-    "@esbuild/openbsd-x64":
-      optional: true
-    "@esbuild/openharmony-arm64":
-      optional: true
-    "@esbuild/sunos-x64":
-      optional: true
-    "@esbuild/win32-arm64":
-      optional: true
-    "@esbuild/win32-ia32":
-      optional: true
-    "@esbuild/win32-x64":
-      optional: true
-  bin:
-    esbuild: bin/esbuild
-  checksum: 10c0/fdc3f87a3f08b3ef98362f37377136c389a0d180fda4b8d073b26ba930cf245521db0a368f119cc7624bc619248fff1439f5811f062d853576f8ffa3df8ee5f1
   languageName: node
   linkType: hard
 
@@ -5386,6 +5441,22 @@ __metadata:
   languageName: node
   linkType: hard
 
+"miniflare@npm:4.20260219.0":
+  version: 4.20260219.0
+  resolution: "miniflare@npm:4.20260219.0"
+  dependencies:
+    "@cspotcode/source-map-support": "npm:0.8.1"
+    sharp: "npm:^0.34.5"
+    undici: "npm:7.18.2"
+    workerd: "npm:1.20260219.0"
+    ws: "npm:8.18.0"
+    youch: "npm:4.1.0-beta.10"
+  bin:
+    miniflare: bootstrap.js
+  checksum: 10c0/8bf0e1ebb5b905f1476ce7f99955226299dc2700e42867db4e36956dad39da66f3baf2694de685826937880d555e4df75aafb38fafbccdbb2b78cb90e1f1258a
+  languageName: node
+  linkType: hard
+
 "minimatch@npm:^9.0.1":
   version: 9.0.3
   resolution: "minimatch@npm:9.0.3"
@@ -6514,6 +6585,7 @@ __metadata:
     react-dom: "npm:^19.0.0"
     tailwindcss: "npm:^3.4.1"
     typescript: "npm:^5.7.0"
+    wrangler: "npm:^4.67.0"
   languageName: unknown
   linkType: soft
 
@@ -6645,7 +6717,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"sharp@npm:^0.34.0":
+"sharp@npm:^0.34.0, sharp@npm:^0.34.5":
   version: 0.34.5
   resolution: "sharp@npm:0.34.5"
   dependencies:
@@ -7252,6 +7324,13 @@ __metadata:
   version: 7.14.0
   resolution: "undici@npm:7.14.0"
   checksum: 10c0/4beab6a5bfb89add9e90195aee6bc993708afbabad33bff7da791b5334a6e26a591c29938822d2fb8f69ae0ad8d580d64e03247b11157af9f820d5bd9f8f16e7
+  languageName: node
+  linkType: hard
+
+"undici@npm:7.18.2":
+  version: 7.18.2
+  resolution: "undici@npm:7.18.2"
+  checksum: 10c0/4ff0722799f5e06fde5d1e58d318b1d78ba9a477836ad3e7374e9ac30ca20d1ab3282952d341635bf69b8e74b5c1cf366e595b3a96810e0dbf74e622dad7b5f9
   languageName: node
   linkType: hard
 
@@ -7925,6 +8004,32 @@ __metadata:
   languageName: node
   linkType: hard
 
+"workerd@npm:1.20260219.0":
+  version: 1.20260219.0
+  resolution: "workerd@npm:1.20260219.0"
+  dependencies:
+    "@cloudflare/workerd-darwin-64": "npm:1.20260219.0"
+    "@cloudflare/workerd-darwin-arm64": "npm:1.20260219.0"
+    "@cloudflare/workerd-linux-64": "npm:1.20260219.0"
+    "@cloudflare/workerd-linux-arm64": "npm:1.20260219.0"
+    "@cloudflare/workerd-windows-64": "npm:1.20260219.0"
+  dependenciesMeta:
+    "@cloudflare/workerd-darwin-64":
+      optional: true
+    "@cloudflare/workerd-darwin-arm64":
+      optional: true
+    "@cloudflare/workerd-linux-64":
+      optional: true
+    "@cloudflare/workerd-linux-arm64":
+      optional: true
+    "@cloudflare/workerd-windows-64":
+      optional: true
+  bin:
+    workerd: bin/workerd
+  checksum: 10c0/5b3217c6c210c350fcd9fdbba1374dd472f84d905a67349e5e50cae8e3b0efd5db449d90014cc514e4851b622d63986bc999a83812204e5ef49e3d734f665c98
+  languageName: node
+  linkType: hard
+
 "wrangler@npm:4.50.0":
   version: 4.50.0
   resolution: "wrangler@npm:4.50.0"
@@ -7950,6 +8055,34 @@ __metadata:
     wrangler: bin/wrangler.js
     wrangler2: bin/wrangler.js
   checksum: 10c0/6b5b5c9cec512cb900e47495dcdbd8b582ef9f6cb2b7dea970702ef376fa9b112b2302754a49356162a3377d3e6ccdf1af00798e035773513cc9c93acc0b7621
+  languageName: node
+  linkType: hard
+
+"wrangler@npm:^4.67.0":
+  version: 4.67.0
+  resolution: "wrangler@npm:4.67.0"
+  dependencies:
+    "@cloudflare/kv-asset-handler": "npm:0.4.2"
+    "@cloudflare/unenv-preset": "npm:2.14.0"
+    blake3-wasm: "npm:2.1.5"
+    esbuild: "npm:0.27.3"
+    fsevents: "npm:~2.3.2"
+    miniflare: "npm:4.20260219.0"
+    path-to-regexp: "npm:6.3.0"
+    unenv: "npm:2.0.0-rc.24"
+    workerd: "npm:1.20260219.0"
+  peerDependencies:
+    "@cloudflare/workers-types": ^4.20260219.0
+  dependenciesMeta:
+    fsevents:
+      optional: true
+  peerDependenciesMeta:
+    "@cloudflare/workers-types":
+      optional: true
+  bin:
+    wrangler: bin/wrangler.js
+    wrangler2: bin/wrangler.js
+  checksum: 10c0/8c837f0a30b5d6ae1881837f6ac9dab4584c8d78b7a05b4bae7b743bcf6fc8045b01801735553539fcee67954b9945ce37f374f2d7f3b64a1ebbebffbcb4d524
   languageName: node
   linkType: hard
 
