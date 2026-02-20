@@ -1,62 +1,169 @@
 ---
-import { getEntries, getCollection } from "astro:content";
-import Wrapper from "../../components/wrapper.astro";
-import ContentWrapper from "../../components/content.astro";
-import Navigation from "../../components/navigation.astro";
-import Tag from "../../components/tag.astro";
-import { Image } from "astro:assets";
-import ContactForm from "../../components/contactForm.astro";
-
-export const prerender = true;
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
+import PostArt from "../../components/art/PostArt.astro";
+import Base from "../../layouts/Base.astro";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection("posts");
-  return blogEntries.map((entry) => ({
-    params: { slug: entry.slug },
-    props: { post: entry },
+  const posts = await getCollection("blog");
+  return posts.map((post: CollectionEntry<"blog">) => ({
+    params: { slug: post.slug },
+    props: { post },
   }));
 }
 
+interface Props {
+  post: CollectionEntry<"blog">;
+}
+
 const { post } = Astro.props;
-
 const { Content } = await post.render();
-
-const authors = await getEntries(post.data.authors);
-const tags = await getEntries(post.data.tags);
 ---
 
-<Wrapper post={post}>
-  <Navigation />
-  <ContentWrapper>
-    <div class="mb-6">
-      <span class="font-bold">Blog</span>&nbsp;<span class="font-thin text-sm"
-        >Published on {new Date(post.data.date).toDateString()}</span
+<Base
+  title={`${post.data.title} — Robo House`}
+  description={post.data.description}
+>
+  <main class="min-h-screen bg-cream text-ink font-mono">
+    <!-- NAV -->
+    <nav
+      class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-5"
+    >
+      <a
+        href="/"
+        class="text-xs tracking-ultra uppercase font-mono hover:text-red transition-colors"
+      >
+        <span class="italic" style="color:var(--red)">ROBO</span> HOUSE
+      </a>
+      <div class="flex gap-8 text-xs tracking-widest uppercase">
+        <a href="/#work" class="hover:text-red transition-colors duration-300"
+          >Work</a
+        >
+        <a href="/blog" class="hover:text-red transition-colors duration-300"
+          >Blog</a
+        >
+        <a href="/#about" class="hover:text-red transition-colors duration-300"
+          >About</a
+        >
+      </div>
+    </nav>
+
+    <!-- ART HERO -->
+    <div class="pt-20">
+      <PostArt art={post.data.art} compact={false} />
+    </div>
+
+    <!-- POST HEADER -->
+    <section class="py-16 px-6 md:px-12 border-b border-ink/10">
+      <div class="max-w-3xl">
+        <p class="text-xs tracking-widest text-muted uppercase mb-6">
+          {
+            post.data.date.toLocaleDateString("en-US", {
+              year: "numeric",
+              month: "long",
+              day: "numeric",
+            })
+          }
+        </p>
+        <h1
+          class="font-condensed font-black italic text-5xl md:text-7xl tracking-tight leading-none mb-6"
+        >
+          {post.data.title}
+        </h1>
+        <p class="text-sm tracking-wide text-muted leading-relaxed">
+          {post.data.description}
+        </p>
+      </div>
+    </section>
+
+    <!-- POST BODY -->
+    <article class="px-6 md:px-12 py-16 max-w-3xl prose-robo">
+      <Content />
+    </article>
+
+    <!-- BACK -->
+    <div class="px-6 md:px-12 pb-16 border-t border-ink/10 pt-12">
+      <a
+        href="/blog"
+        class="text-xs tracking-widest uppercase hover:text-red transition-colors"
+        >← All Posts</a
       >
     </div>
-    <h1 class="font-playfair text-5xl md:text-6xl">{post.data.title}</h1>
-    <p class="">
-      By&nbsp;{
-        authors.map((author) => <span class="mr-2">{author.data.name}</span>)
-      }
-    </p>
-    <div class="flex flex-wrap my-4">
-      {
-        tags.map((tag) => (
-          <Tag color={tag.data.color} slug={tag.slug}>
-            {tag.data.name}
-          </Tag>
-        ))
-      }
-    </div>
-    <div class="mt-6">
-      <Image
-        width={900}
-        height={514}
-        src={post.data.image}
-        alt={post.data.description}
-      />
-    </div>
-    <Content />
-    <ContactForm />
-  </ContentWrapper>
-</Wrapper>
+
+    <!-- FOOTER -->
+    <footer
+      class="px-6 md:px-12 py-12 border-t border-ink/10 flex flex-col md:flex-row justify-between items-start md:items-center gap-6"
+    >
+      <a
+        href="/"
+        class="font-condensed font-black text-2xl tracking-tight hover:opacity-70 transition-opacity"
+      >
+        <span class="italic" style="color:var(--red)">ROBO</span> HOUSE
+      </a>
+      <p class="text-xs tracking-widest text-muted uppercase">© 2025</p>
+    </footer>
+  </main>
+</Base>
+
+<style>
+  .prose-robo :global(p) {
+    font-size: 0.875rem;
+    line-height: 2;
+    letter-spacing: 0.025em;
+    margin-bottom: 1.5rem;
+    color: #0a0a0a;
+  }
+
+  .prose-robo :global(h2) {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose-robo :global(h3) {
+    font-family: "Barlow Condensed", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-robo :global(a) {
+    color: var(--red);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .prose-robo :global(a:hover) {
+    opacity: 0.7;
+  }
+
+  .prose-robo :global(strong) {
+    font-weight: 700;
+  }
+
+  .prose-robo :global(em) {
+    font-style: italic;
+    color: var(--muted);
+  }
+
+  .prose-robo :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(10, 10, 10, 0.1);
+    margin: 3rem 0;
+  }
+
+  .prose-robo :global(blockquote) {
+    border-left: 2px solid var(--red);
+    padding-left: 1.5rem;
+    margin-left: 0;
+    color: var(--muted);
+    font-style: italic;
+  }
+</style>

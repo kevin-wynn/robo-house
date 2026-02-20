@@ -1,0 +1,33 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+const h = compact ? "h-48" : "h-96 md:h-[520px]";
+---
+
+<div class={`relative overflow-hidden w-full ${h}`} style="background:#f5c842;">
+  <svg class="absolute inset-0 w-full h-full" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <filter id="blur-splash">
+        <feGaussianBlur stdDeviation="25"/>
+      </filter>
+    </defs>
+    <!-- paint splashes -->
+    <ellipse cx="100" cy="80" rx="180" ry="120" fill="#e63329" opacity="0.9" filter="url(#blur-splash)"/>
+    <ellipse cx="700" cy="440" rx="200" ry="130" fill="#1a1aff" opacity="0.85" filter="url(#blur-splash)"/>
+    <ellipse cx="400" cy="260" rx="150" ry="200" fill="#0a0a0a" opacity="0.6" filter="url(#blur-splash)"/>
+    <ellipse cx="650" cy="100" rx="100" ry="80" fill="#00c896" opacity="0.7" filter="url(#blur-splash)"/>
+    <ellipse cx="200" cy="420" rx="120" ry="90" fill="#e63329" opacity="0.5" filter="url(#blur-splash)"/>
+    <!-- raw strokes -->
+    <rect x="0" y="240" width="800" height="4" fill="#0a0a0a" opacity="0.15"/>
+    <rect x="380" y="0" width="4" height="520" fill="#0a0a0a" opacity="0.15"/>
+  </svg>
+  <!-- text ghost -->
+  <div class="absolute inset-0 flex items-center justify-center">
+    <span
+      class="font-condensed font-black italic select-none pointer-events-none"
+      style="font-size: clamp(5rem, 18vw, 14rem); letter-spacing: -0.04em; color: rgba(10,10,10,0.07); line-height: 1;"
+    >SPLASH</span>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+const h = compact ? "h-48" : "h-96 md:h-[520px]";
+---
+
+<div class={`relative overflow-hidden w-full ${h}`}>
+  <!-- 8-cell Warhol grid with different colors -->
+  <div class="absolute inset-0 grid grid-cols-4 grid-rows-2">
+    <div style="background:#e63329;"></div>
+    <div style="background:#f5c842;"></div>
+    <div style="background:#0a0a0a;"></div>
+    <div style="background:#1a1aff;"></div>
+    <div style="background:#00c896;"></div>
+    <div style="background:#e63329;"></div>
+    <div style="background:#f5c842;"></div>
+    <div style="background:#0a0a0a;"></div>
+  </div>
+  <!-- multiply overlay circles -->
+  <div class="absolute inset-0" style="mix-blend-mode: multiply;">
+    <svg class="w-full h-full" viewBox="0 0 800 520" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="200" cy="130" r="160" fill="#e63329" opacity="0.6"/>
+      <circle cx="600" cy="390" r="180" fill="#1a1aff" opacity="0.5"/>
+      <circle cx="400" cy="260" r="140" fill="#0a0a0a" opacity="0.4"/>
+    </svg>
+  </div>
+  <!-- dot pattern -->
+  <div class="absolute inset-0" style="background-image: radial-gradient(circle, rgba(245,240,232,0.2) 1.5px, transparent 1.5px); background-size: 22px 22px;"></div>
+  <!-- grid lines -->
+  <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="25%" y1="0" x2="25%" y2="100%" stroke="rgba(245,240,232,0.2)" stroke-width="1"/>
+    <line x1="50%" y1="0" x2="50%" y2="100%" stroke="rgba(245,240,232,0.2)" stroke-width="1"/>
+    <line x1="75%" y1="0" x2="75%" y2="100%" stroke="rgba(245,240,232,0.2)" stroke-width="1"/>
+    <line x1="0" y1="50%" x2="100%" y2="50%" stroke="rgba(245,240,232,0.2)" stroke-width="1"/>
+  </svg>
+</div>

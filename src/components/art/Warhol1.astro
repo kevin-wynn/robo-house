@@ -1,0 +1,35 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+const h = compact ? "h-48" : "h-96 md:h-[520px]";
+---
+
+<div class={`relative overflow-hidden w-full ${h}`}>
+  <!-- 4-panel Warhol grid -->
+  <div class="absolute inset-0 grid grid-cols-2 grid-rows-2">
+    <div style="background:#e63329;"></div>
+    <div style="background:#0a0a0a;"></div>
+    <div style="background:#f5c842;"></div>
+    <div style="background:#1a1aff;"></div>
+  </div>
+  <!-- halftone-ish dot overlay -->
+  <div class="absolute inset-0" style="background-image: radial-gradient(circle, rgba(245,240,232,0.18) 1px, transparent 1px); background-size: 18px 18px;"></div>
+  <!-- bold repeated text -->
+  <div class="absolute inset-0 flex flex-col justify-center items-center gap-0 overflow-hidden">
+    {[0,1,2,3,4].map((i) => (
+      <div
+        class="font-condensed font-black italic whitespace-nowrap leading-none select-none"
+        style={`font-size: clamp(2.5rem, 8vw, 6rem); letter-spacing: -0.02em; color: ${i % 2 === 0 ? 'rgba(245,240,232,0.22)' : 'rgba(10,10,10,0.18)'}; transform: rotate(-4deg);`}
+      >
+        ROBO HOUSE ROBO HOUSE ROBO HOUSE
+      </div>
+    ))}
+  </div>
+  <!-- cross lines -->
+  <svg class="absolute inset-0 w-full h-full" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <line x1="50%" y1="0" x2="50%" y2="100%" stroke="rgba(245,240,232,0.15)" stroke-width="1"/>
+    <line x1="0" y1="50%" x2="100%" y2="50%" stroke="rgba(245,240,232,0.15)" stroke-width="1"/>
+  </svg>
+</div>

@@ -1,23 +1,16 @@
-import { defineCollection } from "astro:content";
-import { authorSchema, postSchema, tagSchema } from "./schemas";
+import { defineCollection, z } from "astro:content";
 
-const authorCollection = defineCollection({
+const blog = defineCollection({
   type: "content",
-  schema: authorSchema,
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    date: z.coerce.date(),
+    draft: z.boolean().default(false),
+    art: z
+      .enum(["warhol-1", "noir-1", "splash-1", "grid-1"])
+      .default("warhol-1"),
+  }),
 });
 
-const tagCollection = defineCollection({
-  type: "content",
-  schema: tagSchema,
-});
-
-const postCollection = defineCollection({
-  type: "content",
-  schema: postSchema,
-});
-
-export const collections = {
-  posts: postCollection,
-  authors: authorCollection,
-  tags: tagCollection,
-};
+export const collections = { blog };
