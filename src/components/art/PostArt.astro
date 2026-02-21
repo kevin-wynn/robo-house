@@ -1,11 +1,12 @@
 ---
-import Warhol1 from "./Warhol1.astro";
+import Grid1 from "./Grid1.astro";
 import Noir1 from "./Noir1.astro";
 import Splash1 from "./Splash1.astro";
-import Grid1 from "./Grid1.astro";
+import Static1 from "./Static1.astro";
+import Warhol1 from "./Warhol1.astro";
 
 interface Props {
-  art: "warhol-1" | "noir-1" | "splash-1" | "grid-1";
+  art: "warhol-1" | "noir-1" | "splash-1" | "grid-1" | "static-1";
   compact?: boolean;
 }
 
@@ -16,3 +17,4 @@ const { art, compact = false } = Astro.props;
 {art === "noir-1" && <Noir1 compact={compact} />}
 {art === "splash-1" && <Splash1 compact={compact} />}
 {art === "grid-1" && <Grid1 compact={compact} />}
+{art === "static-1" && <Static1 compact={compact} />}

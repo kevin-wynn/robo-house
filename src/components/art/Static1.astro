@@ -1,0 +1,131 @@
+---
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+const h = compact ? "h-48" : "h-96 md:h-[520px]";
+---
+
+<div class={`relative overflow-hidden w-full ${h}`} style="background:#0a0a0a;">
+  <svg
+    class="absolute inset-0 w-full h-full"
+    viewBox="0 0 800 520"
+    preserveAspectRatio="xMidYMid slice"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <defs>
+      <filter id="blur-static">
+        <feGaussianBlur stdDeviation="28"></feGaussianBlur>
+      </filter>
+      <filter id="static-noise">
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.9"
+          numOctaves="4"
+          stitchTiles="stitch"></feTurbulence>
+        <feColorMatrix type="saturate" values="0"></feColorMatrix>
+        <feBlend in="SourceGraphic" mode="multiply"></feBlend>
+      </filter>
+    </defs>
+
+    <!-- background fill -->
+    <rect width="800" height="520" fill="#0a0a0a"></rect>
+
+    <!-- blobs: loud overlapping colors like everyone screaming at once -->
+    <ellipse
+      cx="120"
+      cy="180"
+      rx="260"
+      ry="180"
+      fill="#e63329"
+      opacity="0.75"
+      filter="url(#blur-static)"></ellipse>
+    <ellipse
+      cx="680"
+      cy="340"
+      rx="240"
+      ry="200"
+      fill="#e63329"
+      opacity="0.6"
+      filter="url(#blur-static)"></ellipse>
+    <ellipse
+      cx="400"
+      cy="260"
+      rx="200"
+      ry="160"
+      fill="#f5c842"
+      opacity="0.25"
+      filter="url(#blur-static)"></ellipse>
+    <ellipse
+      cx="760"
+      cy="80"
+      rx="140"
+      ry="120"
+      fill="#1a1aff"
+      opacity="0.4"
+      filter="url(#blur-static)"></ellipse>
+    <ellipse
+      cx="60"
+      cy="460"
+      rx="120"
+      ry="100"
+      fill="#00c896"
+      opacity="0.2"
+      filter="url(#blur-static)"></ellipse>
+
+    <!-- vertical cuts -->
+    <rect x="0" y="0" width="2" height="520" fill="#e63329" opacity="0.9"
+    ></rect>
+    <rect x="798" y="0" width="2" height="520" fill="#e63329" opacity="0.9"
+    ></rect>
+
+    <!-- big muted text: STFU -->
+    <text
+      x="50%"
+      y="52%"
+      text-anchor="middle"
+      dominant-baseline="middle"
+      font-family="'Barlow Condensed', sans-serif"
+      font-weight="900"
+      font-style="italic"
+      font-size="220"
+      letter-spacing="-8"
+      fill="rgba(245,240,232,0.06)">STFU</text
+    >
+  </svg>
+
+  <!-- scan lines via CSS -->
+  <div class="scan-lines absolute inset-0"></div>
+
+  <!-- grain -->
+  <div class="static-grain absolute inset-0"></div>
+
+  <!-- AI ticker -->
+  <div class="absolute bottom-4 right-4 left-4 flex justify-end">
+    <span
+      class="font-mono text-xs tracking-widest select-none"
+      style="color: rgba(245,240,232,0.55); letter-spacing: 0.25em;"
+    >
+      AI &nbsp; AI &nbsp; AI &nbsp; AI &nbsp; AI &nbsp; AI &nbsp; AI &nbsp; AI
+      &nbsp; AI &nbsp; AI &nbsp; AI &nbsp; AI
+    </span>
+  </div>
+</div>
+
+<style>
+  .scan-lines {
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 9px,
+      rgba(245, 240, 232, 0.04) 9px,
+      rgba(245, 240, 232, 0.04) 10px
+    );
+    pointer-events: none;
+  }
+  .static-grain {
+    opacity: 0.09;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 128px;
+  }
+</style>

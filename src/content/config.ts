@@ -8,7 +8,7 @@ const blog = defineCollection({
     date: z.coerce.date(),
     draft: z.boolean().default(false),
     art: z
-      .enum(["warhol-1", "noir-1", "splash-1", "grid-1"])
+      .enum(["warhol-1", "noir-1", "splash-1", "grid-1", "static-1"])
       .default("warhol-1"),
   }),
 });
