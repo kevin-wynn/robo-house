@@ -6,9 +6,9 @@ Kevin Wynn. Builder. Makes software on the internet. Robo House is his alter ego
 
 His projects:
 - **[Loggy](https://loggy.dev)** — observability for developers. Logs, metrics, traces.
-- **[Badcatch](https://badcatch.com)** — error tracking that doesn't suck.
+- **[Badcatch](https://badcatch.com)** — Personal web agency, basically this but professional
 - **[Lisq](https://lisq.io)** — Tactical lists, or should I say. Tacticool lists. Self hosted, cool af.
-- **[Cadiv](https://cadiv.cc)** — digital business cards.
+- **[Cadiv](https://cadiv.cc)** — Self hosted cycling insights and training
 
 ## The Vibe
 
