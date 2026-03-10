@@ -137,9 +137,35 @@ const recentPosts = allPosts
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink/10">
-        <!-- LOGGY -->
+        <!-- LOGGY (archived) -->
+        <div
+          class="bg-cream/50 p-8 md:p-12 flex flex-col justify-between min-h-64 opacity-60"
+        >
+          <div class="flex justify-between items-start">
+            <span class="text-xs tracking-widest uppercase text-muted">01</span>
+            <span
+              class="text-xs tracking-widest uppercase text-muted/50 line-through"
+              >archived</span
+            >
+          </div>
+          <div>
+            <h3
+              class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 text-ink/40"
+            >
+              LOGGY
+            </h3>
+            <p
+              class="text-xs tracking-wide text-muted/50 leading-relaxed max-w-xs"
+            >
+              Observability for developers. Logs, metrics, traces — clean and
+              fast. <span class="italic">Sunsetted.</span>
+            </p>
+          </div>
+        </div>
+
+        <!-- ASHFRONT -->
         <a
-          href="https://loggy.dev"
+          href="https://ashfront.com"
           target="_blank"
           rel="noopener noreferrer"
           class="group bg-cream p-8 md:p-12 flex flex-col justify-between min-h-64 hover:bg-ink hover:text-cream transition-colors duration-500 cursor-crosshair"
@@ -147,24 +173,55 @@ const recentPosts = allPosts
           <div class="flex justify-between items-start">
             <span
               class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
-              >01</span
+              >02</span
             >
             <span
               class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
-              >loggy.dev ↗</span
+              >ashfront.com ↗</span
             >
           </div>
           <div>
             <h3
               class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 group-hover:text-cream transition-colors"
             >
-              LOGGY
+              ASHFRONT
             </h3>
             <p
               class="text-xs tracking-wide text-muted group-hover:text-cream/60 transition-colors leading-relaxed max-w-xs"
             >
-              Observability for developers. Logs, metrics, traces — clean and
-              fast.
+              Clothing for those who keep going. Built to outlast the grind.
+            </p>
+          </div>
+        </a>
+
+        <!-- GRACKLE -->
+        <a
+          href="https://gracklemag.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="group bg-cream p-8 md:p-12 flex flex-col justify-between min-h-64 hover:bg-ink hover:text-cream transition-colors duration-500 cursor-crosshair"
+        >
+          <div class="flex justify-between items-start">
+            <span
+              class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
+              >03</span
+            >
+            <span
+              class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
+              >gracklemag.com ↗</span
+            >
+          </div>
+          <div>
+            <h3
+              class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 group-hover:text-cream transition-colors"
+            >
+              GRACKLE
+            </h3>
+            <p
+              class="text-xs tracking-wide text-muted group-hover:text-cream/60 transition-colors leading-relaxed max-w-xs"
+            >
+              Indie culture mag out of Waco, TX. Music, art, and the weirdos who
+              make it.
             </p>
           </div>
         </a>
@@ -179,7 +236,7 @@ const recentPosts = allPosts
           <div class="flex justify-between items-start">
             <span
               class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/70 transition-colors"
-              >02</span
+              >04</span
             >
             <span
               class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/70 transition-colors"
@@ -190,7 +247,7 @@ const recentPosts = allPosts
             <h3
               class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 group-hover:text-cream transition-colors"
             >
-              BADCATCH
+              BAD CATCH
             </h3>
             <p
               class="text-xs tracking-wide text-muted group-hover:text-cream/60 transition-colors leading-relaxed max-w-xs"
