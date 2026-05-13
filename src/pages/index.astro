@@ -1,38 +1,14 @@
 ---
-import type { CollectionEntry } from "astro:content";
-import { getCollection } from "astro:content";
-import PostArt from "../components/art/PostArt.astro";
+import About from "../components/About.astro";
+import Nav from "../components/Nav.astro";
+import Rides from "../components/Rides.astro";
+import WorkItem from "../components/WorkItem.astro";
 import Base from "../layouts/Base.astro";
-
-const allPosts = await getCollection("blog");
-const recentPosts = allPosts
-  .filter((p: CollectionEntry<"blog">) => !p.data.draft)
-  .sort(
-    (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
-      b.data.date.valueOf() - a.data.date.valueOf(),
-  )
-  .slice(0, 3);
 ---
 
 <Base title="ROBO HOUSE" description="Kevin Wynn. Builder. Robo House.">
   <main class="min-h-screen bg-cream text-ink font-mono overflow-hidden">
-    <!-- NAV -->
-    <nav
-      class="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 py-5 mix-blend-multiply"
-    >
-      <span class="text-xs tracking-ultra uppercase font-mono">Robo House</span>
-      <div class="flex gap-8 text-xs tracking-widest uppercase">
-        <a href="#work" class="hover:text-red transition-colors duration-300"
-          >Work</a
-        >
-        <a href="/blog" class="hover:text-red transition-colors duration-300"
-          >Blog</a
-        >
-        <a href="#about" class="hover:text-red transition-colors duration-300"
-          >About</a
-        >
-      </div>
-    </nav>
+    <Nav />
 
     <!-- HERO -->
     <section
@@ -72,52 +48,12 @@ const recentPosts = allPosts
             Kevin Wynn
           </p>
           <p class="text-xs tracking-widest text-muted uppercase">
-            Builder / Maker / Robo
+            I Am The Stack
           </p>
         </div>
         <div class="text-right">
           <p class="text-xs tracking-widest text-muted uppercase">Scroll</p>
           <div class="w-px h-12 bg-muted ml-auto mt-2 opacity-40"></div>
-        </div>
-      </div>
-
-      <!-- MARQUEE -->
-      <div
-        class="absolute bottom-0 left-0 right-0 overflow-hidden border-t border-ink/10 py-3"
-      >
-        <div
-          class="marquee-track flex gap-16 text-xs tracking-widest uppercase text-muted whitespace-nowrap"
-        >
-          <span>Robo House</span>
-          <span class="text-red">✦</span>
-          <span>Kevin Wynn</span>
-          <span class="text-red">✦</span>
-          <span>chillin'</span>
-          <span class="text-red">✦</span>
-          <span>ATX</span>
-          <span class="text-red">✦</span>
-          <span>Experimental</span>
-          <span class="text-red">✦</span>
-          <span>Robo House</span>
-          <span class="text-red">✦</span>
-          <span>Kevin Wynn</span>
-          <span class="text-red">✦</span>
-          <span>SOUND AND COLOR</span>
-          <span class="text-red">✦</span>
-          <span>TEXAS</span>
-          <span class="text-red">✦</span>
-          <span>Experimental</span>
-          <span class="text-red">✦</span>
-          <span>Robo House</span>
-          <span class="text-red">✦</span>
-          <span>Kevin Wynn</span>
-          <span class="text-red">✦</span>
-          <span>THIS FEELING</span>
-          <span class="text-red">✦</span>
-          <span>WACO</span>
-          <span class="text-red">✦</span>
-          <span>Experimental</span>
-          <span class="text-red">✦</span>
         </div>
       </div>
     </section>
@@ -137,35 +73,57 @@ const recentPosts = allPosts
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-ink/10">
-        <!-- LOGGY (archived) -->
-        <div
-          class="bg-cream/50 p-8 md:p-12 flex flex-col justify-between min-h-64 opacity-60"
-        >
-          <div class="flex justify-between items-start">
-            <span class="text-xs tracking-widest uppercase text-muted">01</span>
-            <span
-              class="text-xs tracking-widest uppercase text-muted/50 line-through"
-              >archived</span
-            >
-          </div>
-          <div>
-            <h3
-              class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 text-ink/40"
-            >
-              LOGGY
-            </h3>
-            <p
-              class="text-xs tracking-wide text-muted/50 leading-relaxed max-w-xs"
-            >
-              Observability for developers. Logs, metrics, traces — clean and
-              fast. <span class="italic">Sunsetted.</span>
-            </p>
-          </div>
-        </div>
+        <WorkItem
+          link="https://loggy.dev"
+          title="LOGGY"
+          description="Observability for developers. Logs, metrics, traces — clean and fast. Sunsetted."
+          number="01"
+          variant="red"
+        />
 
-        <!-- ASHFRONT -->
-        <a
-          href="https://ashfront.com"
+        <WorkItem
+          link="https://ashfront.com"
+          title="ASHFRONT"
+          description="Clothing for those who keep going. Built to outlast the grind."
+          number="02"
+          variant="black"
+        />
+
+        <WorkItem
+          link="https://gracklemag.com"
+          title="GRACKLE"
+          description="Indie culture mag out of Waco, TX. Music, art, and the weirdos who make it."
+          number="03"
+          variant="black"
+        />
+
+        <WorkItem
+          link="https://badcatch.com"
+          title="BADCATCH"
+          description="Personal web agency, basically this but professional"
+          number="04"
+          variant="red"
+        />
+
+        <WorkItem
+          link="https://lisq.io"
+          title="LISQ"
+          description="Tactical lists, or should I say. Tacticool lists. Self hosted, cool af."
+          number="05"
+          variant="red"
+        />
+
+        <WorkItem
+          link="https://cadiv.cc"
+          title="CADIV"
+          description="Self hosted cycling insights and training."
+          number="06"
+          variant="black"
+        />
+
+        <!-- WYNN PUBLISHERS -->
+        <!-- <a
+          href="https://wynnpublishers.com"
           target="_blank"
           rel="noopener noreferrer"
           class="group bg-cream p-8 md:p-12 flex flex-col justify-between min-h-64 hover:bg-ink hover:text-cream transition-colors duration-500 cursor-crosshair"
@@ -173,62 +131,30 @@ const recentPosts = allPosts
           <div class="flex justify-between items-start">
             <span
               class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
-              >02</span
+              >05</span
             >
             <span
               class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
-              >ashfront.com ↗</span
+              >wynnpublishers.com ↗</span
             >
           </div>
           <div>
             <h3
               class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 group-hover:text-cream transition-colors"
             >
-              ASHFRONT
+              WYNN PUBLISHERS
             </h3>
             <p
               class="text-xs tracking-wide text-muted group-hover:text-cream/60 transition-colors leading-relaxed max-w-xs"
             >
-              Clothing for those who keep going. Built to outlast the grind.
+              Independent publishing house. Books, zines, and printed matter.
             </p>
           </div>
-        </a>
+        </a> -->
 
-        <!-- GRACKLE -->
-        <a
-          href="https://gracklemag.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group bg-cream p-8 md:p-12 flex flex-col justify-between min-h-64 hover:bg-ink hover:text-cream transition-colors duration-500 cursor-crosshair"
-        >
-          <div class="flex justify-between items-start">
-            <span
-              class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
-              >03</span
-            >
-            <span
-              class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
-              >gracklemag.com ↗</span
-            >
-          </div>
-          <div>
-            <h3
-              class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 group-hover:text-cream transition-colors"
-            >
-              GRACKLE
-            </h3>
-            <p
-              class="text-xs tracking-wide text-muted group-hover:text-cream/60 transition-colors leading-relaxed max-w-xs"
-            >
-              Indie culture mag out of Waco, TX. Music, art, and the weirdos who
-              make it.
-            </p>
-          </div>
-        </a>
-
-        <!-- BADCATCH -->
-        <a
-          href="https://badcatch.com"
+        <!-- WYNN CONTRACTORS -->
+        <!-- <a
+          href="https://wynncontracting.com"
           target="_blank"
           rel="noopener noreferrer"
           class="group bg-cream p-8 md:p-12 flex flex-col justify-between min-h-64 hover:bg-red hover:text-cream transition-colors duration-500 cursor-crosshair"
@@ -236,295 +162,36 @@ const recentPosts = allPosts
           <div class="flex justify-between items-start">
             <span
               class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/70 transition-colors"
-              >04</span
+              >06</span
             >
             <span
               class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/70 transition-colors"
-              >badcatch.com ↗</span
+              >wynncontracting.com ↗</span
             >
           </div>
           <div>
             <h3
               class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 group-hover:text-cream transition-colors"
             >
-              BAD CATCH
+              WYNN CONTRACTORS
             </h3>
             <p
               class="text-xs tracking-wide text-muted group-hover:text-cream/60 transition-colors leading-relaxed max-w-xs"
             >
-              Personal web agency, basically this but professional
+              General contracting. Built right, built to last.
             </p>
           </div>
-        </a>
-
-        <!-- LISQ -->
-        <a
-          href="https://lisq.io"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group bg-cream p-8 md:p-12 flex flex-col justify-between min-h-64 hover:bg-ink hover:text-cream transition-colors duration-500 cursor-crosshair"
-        >
-          <div class="flex justify-between items-start">
-            <span
-              class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
-              >03</span
-            >
-            <span
-              class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
-              >lisq.io ↗</span
-            >
-          </div>
-          <div>
-            <h3
-              class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 group-hover:text-cream transition-colors"
-            >
-              LISQ
-            </h3>
-            <p
-              class="text-xs tracking-wide text-muted group-hover:text-cream/60 transition-colors leading-relaxed max-w-xs"
-            >
-              Tactical lists, or should I say. Tacticool lists. Self hosted,
-              cool af.
-            </p>
-          </div>
-        </a>
-
-        <!-- CADIV -->
-        <a
-          href="https://cadiv.cc"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="group bg-cream p-8 md:p-12 flex flex-col justify-between min-h-64 hover:bg-red hover:text-cream transition-colors duration-500 cursor-crosshair"
-        >
-          <div class="flex justify-between items-start">
-            <span
-              class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/70 transition-colors"
-              >04</span
-            >
-            <span
-              class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/70 transition-colors"
-              >cadiv.cc ↗</span
-            >
-          </div>
-          <div>
-            <h3
-              class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 group-hover:text-cream transition-colors"
-            >
-              CADIV
-            </h3>
-            <p
-              class="text-xs tracking-wide text-muted group-hover:text-cream/70 transition-colors leading-relaxed max-w-xs"
-            >
-              Self hosted cycling insights and training.
-            </p>
-          </div>
-        </a>
+        </a> -->
       </div>
     </section>
 
     <!-- ABOUT SECTION -->
     <section id="about" class="px-6 md:px-12 py-24 border-t border-ink/10">
-      <div class="max-w-4xl">
-        <div class="flex items-baseline gap-6 mb-16">
-          <h2
-            class="font-condensed font-black text-5xl md:text-7xl italic tracking-tight"
-          >
-            WHO
-          </h2>
-          <div class="flex-1 h-px bg-ink/10 self-center"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div>
-            <p class="text-sm leading-loose tracking-wide mb-6">
-              Kevin Wynn. I build things on the internet. Robo House is the
-              alter ego — the experimental side, the late night sessions, the
-              stuff that doesn't fit anywhere else.
-            </p>
-            <p class="text-sm leading-loose tracking-wide text-muted">
-              Grew up on hip hop, skateboarding, and too much time on computers.
-              Now I make software and try to keep it interesting.
-            </p>
-          </div>
-          <div class="flex flex-col gap-4">
-            <div
-              class="flex justify-between items-center py-3 border-b border-ink/10"
-            >
-              <span class="text-xs tracking-widest uppercase text-muted"
-                >Location</span
-              >
-              <span class="text-xs tracking-widest uppercase">Internet</span>
-            </div>
-            <div
-              class="flex justify-between items-center py-3 border-b border-ink/10"
-            >
-              <span class="text-xs tracking-widest uppercase text-muted"
-                >Discipline</span
-              >
-              <span class="text-xs tracking-widest uppercase">Software</span>
-            </div>
-            <div
-              class="flex justify-between items-center py-3 border-b border-ink/10"
-            >
-              <span class="text-xs tracking-widest uppercase text-muted"
-                >Mode</span
-              >
-              <span class="text-xs tracking-widest uppercase">Experimental</span
-              >
-            </div>
-            <div
-              class="flex justify-between items-center py-3 border-b border-ink/10"
-            >
-              <span class="text-xs tracking-widest uppercase text-muted"
-                >Vibe</span
-              >
-              <span class="text-xs tracking-widest uppercase"
-                >Chillin'. Mad lay-down.</span
-              >
-            </div>
-          </div>
-        </div>
-      </div>
+      <About />
     </section>
 
-    <!-- ART SPLASH -->
-    <section
-      class="relative overflow-hidden border-t border-ink/10"
-      style="height: 420px;"
-    >
-      <div class="art-splash absolute inset-0">
-        <!-- Warhol-ish color blocks -->
-        <div class="absolute inset-0 grid grid-cols-4 grid-rows-2">
-          <div style="background:#e63329;"></div>
-          <div style="background:#0a0a0a;"></div>
-          <div style="background:#f5c842;"></div>
-          <div style="background:#1a1aff;"></div>
-          <div style="background:#00c896;"></div>
-          <div style="background:#e63329;"></div>
-          <div style="background:#0a0a0a;"></div>
-          <div style="background:#f5c842;"></div>
-        </div>
-        <!-- Neo-noir overlay shapes -->
-        <div class="absolute inset-0" style="mix-blend-mode: multiply;">
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 1200 420"
-            preserveAspectRatio="xMidYMid slice"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <circle cx="200" cy="100" r="280" fill="#e63329" opacity="0.7"
-            ></circle>
-            <circle cx="900" cy="320" r="220" fill="#1a1aff" opacity="0.6"
-            ></circle>
-            <circle cx="600" cy="200" r="180" fill="#0a0a0a" opacity="0.5"
-            ></circle>
-            <rect
-              x="400"
-              y="0"
-              width="120"
-              height="420"
-              fill="#f5c842"
-              opacity="0.4"></rect>
-            <rect
-              x="750"
-              y="80"
-              width="80"
-              height="260"
-              fill="#00c896"
-              opacity="0.5"></rect>
-            <ellipse
-              cx="1050"
-              cy="100"
-              rx="200"
-              ry="120"
-              fill="#e63329"
-              opacity="0.5"></ellipse>
-            <line
-              x1="0"
-              y1="0"
-              x2="1200"
-              y2="420"
-              stroke="#f5f0e8"
-              stroke-width="2"
-              opacity="0.3"></line>
-            <line
-              x1="1200"
-              y1="0"
-              x2="0"
-              y2="420"
-              stroke="#f5f0e8"
-              stroke-width="2"
-              opacity="0.3"></line>
-          </svg>
-        </div>
-        <!-- Text overlay -->
-        <div class="absolute inset-0 flex items-center justify-center">
-          <span
-            class="font-condensed font-black italic text-cream select-none pointer-events-none"
-            style="font-size: clamp(4rem, 14vw, 12rem); letter-spacing: -0.03em; mix-blend-mode: overlay; opacity: 0.9;"
-            >NOISE</span
-          >
-        </div>
-      </div>
-    </section>
-
-    <!-- BLOG SECTION -->
-    <section id="blog" class="px-6 md:px-12 py-24 border-t border-ink/10">
-      <div class="flex justify-between items-baseline mb-16">
-        <h2
-          class="font-condensed font-black text-5xl md:text-7xl italic tracking-tight"
-        >
-          THE BLOG
-        </h2>
-        <a
-          href="/blog"
-          class="text-xs tracking-widest text-muted uppercase hover:text-ink transition-colors hidden md:block"
-          >All Posts →</a
-        >
-      </div>
-      {
-        recentPosts.length === 0 && (
-          <p class="text-xs tracking-widest text-muted uppercase">
-            Words incoming. Check back.
-          </p>
-        )
-      }
-      {
-        recentPosts.length > 0 && (
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-ink/10">
-            {recentPosts.map((post: CollectionEntry<"blog">) => (
-              <a
-                href={`/blog/${post.slug}`}
-                class="group bg-cream flex flex-col cursor-crosshair hover:bg-ink transition-colors duration-500"
-              >
-                <div class="overflow-hidden">
-                  <PostArt art={post.data.art} compact={true} />
-                </div>
-                <div class="p-6 flex flex-col gap-3 flex-1">
-                  <span class="text-xs tracking-widest text-muted uppercase group-hover:text-cream/50 transition-colors">
-                    {post.data.date.toLocaleDateString("en-US", {
-                      year: "numeric",
-                      month: "short",
-                      day: "numeric",
-                    })}
-                  </span>
-                  <h3 class="font-condensed font-black text-2xl italic group-hover:text-cream transition-colors leading-tight">
-                    {post.data.title}
-                  </h3>
-                  <p class="text-xs tracking-wide text-muted leading-relaxed group-hover:text-cream/60 transition-colors">
-                    {post.data.description}
-                  </p>
-                  <span class="text-xs tracking-widest text-muted uppercase mt-auto group-hover:text-cream/50 transition-colors">
-                    Read →
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
-        )
-      }
-    </section>
+    <!-- RIDES -->
+    <Rides />
 
     <!-- FOOTER -->
     <footer
@@ -554,23 +221,3 @@ const recentPosts = allPosts
     </footer>
   </main>
 </Base>
-
-<style>
-  @keyframes marquee {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-50%);
-    }
-  }
-
-  .marquee-track {
-    animation: marquee 30s linear infinite;
-    width: max-content;
-  }
-
-  .marquee-track:hover {
-    animation-play-state: paused;
-  }
-</style>
