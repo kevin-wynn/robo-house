@@ -1,0 +1,187 @@
+---
+import { fetchRecentRides, type Ride } from "../lib/strava";
+
+const env = import.meta.env;
+const creds = {
+  accessToken: env.STRAVA_ACCESS_TOKEN ?? process.env.STRAVA_ACCESS_TOKEN,
+  refreshToken: env.STRAVA_REFRESH_TOKEN ?? process.env.STRAVA_REFRESH_TOKEN,
+  clientId: env.STRAVA_CLIENT_ID ?? process.env.STRAVA_CLIENT_ID,
+  clientSecret: env.STRAVA_CLIENT_SECRET ?? process.env.STRAVA_CLIENT_SECRET,
+};
+
+let ride: Ride | null = null;
+let error: string | null = null;
+
+const hasRefresh = creds.refreshToken && creds.clientId && creds.clientSecret;
+if (!creds.accessToken && !hasRefresh) {
+  error = "strava credentials not set";
+} else {
+  try {
+    const rides = await fetchRecentRides(creds, 1);
+    ride = rides[0] ?? null;
+  } catch (e) {
+    error = e instanceof Error ? e.message : String(e);
+    console.warn("[rides] failed to fetch:", error);
+  }
+}
+---
+
+<section id="rides" class="px-6 md:px-12 py-24 border-t border-ink/10">
+  <div class="flex justify-between items-baseline mb-4">
+    <h2
+      class="font-condensed font-black text-5xl md:text-7xl italic tracking-tight"
+    >
+      LAST RIDE
+    </h2>
+    <span class="text-xs tracking-widest text-muted uppercase hidden md:block">
+      Most Recent Strava Activity
+    </span>
+  </div>
+  <p class="text-sm md:text-base tracking-wide text-muted mb-12 max-w-xl">
+    I ride bikes, please don't hit me with your car.
+  </p>
+
+  {
+    !ride && (
+      <div class="border border-ink/15 px-8 py-10 flex flex-col gap-3">
+        <span class="text-xs tracking-widest uppercase text-muted">
+          Status — {error ? "ERR" : "Standby"}
+        </span>
+        <p class="font-condensed font-black italic text-2xl tracking-tight">
+          {error ? "Telemetry offline" : "No rides yet"}
+        </p>
+        {error && (
+          <p class="text-xs tracking-wide text-muted font-mono break-all">
+            {error}
+          </p>
+        )}
+      </div>
+    )
+  }
+
+  {
+    ride && (
+      <article class="grid grid-cols-1 md:grid-cols-2 border border-ink/15">
+        <div class="relative bg-cream border-b md:border-b-0 md:border-r border-ink/15 min-h-[420px] md:min-h-[600px]">
+          <div class="absolute top-5 left-5 text-[10px] tracking-widest uppercase text-muted font-mono">
+            Route
+          </div>
+          <div class="absolute top-5 right-5 text-[10px] tracking-widest uppercase text-muted font-mono">
+            {ride.date}
+          </div>
+
+          <svg
+            viewBox={ride.viewBox}
+            class="absolute inset-0 w-full h-full p-12"
+            preserveAspectRatio="xMidYMid meet"
+            aria-label={`Route outline for ${ride.name}`}
+          >
+            <path
+              d={ride.pathD}
+              fill="none"
+              stroke="#0a0a0a"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              vector-effect="non-scaling-stroke"
+            />
+
+            {ride.startEndPoints && (
+              <circle
+                cx={ride.startEndPoints.start[0]}
+                cy={ride.startEndPoints.start[1]}
+                r={ride.markerR}
+                fill="#e63329"
+              />
+            )}
+          </svg>
+        </div>
+
+        <div class="p-8 md:p-10 flex flex-col gap-8 bg-cream">
+          <div>
+            <span class="text-[10px] tracking-widest uppercase text-muted font-mono">
+              Activity
+            </span>
+            <h3 class="font-condensed font-black text-3xl md:text-4xl italic leading-[0.95] tracking-tight mt-2">
+              {ride.name.toUpperCase()}
+            </h3>
+            <div class="h-px w-12 bg-red mt-4" />
+          </div>
+
+          <dl class="grid grid-cols-2 gap-x-6 gap-y-6">
+            <div>
+              <dt class="text-[10px] tracking-widest uppercase text-muted font-mono mb-1">
+                Distance
+              </dt>
+              <dd class="font-condensed font-black italic text-3xl leading-none">
+                {ride.distanceMi}
+                <span class="text-xs tracking-widest text-muted not-italic font-mono ml-1">
+                  MI
+                </span>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[10px] tracking-widest uppercase text-muted font-mono mb-1">
+                Moving Time
+              </dt>
+              <dd class="font-condensed font-black italic text-3xl leading-none">
+                {ride.movingTime}
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[10px] tracking-widest uppercase text-muted font-mono mb-1">
+                Elevation
+              </dt>
+              <dd class="font-condensed font-black italic text-3xl leading-none">
+                {ride.elevationFt}
+                <span class="text-xs tracking-widest text-muted not-italic font-mono ml-1">
+                  FT
+                </span>
+              </dd>
+            </div>
+            <div>
+              <dt class="text-[10px] tracking-widest uppercase text-muted font-mono mb-1">
+                Avg / Max
+              </dt>
+              <dd class="font-condensed font-black italic text-3xl leading-none">
+                {ride.avgSpeedMph}
+                <span class="text-xs tracking-widest text-muted not-italic font-mono mx-1">
+                  /
+                </span>
+                {ride.maxSpeedMph}
+                <span class="text-xs tracking-widest text-muted not-italic font-mono ml-1">
+                  MPH
+                </span>
+              </dd>
+            </div>
+            {ride.avgWatts && (
+              <div class="col-span-2">
+                <dt class="text-[10px] tracking-widest uppercase text-muted font-mono mb-1">
+                  Power
+                </dt>
+                <dd class="font-condensed font-black italic text-3xl leading-none">
+                  {ride.avgWatts}
+                  <span class="text-xs tracking-widest text-muted not-italic font-mono ml-1">
+                    W AVG
+                  </span>
+                </dd>
+              </div>
+            )}
+          </dl>
+
+          <div class="mt-auto flex justify-between items-center text-[10px] tracking-widest uppercase text-muted font-mono pt-4 border-t border-ink/10">
+            <span>Powered by Strava</span>
+            <a
+              href={`https://www.strava.com/activities/${ride.id}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-ink transition-colors"
+            >
+              View ↗
+            </a>
+          </div>
+        </div>
+      </article>
+    )
+  }
+</section>

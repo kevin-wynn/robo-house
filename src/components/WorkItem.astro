@@ -1,0 +1,36 @@
+---
+const { link, title, description, number, variant } = Astro.props;
+---
+
+<a
+  href={link}
+  target="_blank"
+  rel="noopener noreferrer"
+  class:list={[
+    "group bg-cream p-8 md:p-12 flex flex-col justify-between min-h-64 hover:text-cream transition-colors duration-500 cursor-crosshair",
+    variant === "red" ? "hover:bg-red" : "hover:bg-ink",
+  ]}
+>
+  <div class="flex justify-between items-start">
+    <span
+      class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
+      >{number}</span
+    >
+    <span
+      class="text-xs tracking-widest uppercase text-muted group-hover:text-cream/50 transition-colors"
+      >{link.replace("https://", "")} ↗</span
+    >
+  </div>
+  <div>
+    <h3
+      class="font-condensed font-black text-4xl md:text-5xl italic tracking-tight mb-3 group-hover:text-cream transition-colors"
+    >
+      {title}
+    </h3>
+    <p
+      class="text-xs tracking-wide text-muted group-hover:text-cream/60 transition-colors leading-relaxed max-w-xs"
+    >
+      {description}
+    </p>
+  </div>
+</a>
