@@ -1,0 +1,155 @@
+---
+
+---
+
+<section id="hiring" class="relative bg-ink text-cream overflow-hidden">
+  <!-- Diagonal accent stripe -->
+  <div
+    class="absolute top-0 right-0 w-1/2 h-full origin-top-right -skew-x-12 bg-red/10 pointer-events-none"
+    aria-hidden="true"
+  >
+  </div>
+
+  <!-- Scanline overlay -->
+  <div
+    class="absolute inset-0 pointer-events-none opacity-[0.03]"
+    style="background-image: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(245,240,232,0.08) 2px, rgba(245,240,232,0.08) 4px);"
+    aria-hidden="true"
+  >
+  </div>
+
+  <div class="relative z-10 px-6 md:px-12 py-24 md:py-32">
+    <!-- Top label -->
+    <!-- <div class="flex items-center gap-4 mb-12">
+      <span class="inline-block w-3 h-3 rounded-full bg-red animate-pulse"></span>
+      <span class="text-xs tracking-[0.3em] uppercase text-cream/50">
+        Signal Detected
+      </span>
+    </div> -->
+
+    <!-- Big headline -->
+    <div class="mb-16">
+      <h2
+        class="font-condensed font-black italic tracking-tight leading-[0.85] mb-4"
+        style="font-size: clamp(2.5rem, 8vw, 8rem); color: transparent; -webkit-text-stroke: 1.5px var(--cream);"
+      >
+        IF YOU'RE HERE
+      </h2>
+      <h2
+        class="font-condensed font-black italic tracking-tight leading-[0.85]"
+        style="font-size: clamp(2.5rem, 8vw, 8rem);"
+      >
+        BECAUSE I <span style="color: var(--red);">APPLIED...</span>
+      </h2>
+    </div>
+
+    <!-- Content grid -->
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-16">
+      <!-- Left column — the pitch -->
+      <div class="md:col-span-7 lg:col-span-6">
+        <p
+          class="text-sm md:text-base leading-loose tracking-wide text-cream/80 mb-6"
+        >
+          I am a senior full-stack software engineer with over 15 years of
+          professional experience working in various languages and frameworks.
+          Involving frontend, backend, devops, and infrastructure roles.
+        </p>
+        <p
+          class="text-sm md:text-base leading-loose tracking-wide text-cream/80 mb-6"
+        >
+          I've got history working with top companies including Cloudflare,
+          WorkTango, and HomeAdvisor.
+        </p>
+        <p
+          class="text-sm md:text-base leading-loose tracking-wide text-cream/60 italic"
+        >
+          Currently open to new opportunities and ready to contribute from day
+          one.
+        </p>
+      </div>
+
+      <!-- Right column — resume CTA -->
+      <div
+        class="md:col-span-5 lg:col-span-4 lg:col-start-9 flex flex-col justify-between"
+      >
+        <div>
+          <div class="border border-cream/10 p-6 md:p-8 mb-6">
+            <span
+              class="text-xs tracking-[0.3em] uppercase text-cream/40 block mb-4"
+            >
+              The Paperwork
+            </span>
+            <div
+              class="flex justify-between items-center py-3 border-b border-cream/10"
+            >
+              <span class="text-xs tracking-widest uppercase text-cream/50"
+                >Experience</span
+              >
+              <span class="text-xs tracking-widest uppercase">15+ Years</span>
+            </div>
+            <div
+              class="flex justify-between items-center py-3 border-b border-cream/10"
+            >
+              <span class="text-xs tracking-widest uppercase text-cream/50"
+                >Discipline</span
+              >
+              <span class="text-xs tracking-widest uppercase">Full Stack</span>
+            </div>
+            <div
+              class="flex justify-between items-center py-3 border-b border-cream/10"
+            >
+              <span class="text-xs tracking-widest uppercase text-cream/50"
+                >Status</span
+              >
+              <span class="text-xs tracking-widest uppercase text-red"
+                >Open to Work</span
+              >
+            </div>
+            <div class="flex justify-between items-center py-3">
+              <span class="text-xs tracking-widest uppercase text-cream/50"
+                >Location</span
+              >
+              <span class="text-xs tracking-widest uppercase">Waco, TX</span>
+            </div>
+          </div>
+
+          <!-- Download button -->
+          <a
+            href="/kevin_wynn_resume.pdf"
+            download
+            class="group relative block w-full border-2 border-red text-center py-4 px-6 font-condensed font-black text-lg tracking-widest uppercase overflow-hidden transition-colors duration-500 hover:text-ink"
+          >
+            <span
+              class="absolute inset-0 bg-red translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out"
+              aria-hidden="true"></span>
+            <span class="relative z-10 flex items-center justify-center gap-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="2"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4v12m0 0l-4-4m4 4l4-4M4 18h16"></path>
+              </svg>
+              Download Resume
+            </span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom accent line -->
+    <div class="mt-20 flex items-center gap-4">
+      <div class="flex-1 h-px bg-cream/10"></div>
+      <span class="text-xs tracking-[0.3em] uppercase text-cream/30"
+        >Let's build something</span
+      >
+      <div class="flex-1 h-px bg-cream/10"></div>
+    </div>
+  </div>
+</section>
